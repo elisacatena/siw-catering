@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="/css/chef.css" />
+        <title> UnoChef </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <img id="firma" src="/images/firmabarbieri.jpeg">
+        </header>
+        
+        <div>
+			<h4>Dettagli chef</h4>
+			<div>
+				<span th:text="${chef.nome}">Paolo</span> 
+				<span th:text="${chef.cognome}">Rossi</span>
+				<span th:text="${chef.nazionalita}">55</span>
+			</div>
+		</div>
+    </body>
+
+</html>
