@@ -1,6 +1,7 @@
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <link rel="stylesheet" href="index.ccs" />
+        <link rel="stylesheet" href="/css/index.css" />
         <title> Catering Roma </title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,43 +9,10 @@
     </head>
 
     <body>
-        <header id="Top_bar">
-            <div>
-                <a class="dropbtn" href="index.html" style="text-decoration:none;color:#f2c01a">Home</a>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Chef</button>
-                <div class="dropdown-content">
-                    <a href="#">Antonino Cannavacciuolo</a>
-                    <a href="#">Carlo Cracco</a>
-                    <a href="#">Bruno Barbieri</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Buffet</button>
-                <div class="dropdown-content">
-                    <a href="#">Vegetariani</a>
-                    <a href="#">Vegani</a>
-                    <a href="#">Di pesce</a>
-                    <a href="#">Di carne</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Ingredienti</button>
-                <div class="dropdown-content">
-                    <a href="#">Vegetariani</a>
-                    <a href="#">Vegani</a>
-                    <a href="#">Di pesce</a>
-                    <a href="#">Di carne</a>
-                </div>
-            </div>
-
+        <header th:replace="fragments/top_bar.html :: navigator">
         </header>
 
-        <div id="Intro_wrapper" style="font-size: 50">
+        <div id="Intro_wrapper" style="font-size:40">
             <div id="title">CATERING ROMA</div>
             <div id="content">
                 <ul>
@@ -68,6 +36,10 @@
                 <p>Il <strong>Catering Roma</strong> – è il primo <strong>catering a Roma biologico ecosostenibile ed equosolidale.</strong>
                     La nostra attività principale è quella di fornire un <strong>servizio catering Roma</strong> basato esclusivamente su prodotti provenienti dalla filiera del biologico a Km0 e del commercio equo e solidale. I produttori da cui ci forniamo sono produttori conosciuti e testati all’interno di G.A.S. locali. In questo modo riusciamo ad abbattere le intermediazioni e i costi. 
                 </p>
+                
+                <div>
+					<a th:href="@{/chef}">Elenco chef</a> 
+				</div>
             </div>
             
             <!-- <div id="content1">
@@ -75,24 +47,10 @@
             </div> -->
 
         </div>
-
+        
         
 
-        <footer id="Footer">
-            <div id="contacts">
-                <h4>Contatti</h4>
-                <div class="textwidget custom-html-widget">
-                    <p>Nome catering</p>
-                    <p>Sede:
-                        <br>Via Roma 141
-                        <br>00176, Roma.
-                    </p>
-                    <p>Tel: 
-                        <a href="tel:+390173291830201">+390173291830201</a>
-                    </p>
-                </div>
-            </div>
-        </footer>
+        <footer th:replace="fragments/footer.html :: footer"></footer>
 
     </body>
 </html>
