@@ -11,5 +11,7 @@ import it.uniroma3.siw.catering.model.Piatto;
 public interface PiattoRepository extends CrudRepository<Piatto, Long> {
 
 	public List<Piatto> findByNome(String nome);
+
+	public boolean existsByNome(String nome);
 	
 }

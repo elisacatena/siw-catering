@@ -13,4 +13,6 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
 	
 	public List<Buffet> findByChef(Chef chef);
 
+	public boolean existsByNome(String nome);
+
 }
