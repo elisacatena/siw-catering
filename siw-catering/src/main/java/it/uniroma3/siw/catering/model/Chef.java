@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Chef {
@@ -16,8 +17,13 @@ public class Chef {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotBlank
 	private String nome;
+	
+	@NotBlank
 	private String cognome;
+	
+	@NotBlank
 	private String nazionalita;
 	
 	/* cascade per remove perchè se elimino lo chef elimino anche tutti i buffet da lui proposti */
