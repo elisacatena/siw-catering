@@ -32,4 +32,13 @@ public class ChefService {
 		}
 		return chef;
 	}
+	
+	public boolean alreadyExists(Chef chef) {
+		return this.chefRepository.existsByNome(chef.getNome());
+	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		this.chefRepository.deleteById(id);
+	}
 }

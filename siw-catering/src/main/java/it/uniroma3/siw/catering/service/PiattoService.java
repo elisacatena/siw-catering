@@ -32,4 +32,13 @@ public class PiattoService {
 		}
 		return piatti;
 	}
+	
+	public boolean alreadyExists(Piatto piatto) {
+		return this.piattoRepository.existsByNome(piatto.getNome());
+	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		this.piattoRepository.deleteById(id);
+	}
 }

@@ -33,6 +33,14 @@ public class BuffetService {
 		return buffet;
 	}
 	
+	public boolean alreadyExists(Buffet buffet) {
+		return this.buffetRepository.existsByNome(buffet.getNome());
+	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		this.buffetRepository.deleteById(id);
+	}
 	
  }
 
