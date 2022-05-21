@@ -1,5 +1,6 @@
 package it.uniroma3.siw.catering.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -27,7 +28,8 @@ public class Piatto {
 	private List<Ingrediente> ingredienti;
 
 	public Piatto() {
-		
+		this.buffet = new ArrayList<>();
+		this.ingredienti = new ArrayList<>();
 	}
 	
 	public Piatto(String nome, String descrizione, List<Buffet> buffet, List<Ingrediente> ingredienti) {
