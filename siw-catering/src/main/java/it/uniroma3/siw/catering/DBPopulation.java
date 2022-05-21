@@ -9,9 +9,7 @@ import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
 import it.uniroma3.siw.catering.model.Piatto;
-import it.uniroma3.siw.catering.repository.BuffetRepository;
 import it.uniroma3.siw.catering.repository.ChefRepository;
-import it.uniroma3.siw.catering.repository.IngredienteRepository;
 import it.uniroma3.siw.catering.repository.PiattoRepository;
 
 @Component
@@ -19,12 +17,6 @@ public class DBPopulation implements ApplicationRunner {
 
 	@Autowired
 	private ChefRepository chefRepository;
-	
-	@Autowired
-	private BuffetRepository buffetRepository;
-	
-	@Autowired
-	private IngredienteRepository ingredienteRepository;
 	
 	@Autowired
 	private PiattoRepository piattoRepository;
@@ -42,16 +34,19 @@ public class DBPopulation implements ApplicationRunner {
 		barbieri.setNome("Bruno");
 		barbieri.setCognome("Barbieri");
 		barbieri.setNazionalita("Italiana");
+		barbieri.setImgUrl("https://upload.wikimedia.org/wikipedia/commons/7/71/Bruno_Barbieri_firma.svg");
 		
 		Chef cannavacciuolo = new Chef();
 		cannavacciuolo.setNome("Antonino");
 		cannavacciuolo.setCognome("Cannavacciuolo");
 		cannavacciuolo.setNazionalita("Italiana");
+		cannavacciuolo.setImgUrl("https://it.wikipedia.org/wiki/Antonino_Cannavacciuolo#/media/File:Antonino_Cannavacciuolo-signature.svg");
 		
 		Chef cracco = new Chef();
 		cracco.setNome("Carlo");
 		cracco.setCognome("Cracco");
 		cracco.setNazionalita("italiana");
+		cracco.setImgUrl("https://upload.wikimedia.org/wikipedia/commons/6/60/Carlo_Cracco_firma.svg");
 		
 		Buffet b1 = new Buffet();
 		b1.setNome("b1");
@@ -99,17 +94,10 @@ public class DBPopulation implements ApplicationRunner {
 		this.chefRepository.save(barbieri);
 		this.chefRepository.save(cannavacciuolo);
 		this.chefRepository.save(cracco);
-		
-//		this.ingredienteRepository.save(sale);
-//		this.ingredienteRepository.save(pepe);
-		
+
 		this.piattoRepository.save(p1);
 		this.piattoRepository.save(p2);
-		
-//		this.buffetRepository.save(b1);
-//		this.buffetRepository.save(b2);
-//		this.buffetRepository.save(b3);
-		
+
 		System.out.println("OKOKOK");
 	}
 }
