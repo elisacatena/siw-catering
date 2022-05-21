@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <link rel="stylesheet" href="/css/chef.css" />
         <title> UnoChef </title>
+        <link rel="stylesheet" href="/css/chef.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -10,18 +10,86 @@
 
     <body>
 
-        <header>
-            <img id="firma" src="/images/barbieri.jpeg" >  
+        <header id="Navigator" th:fragment = "navigator">
+		    <div>
+	            <a class="dropbtn" href="/" style="text-decoration:none;color:#f2c01a">Home</a>
+		    </div>
+		
+		    <div class="dropdown">
+		    <button class="dropbtn">Chef</button>
+		     	<div class="dropdown-content">
+		        	<ul>
+						<li th:each="chef : ${chefs}">
+                            <a href="chef.html"
+							th:href="@{'/chef' + '/' + ${chef.id}}"
+							th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+						</li>
+					</ul>
+				</div> 	
+		    </div>
+		
+		    <div class="dropdown">
+		        <button class="dropbtn">Buffet</button>
+	            <div class="dropdown-content">
+		            <ul>
+		                <li>
+		                	<a href="#">Vegetariani</a>
+			            </li>
+			            <li>
+				        	<a href="#">Vegani</a>
+			            </li>
+			            <li>
+			            	<a href="#">Pesce</a>
+		                </li>
+			            <li>
+			            	<a href="#">Carne</a>
+			            </li>
+			        </ul>
+		       	</div>
+	        </div>
+		
+		    <div class="dropdown">
+		        <button class="dropbtn">Ingredienti</button>
+	            <div class="dropdown-content">
+		            <a href="#">Vegetariani</a>
+		            <a href="#">Vegani</a>
+		            <a href="#">Di pesce</a>
+		            <a href="#">Di carne</a>
+	            </div>
+            </div>
         </header>
         
-        <div>
-			<h4>Dettagli chef</h4>
-			<div>
-				<span th:text="${chef.nome}">Paolo</span> 
-				<span th:text="${chef.cognome}">Rossi</span>
-				<span th:text="${chef.nazionalita}">55</span>
-			</div>
-		</div>
-    </body>
+        <div class="dettagli" >
+        	<img th:src="${chef.imgUrl}" style="height:50px;width:auto"/> 
+            <p> Lo chef <strong id="name" th:text="${chef.nome} + ' ' + ${chef.cognome}"> Paolo Rossi</strong> offre i seguenti buffet:</p>
+            <ul> 
+                <li th:each="buffet : ${chef.buffet}">
+                    <a href="buffet.html"
+					th:href="@{'/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">Nome buffet</a>
+                </li>
+            </ul>
+           <div>
+               <span th:text="${chef.nazionalita}">Italiana</span>
+           </div>
+        </div>
+
+	   <footer id="Footer" th:fragment="footer">
+            <div id="contacts">
+                <h4>Contatti</h4>
+                <div>
+                    <p>Nome catering</p>
+                    <p>Sede:
+                        <br>Via Roma 141
+                        <br>00176, Roma.
+                    </p>
+                    <p>Tel: 
+                        <a href="tel:+390173291830201">+390173291830201</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        
+ 	</body>
 
 </html>

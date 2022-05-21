@@ -9,9 +9,10 @@
 		<h4>Elenco chef:</h4>
 		<ul>
 			<li th:each="chef : ${chefs}">
-				<a href="chefs.html"
+				<a href="chef.html"
 					th:href="@{'/chef' + '/' + ${chef.id}}"
 					th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+			</li>
 		</ul>
 	</div>
 	<footer>
