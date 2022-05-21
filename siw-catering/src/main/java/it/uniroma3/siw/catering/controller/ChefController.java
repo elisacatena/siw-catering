@@ -53,9 +53,9 @@ public class ChefController {
 	
 	
 	/* richiede tutti gli chef */
-	@GetMapping("/chef")
+	@GetMapping("/chefs")
 	public String getChefs(Model model) {
-		List<Chef> chefs = new ArrayList<Chef>();
+		List<Chef> chefs = new ArrayList<>();
 		chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
 		return "chefs.html";
