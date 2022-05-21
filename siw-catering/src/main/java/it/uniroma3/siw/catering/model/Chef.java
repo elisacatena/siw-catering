@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Chef {
@@ -26,6 +27,10 @@ public class Chef {
 	
 	@NotBlank
 	private String nazionalita;
+	
+	@NotBlank
+	@NotNull
+	private String imgUrl;
 	
 	/* cascade per remove perchè se elimino lo chef elimino anche tutti i buffet da lui proposti */
 	@OneToMany(mappedBy = "chef", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
@@ -82,6 +87,14 @@ public class Chef {
 		this.buffet = buffet;
 	}
 	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 	public boolean equals(Object obj) {
 		Chef chef = (Chef)obj;
 		return this.getId().equals(chef.getId());
