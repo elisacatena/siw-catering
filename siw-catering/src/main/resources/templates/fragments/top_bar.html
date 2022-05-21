@@ -13,8 +13,13 @@
 		            <div class="dropdown">
 		                <button class="dropbtn">Chef</button>
 		         			<div class="dropdown-content">
-			                	<select name="chef"> <option th:each="chef:${chefs}" th:text="${chef}">
-			                	</option></select>
+			                	<ul>
+									<li th:each="chef : ${chefs}">
+										<a 
+										th:href="@{'/chef' + '/' + ${chef.id}}"
+										th:text="${chef.nome}">Paolo Rossi</a>
+									</li>
+								</ul>
 							</div>
 							
 		         			<!--  
