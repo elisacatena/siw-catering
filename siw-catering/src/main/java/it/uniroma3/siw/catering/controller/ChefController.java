@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,24 +28,66 @@ public class ChefController {
 	@Autowired
 	private ChefValidator chefValidator;
 	
-	@PostMapping("/chef")
-	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
-		//vogliamo che l'ogetto chef sia validato (@Valid) e che sia legato al modello (@ModelAttribute("chef"))
-		
+	@GetMapping("/amministrazione/chef_management")
+	public String getAllChefs(Model model) {
+		List<Chef> chefs = new ArrayList<>();
+		chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		return "amministratore/chef/chef_management.html";
+	}
+	
+	@GetMapping("/amministrazione/chef_management/create_chef")
+	public String chefFormCreazione(Model model) {
+		model.addAttribute("chef", new Chef());
+		return "amministratore/chef/create_chef.html";
+	}
+	
+	@Transactional
+	@PostMapping("/amministrazione/chef_management/add_chef") 
+	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {		
 		this.chefValidator.validate(chef, bindingResult);
-		
-		if(!bindingResult.hasErrors()) {     //verifichiamo che non ci siano errori di validazione
+		if(!bindingResult.hasErrors()) {     
 			this.chefService.save(chef);
 			model.addAttribute("chef", chef);
-			return "chef.html";   //prossima vista
+			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
+			return "redirect:/amministrazione/chef_management";   
 		}
 		else {
-			return "index.html";
+			return "amministratore/chef/create_chef.html";
 		}
 	}
+	
+	@GetMapping("/amministrazione/chef_management/edit_chef/{id}")
+	public String  chefFormModifica(@PathVariable Long id, Model model) {
+		model.addAttribute("chef", chefService.findById(id));
+		return "amministratore/chef/edit_chef.html";
+	}
+	
+	@Transactional
+	@PostMapping("/amministrazione/chef_management/{id}")
+	public String updateChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
+		if(!bindingResults.hasErrors()) {
+			Chef chefToUpdate = chefService.findById(id);
+			chefToUpdate.setId(chef.getId());
+			chefToUpdate.setNome(chef.getNome());
+			chefToUpdate.setCognome(chef.getCognome());
+			chefToUpdate.setNazionalita(chef.getNazionalita());
+			this.chefService.updateChef(chefToUpdate);
+			model.addAttribute("chef", chef);
+			return "redirect:/amministrazione/chef_management";
+		}
+		else
+			return "amministratore/chef/edit_chef.html";
+	}
+	
+	@Transactional
+	@GetMapping("/amministrazione/chef_management/delete_chef/{id}")
+	public String deleteChef(@PathVariable Long id) {
+		this.chefService.deleteById(id);
+		return "redirect:/amministrazione/chef_management";
+	}
 		
-	@GetMapping("/chef/{id}")    //id è un parametro, non è la stringa id
-	/* l'annotazione @PathVariable indica che Long id viene dal path */
+	@GetMapping("/chef/{id}")  
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = this.chefService.findById(id);
 		model.addAttribute("chef", chef);
