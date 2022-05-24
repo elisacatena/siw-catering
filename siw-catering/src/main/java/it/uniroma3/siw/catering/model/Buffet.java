@@ -3,14 +3,15 @@ package it.uniroma3.siw.catering.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Buffet {
@@ -19,17 +20,23 @@ public class Buffet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotBlank
+	@NotNull
 	private String nome;
+	
+	@NotBlank
+	@NotNull
 	private String descrizione;
 	
 	@ManyToOne
-	private Chef chef;
+	private Chef chef; 
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	@ManyToMany//(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id_buffet")
 	private List<Piatto> piatti;
 
 	public Buffet() {
-		this.piatti = new ArrayList<>();
+		this.piatti = new ArrayList<Piatto>();
 	}
 	
 	public Buffet(String nome, String descrizione, Chef chef, List<Piatto> piatti) {

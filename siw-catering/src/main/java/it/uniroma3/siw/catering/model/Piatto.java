@@ -3,13 +3,14 @@ package it.uniroma3.siw.catering.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Piatto {
@@ -18,24 +19,25 @@ public class Piatto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotBlank
+	@NotNull
 	private String nome;
+	
+	@NotBlank
+	@NotNull
 	private String descrizione;
 	
-	@ManyToMany(mappedBy = "piatti")
-	private List<Buffet> buffet;
-	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	@ManyToMany//(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id_piatto")
 	private List<Ingrediente> ingredienti;
 
 	public Piatto() {
-		this.buffet = new ArrayList<>();
-		this.ingredienti = new ArrayList<>();
+		this.ingredienti = new ArrayList<Ingrediente>();
 	}
 	
 	public Piatto(String nome, String descrizione, List<Buffet> buffet, List<Ingrediente> ingredienti) {
 		this.nome = nome;
 		this.descrizione = descrizione;
-		this.buffet = buffet;
 		this.ingredienti = ingredienti;
 	}
 
@@ -61,14 +63,6 @@ public class Piatto {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public List<Buffet> getBuffet() {
-		return this.buffet;
-	}
-
-	public void setBuffet(List<Buffet> buffet) {
-		this.buffet = buffet;
 	}
 
 	public List<Ingrediente> getIngredienti() {

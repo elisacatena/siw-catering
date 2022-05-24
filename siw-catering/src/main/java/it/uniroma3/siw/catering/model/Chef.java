@@ -20,12 +20,15 @@ public class Chef {
 	private Long id;
 	
 	@NotBlank
+	@NotNull
 	private String nome;
 	
 	@NotBlank
+	@NotNull
 	private String cognome;
 	
 	@NotBlank
+	@NotNull
 	private String nazionalita;
 	
 	@NotBlank
@@ -33,11 +36,12 @@ public class Chef {
 	private String imgUrl;
 	
 	/* cascade per remove perchè se elimino lo chef elimino anche tutti i buffet da lui proposti */
-	@OneToMany(mappedBy = "chef", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+	//@OneToMany(mappedBy = "chef", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy = "chef", cascade = CascadeType.REMOVE)
 	private List<Buffet> buffet;
 	
 	public Chef() {
-		this.buffet = new ArrayList<>();
+		this.buffet = new ArrayList<Buffet>();
 	}
 	
 	public Chef(String nome, String cognome, String nazionalita, List<Buffet> buffet) {
