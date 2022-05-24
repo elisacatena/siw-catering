@@ -21,6 +21,11 @@ public class ChefService {
 		this.chefRepository.save(chef);
 	}
 	
+	@Transactional
+	public Chef updateChef(Chef chef) {
+		return this.chefRepository.save(chef);
+	}
+	
 	public Chef findById(Long id) {
 		return this.chefRepository.findById(id).get();
 	}
@@ -41,4 +46,5 @@ public class ChefService {
 	public void deleteById(Long id) {
 		this.chefRepository.deleteById(id);
 	}
+
 }
