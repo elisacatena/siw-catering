@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title> UnoChef </title>
-        <link rel="stylesheet" href="/css/piatto.css"/>
+        <link rel="stylesheet" href="/css/ingrediente.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -50,12 +50,19 @@
         </header>
         
         <div class="dettagli" >
-            <p> Il piatto <strong id="name" th:text="${piatto.nome}" > Nome piatto </strong> ha i seguenti ingredienti:</p>
+            <span> Dettagli ingrediente: </span>
             <ul> 
-                <li th:each="ingrediente : ${piatto.ingredienti}">
-                    <a href="ingrediente.html"
-					th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
-					th:text="${ingrediente.nome}">Nome ingrediente</a>
+                <li> 
+                    <strong> Nome: </strong>
+                    <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
+                 </li>
+                 <li>
+                	 <strong> Origine: </strong>
+                 	<span id="name" th:text="${ingrediente.origine}" > Origine ingrediente </span>
+                 </li>
+                 <li>
+                 	<strong> Descrizione: </strong>
+                    <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
                 </li>
             </ul>
         </div>

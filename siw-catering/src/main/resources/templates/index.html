@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <head> 
+   <!-- <head th:replace="fragments/base.html :: headerfiles">  --> 
+   <head>
         <title> Catering Roma </title>
         <link rel="stylesheet" href="/css/index.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +15,8 @@
 		    </div>
 		
 		    <div class="dropdown">
-		    <button class="dropbtn">Chef</button>
-		     	<div class="dropdown-content">
+		    <button class="dropbtn"> Chef</button>
+		     	<div class="dropdown-content" >
 		        	<ul>
 						<li th:each="chef : ${chefs}">
                             <a href="chef.html"
@@ -45,18 +46,10 @@
 			        </ul>
 		       	</div>
 	        </div>
-		
-		    <div class="dropdown">
-		        <button class="dropbtn">Ingredienti</button>
-	            <div class="dropdown-content">
-		            <a href="#">Vegetariani</a>
-		            <a href="#">Vegani</a>
-		            <a href="#">Di pesce</a>
-		            <a href="#">Di carne</a>
-	            </div>
-            </div>
         </header>
-
+	
+		<!-- <header th:replace="fragments/base.html :: navigator"></header> -->
+		
         <div id="Intro_wrapper" style="font-size:40">
             <div id="title">CATERING ROMA</div>
             <div id="content">
@@ -86,11 +79,12 @@
                 
 	             <div>
 					<a th:href="@{/chefs}">Elenco chef</a> 
+					<a th:href="@{/amministrazione}">Amministratore</a> 
 				</div>
         	</div>
         </div>
         
-        <footer id="Footer">
+       <footer id="Footer">
             <div id="contacts">
                 <h4>Contatti</h4>
                 <div>
@@ -104,7 +98,9 @@
                     </p>
                 </div>
             </div>
-        </footer>
+        </footer> 
+        
+        <!--  <footer th:replace="fragments/base.html :: footer"></footer> -->
 
     </body>
 </html>

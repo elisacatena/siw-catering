@@ -47,32 +47,54 @@
 			        </ul>
 		       	</div>
 	        </div>
-		
-		    <div class="dropdown">
-		        <button class="dropbtn">Ingredienti</button>
-	            <div class="dropdown-content">
-		            <a href="#">Vegetariani</a>
-		            <a href="#">Vegani</a>
-		            <a href="#">Di pesce</a>
-		            <a href="#">Di carne</a>
-	            </div>
-            </div>
         </header>
         
-        <div class="dettagli" >
-        	<img th:src="${chef.imgUrl}" style="height:50px;width:auto"/> 
-            <p> Lo chef <strong id="name" th:text="${chef.nome} + ' ' + ${chef.cognome}"> Paolo Rossi</strong> offre i seguenti buffet:</p>
-            <ul> 
+        <div class="chef_wrapper">
+        	<div id="chef_img">
+				<!--  <img th:src="${chef.imgUrl}" style="height:150px;width:auto;"/>  -->
+			</div>
+			<div id="dettagli_chef">
+				<h3> Dettagli chef</h3>
+				<div style="width:fit-content;">
+					<ul>
+						<li th:text="${chef.nome}">
+							Nome
+						</li>
+						<li th:text="'Cognome:'+''+'${chef.cognome}'">
+							Cognome
+						</li>
+						<li th:text="'Nazionalità:'+''+'${chef.nazionalita}'">
+							nazionalita
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+			
+		<section id="buffet_wrapper">
+        	<div id="menu_wrapper" th:each="buffet : ${chef.buffet}">
+	        	<div id="menu_desc" > 
+						<h4 th:text="${buffet.nome}"> Nome buffet </h4>
+						<h4 th:text="${buffet.descrizione}"> Descrizione buffet</h4>
+						<!-- <a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}" >Elenco piatti</a>  -->
+						<p> Questo buffet comprende i seguenti piatti: </p>
+						<ul>
+						<li th:each="piatto : ${buffet.piatti}">
+							<a href="piatto.html"
+									th:href="@{'/piatto' + '/' + ${piatto.id}}"
+									th:text="${piatto.nome}">Nome piatto</a>
+						</li>
+					</ul>    
+				</div>
+			</div>
+        </section>
+            <!-- <ul> 
                 <li th:each="buffet : ${chef.buffet}">
                     <a href="buffet.html"
 					th:href="@{'/buffet' + '/' + ${buffet.id}}"
 					th:text="${buffet.nome}">Nome buffet</a>
                 </li>
-            </ul>
-           <div>
-               <span th:text="${chef.nazionalita}">Italiana</span>
-           </div>
-        </div>
+            </ul> -->
 
 	   <footer id="Footer" th:fragment="footer">
             <div id="contacts">

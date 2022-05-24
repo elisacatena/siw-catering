@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title> UnoChef </title>
-        <link rel="stylesheet" href="/css/piatto.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <header id="Navigator" th:fragment = "navigator">
+	<head th:fragment="headerfiles">
+		<meta charset="UTF-8" />
+		<link th:href="@{/css/base.css}" rel="stylesheet">
+		<title th:text="${title}"></title>
+	</head>
+<body>
+	
+	<header id="Navigator" th:fragment = "navigator">
 		    <div>
-	            <a class="dropbtn" href="/" style="text-decoration:none;color:#f2c01a">Home</a>
+	            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">Home</a>
 		    </div>
 		
 		    <div class="dropdown">
-		    <button class="dropbtn">Chef</button>
-		     	<div class="dropdown-content">
+		    <button class="dropbtn"> Chef</button>
+		     	<div class="dropdown-content" >
 		        	<ul>
 						<li th:each="chef : ${chefs}">
                             <a href="chef.html"
@@ -59,18 +56,7 @@
             </div>
         </header>
         
-        <div class="dettagli" >
-            <p> Il buffet <strong id="name" th:text="${buffet.nome}" > Nome buffet </strong> ha i seguenti piatti:</p>
-            <ul> 
-                <li th:each="piatto : ${buffet.piatti}">
-                    <a href="piatto.html"
-					th:href="@{'/piatto' + '/' + ${piatto.id}}"
-					th:text="${piatto.nome}">Nome piatto</a>
-                </li>
-            </ul>
-        </div>
-
-	   <footer id="Footer" th:fragment="footer">
+        <footer id="Footer" th:fragment = "footer">
             <div id="contacts">
                 <h4>Contatti</h4>
                 <div>
@@ -85,7 +71,5 @@
                 </div>
             </div>
         </footer>
-        
- 	</body>
-
+</body>
 </html>
