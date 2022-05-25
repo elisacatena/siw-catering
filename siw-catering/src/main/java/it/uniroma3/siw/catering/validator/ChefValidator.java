@@ -1,4 +1,4 @@
-package it.uniroma3.siw.catering.controller.validator;
+package it.uniroma3.siw.catering.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
