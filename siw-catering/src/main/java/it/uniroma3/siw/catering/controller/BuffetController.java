@@ -52,7 +52,7 @@ public class BuffetController {
 	
 	
 	/* richiede tutti gli chef */
-	@GetMapping("/buffets")
+	@GetMapping("/buffet")
 	public String getBuffets(Model model) {
 		List<Buffet> buffets = new ArrayList<>();
 		buffets = this.buffetService.findAll();

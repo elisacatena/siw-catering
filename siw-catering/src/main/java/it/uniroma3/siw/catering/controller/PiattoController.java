@@ -48,7 +48,7 @@ public class PiattoController {
 		return "piatto.html";
 	}
 	
-	@GetMapping("/piatti")
+	@GetMapping("/piatto")
 	public String getPiatti(Model model) {
 		List<Piatto> piatti = new ArrayList<Piatto>();
 		piatti = this.piattoService.findAll();

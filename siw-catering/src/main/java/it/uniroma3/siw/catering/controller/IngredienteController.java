@@ -48,7 +48,7 @@ public class IngredienteController {
 		return "ingrediente.html";
 	}
 	
-	@GetMapping("/ingredienti")
+	@GetMapping("/ingrediente")
 	public String getIngredienti(Model model) {
 		List<Ingrediente> ingredienti = new ArrayList<Ingrediente>();
 		ingredienti = this.ingredienteService.findAll();
