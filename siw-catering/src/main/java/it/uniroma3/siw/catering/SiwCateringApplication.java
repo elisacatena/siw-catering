@@ -114,19 +114,16 @@ public class SiwCateringApplication implements CommandLineRunner {
 		barbieri.setNome("Bruno");
 		barbieri.setCognome("Barbieri");
 		barbieri.setNazionalita("Italiana");
-		barbieri.setImgUrl("https://www.cucchiaio.it/chef/wp-content/uploads/2020/09/barbieri-apertura-1.jpg");
 		
 		Chef cannavacciuolo = new Chef();
 		cannavacciuolo.setNome("Antonino");
 		cannavacciuolo.setCognome("Cannavacciuolo");
 		cannavacciuolo.setNazionalita("Italiana");
-		cannavacciuolo.setImgUrl("https://www.ambasciatoridelgusto.it/wp-content/uploads/2019/04/NO-ALLO-SPRECO-10.jpg");
 		
 		Chef cracco = new Chef();
 		cracco.setNome("Carlo");
 		cracco.setCognome("Cracco");
 		cracco.setNazionalita("italiana");
-		cracco.setImgUrl("https://upload.wikimedia.org/wikipedia/commons/6/60/Carlo_Cracco_firma.svg");
 		
 		this.chefRepository.save(barbieri);
 		this.chefRepository.save(cannavacciuolo);
