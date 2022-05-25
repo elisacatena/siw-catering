@@ -86,16 +86,26 @@ footer {
 
 
 /***********NON BASE*********/
-.dettagli {
-    background-image:url("/images/sfondo_piatto.jpeg"); 
+body {
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+.dettagli_wrapper {
+    background-image:url("/images/sfondo_piatto.jpg"); 
+    min-height: 500px;
     height: fit-content;
     text-align: center;
     background-position: center center;
     background-size:cover;
 }
 
-#name {
-	padding-top: 1em;
-	text-align: center;
-    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+#dettagli {
+    padding-bottom: 2em;
+    height: fit-content;
 }
+
+#nome {
+    font-family: cursive;
+    padding: 2em;
+}
+

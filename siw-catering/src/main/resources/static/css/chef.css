@@ -98,9 +98,9 @@ body {
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    background-image: url("/images/chef.jpg");
+    background-image: url("/images/sfondo_chef.jpg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
 }
 
