@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AmministratoreController {
+public class AdminController {
 
-	@GetMapping("/amministrazione")
+	@GetMapping("/administration")
 	public String getPaginaAmministrazione(Model model) {
-		return "amministrazione.html";
+		return "administration.html";
 	}
 }

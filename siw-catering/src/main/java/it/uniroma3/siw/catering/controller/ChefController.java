@@ -28,43 +28,43 @@ public class ChefController {
 	@Autowired
 	private ChefValidator chefValidator;
 	
-	@GetMapping("/amministrazione/chef_management")
+	@GetMapping("/admin/chef_management")
 	public String getAllChefs(Model model) {
 		List<Chef> chefs = new ArrayList<>();
 		chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
-		return "amministratore/chef/chef_management.html";
+		return "admin/chef/chef_management.html";
 	}
 	
-	@GetMapping("/amministrazione/chef_management/create_chef")
+	@GetMapping("/admin/chef_management/create_chef")
 	public String chefFormCreazione(Model model) {
 		model.addAttribute("chef", new Chef());
-		return "amministratore/chef/create_chef.html";
+		return "admin/chef/create_chef.html";
 	}
 	
 	@Transactional
-	@PostMapping("/amministrazione/chef_management/add_chef") 
+	@PostMapping("/admin/chef_management/add_chef") 
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {		
 		this.chefValidator.validate(chef, bindingResult);
 		if(!bindingResult.hasErrors()) {     
 			this.chefService.save(chef);
 			model.addAttribute("chef", chef);
 			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
-			return "redirect:/amministrazione/chef_management";   
+			return "redirect:/admin/chef_management";   
 		}
 		else {
-			return "amministratore/chef/create_chef.html";
+			return "admin/chef/create_chef.html";
 		}
 	}
 	
-	@GetMapping("/amministrazione/chef_management/edit_chef/{id}")
+	@GetMapping("/admin/chef_management/edit_chef/{id}")
 	public String  chefFormModifica(@PathVariable Long id, Model model) {
 		model.addAttribute("chef", chefService.findById(id));
-		return "amministratore/chef/edit_chef.html";
+		return "admin/chef/edit_chef.html";
 	}
 	
 	@Transactional
-	@PostMapping("/amministrazione/chef_management/{id}")
+	@PostMapping("/admin/chef_management/{id}")
 	public String updateChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
 		if(!bindingResults.hasErrors()) {
 			Chef chefToUpdate = chefService.findById(id);
@@ -74,17 +74,17 @@ public class ChefController {
 			chefToUpdate.setNazionalita(chef.getNazionalita());
 			this.chefService.updateChef(chefToUpdate);
 			model.addAttribute("chef", chef);
-			return "redirect:/amministrazione/chef_management";
+			return "redirect:/admin/chef_management";
 		}
 		else
-			return "amministratore/chef/edit_chef.html";
+			return "admin/chef/edit_chef.html";
 	}
 	
 	@Transactional
-	@GetMapping("/amministrazione/chef_management/delete_chef/{id}")
+	@GetMapping("/admin/chef_management/delete_chef/{id}")
 	public String deleteChef(@PathVariable Long id) {
 		this.chefService.deleteById(id);
-		return "redirect:/amministrazione/chef_management";
+		return "redirect:/admin/chef_management";
 	}
 		
 	@GetMapping("/chef/{id}")  
@@ -96,7 +96,7 @@ public class ChefController {
 	
 	
 	/* richiede tutti gli chef */
-	@GetMapping("/chefs")
+	@GetMapping("/chef")
 	public String getChefs(Model model) {
 		List<Chef> chefs = new ArrayList<>();
 		chefs = this.chefService.findAll();

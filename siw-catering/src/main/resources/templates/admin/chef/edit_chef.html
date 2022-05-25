@@ -10,7 +10,7 @@
     
   <body>
 	
-		<form th:action="@{/amministrazione/chef_management/{id}(id=${chef.id})}" method="post" th:object="${chef}">
+		<form th:action="@{/admin/chef_management/{id}(id=${chef.id})}" method="post" th:object="${chef}">
 			<div th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 			</div>
@@ -32,13 +32,7 @@
 				<span><input type="text" th:field="*{nazionalita}"/></span>
 				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
 			</div>
-			
-			<div>
-				<span>Img URL:</span> 
-				<span><input type="text" th:field="*{imgUrl}"/></span>
-				<span th:if="${#fields.hasErrors('imgUrl')}" th:errors="*{imgUrl}"></span>
-			</div>
-			
+	
 			<div>
 				<button type="submit">Conferma</button>
 			</div>
@@ -46,7 +40,7 @@
 		</form>
 	
 		<div>
-	           <a th:href="@{/amministrazione/chef_management}">Back</a>
+	           <a th:href="@{/admin/chef_management}">Back</a>
 		</div>
 	
 	</body>

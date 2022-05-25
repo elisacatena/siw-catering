@@ -6,19 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Amministratore {
+public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String nome;
+	
 	private String cognome;
 	
-	public Amministratore() {
+	public Admin() {
 		
 	}
 	
-	public Amministratore(String nome, String cognome) {
+	public Admin(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
@@ -48,8 +50,8 @@ public class Amministratore {
 	}
 	
 	public boolean equals(Object obj) {
-		Amministratore amministratore = (Amministratore)obj;
-		return this.getId().equals(amministratore.getId());
+		Admin admin = (Admin)obj;
+		return this.getId().equals(admin.getId());
 	}
 
 	public int hashCode() {

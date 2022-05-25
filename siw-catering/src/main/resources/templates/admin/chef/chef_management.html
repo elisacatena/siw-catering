@@ -17,7 +17,7 @@
 	
 			<div >
 				<div>
-					<a th:href="@{/amministrazione/chef_management/create_chef}">Add Chef</a>
+					<a th:href="@{/admin/chef_management/create_chef}">Add Chef</a>
 				</div>
 			</div>
 	
@@ -27,8 +27,8 @@
 	                    <span th:text="${chef.nome}"> Dettagli chef </span>
 	                    <ul> 
 	                        <li>
-	                            <a th:href="@{/amministrazione/chef_management/edit_chef/{id}(id=${chef.id})}">Update</a> 
-							    <a th:href="@{/amministrazione/chef_management/delete_chef/{id}(id=${chef.id})}">Delete</a> 
+	                            <a th:href="@{/admin/chef_management/edit_chef/{id}(id=${chef.id})}">Update</a> 
+							    <a th:href="@{/admin/chef_management/delete_chef/{id}(id=${chef.id})}">Delete</a> 
 	                            <a href="#">Add Buffet</a>
 	                            <a href="#">Guarda i Buffet</a>
 	                        </li>
@@ -39,7 +39,7 @@
 	        </div>
 	
 			<div>
-	            <a th:href="@{/amministrazione}">Back</a>
+	            <a th:href="@{/administration}">Back</a>
 			</div>
 	
 		</div>
