@@ -93,41 +93,24 @@ body {
 }
 
 .chef_wrapper {
-    background-color: orange; 
     height: fit-content;
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    background-image: url("/images/sfondo_chef.jpg");
+    background-image: url("/images/sfondo_chef.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
-}
-
-#chef_img {
-    width: 50%;
-    padding: 1em;
+    background-size: cover;
+    min-height: 440px;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
 }
 
 #dettagli_chef {
-    padding: 3.5em;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
     justify-content: center;
-    width:50%;
-}
-
-h3 {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-#name {
-	padding-top: 1em;
-	text-align: center;
-    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+    color: white;
 }
 
 #buffet_wrapper {
@@ -135,7 +118,7 @@ h3 {
 	display: flex;
 	flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: antiquewhite;
+    background-color: white;
 }
 
 #menu_wrapper {
@@ -146,9 +129,13 @@ h3 {
     background-position: center center;
     background-size:cover;
     margin-top:3em;
+    border: 2px solid #DAA520;
+    margin-left: 3.5em;
 }
 
 #menu_desc {
     padding: 4em;
     position: relative;
+    font-family: "OracleSansVF", "OracleSansVFCyGr", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    font-size: small;
 }

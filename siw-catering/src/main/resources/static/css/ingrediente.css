@@ -83,3 +83,29 @@ footer {
     padding-bottom: 2em;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
 }
+
+.dettagli_wrapper {
+    height: fit-content;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    background-image: url("/images/sfondo_ingrediente.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 440px;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+#dettagli_ingrediente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#dettagli {
+    padding-bottom: 2em;
+    height: fit-content;
+}

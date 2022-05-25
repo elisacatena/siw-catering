@@ -50,21 +50,21 @@
         </header>
         
         <div class="chef_wrapper">
-        	<div id="chef_img">
-				<!--  <img th:src="${chef.imgUrl}" style="height:150px;width:auto;"/>  -->
-			</div>
 			<div id="dettagli_chef">
-				<h3> Dettagli chef</h3>
+				<h1> Dettagli chef</h1>
 				<div style="width:fit-content;">
 					<ul>
-						<li th:text="${chef.nome}">
-							Nome
+						<li>
+							<strong> Nome: </strong>
+							<span th:text="${chef.nome}"> Bruno</span>
 						</li>
-						<li th:text="${chef.cognome}">
-							Cognome
+						<li>
+							<strong> Cognome: </strong>
+							<span th:text="${chef.cognome}"> Barbieri</span>
 						</li>
-						<li th:text="${chef.nazionalita}">
-							nazionalita
+						<li>
+							<strong> Nazionalità: </strong>
+							<span  th:text="${chef.nazionalita}"> Italiana</span>
 						</li>
 					</ul>
 				</div>
@@ -76,7 +76,6 @@
 	        	<div id="menu_desc" > 
 						<h4 th:text="${buffet.nome}"> Nome buffet </h4>
 						<h4 th:text="${buffet.descrizione}"> Descrizione buffet</h4>
-						<!-- <a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}" >Elenco piatti</a>  -->
 						<p> Questo buffet comprende i seguenti piatti: </p>
 						<ul>
 						<li th:each="piatto : ${buffet.piatti}">
@@ -88,13 +87,6 @@
 				</div>
 			</div>
         </section>
-            <!-- <ul> 
-                <li th:each="buffet : ${chef.buffet}">
-                    <a href="buffet.html"
-					th:href="@{'/buffet' + '/' + ${buffet.id}}"
-					th:text="${buffet.nome}">Nome buffet</a>
-                </li>
-            </ul> -->
 
 	   <footer id="Footer" th:fragment="footer">
             <div id="contacts">

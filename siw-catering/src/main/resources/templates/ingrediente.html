@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> UnoChef </title>
+        <title> Ingrediente </title>
         <link rel="stylesheet" href="/css/ingrediente.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,23 +49,27 @@
 	        </div>
         </header>
         
-        <div class="dettagli" >
-            <span> Dettagli ingrediente: </span>
-            <ul> 
-                <li> 
-                    <strong> Nome: </strong>
-                    <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
-                 </li>
-                 <li>
-                	 <strong> Origine: </strong>
-                 	<span id="name" th:text="${ingrediente.origine}" > Origine ingrediente </span>
-                 </li>
-                 <li>
-                 	<strong> Descrizione: </strong>
-                    <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
-                </li>
-            </ul>
-        </div>
+        <div class="dettagli_wrapper">
+			<div id="dettagli_ingrediente">
+				<h1 th:text="${ingrediente.nome}" > Pesto genovese</h1>
+				<div id="dettagli">
+					<ul> 
+                        <li> 
+                            <strong> Nome: </strong>
+                            <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
+                        </li>
+                        <li>
+                            <strong> Origine: </strong>
+                            <span id="name" th:text="${ingrediente.origine}" > Origine ingrediente </span>
+                        </li>
+                        <li>
+                            <strong> Descrizione: </strong>
+                            <span id="name" th:text="${ingrediente.descrizione}" > Nome ingrediente </span>
+                        </li>
+                    </ul>
+				</div>
+			</div>
+		</div>
 
 	   <footer id="Footer" th:fragment="footer">
             <div id="contacts">

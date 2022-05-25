@@ -91,21 +91,27 @@ body {
 }
 
 .dettagli_wrapper {
-    background-image:url("/images/sfondo_piatto.jpg"); 
-    min-height: 500px;
     height: fit-content;
+    display: flex;
     text-align: center;
+    justify-content: space-evenly;
+    background-image: url("/images/sfondo_piatto.jpeg");
+    background-repeat: no-repeat;
     background-position: center center;
-    background-size:cover;
+    background-size: cover;
+    min-height: 440px;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+#dettagli_piatto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 #dettagli {
     padding-bottom: 2em;
     height: fit-content;
 }
-
-#nome {
-    font-family: cursive;
-    padding: 2em;
-}
-
