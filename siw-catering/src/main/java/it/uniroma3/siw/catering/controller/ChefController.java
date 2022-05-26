@@ -91,17 +91,28 @@ public class ChefController {
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = this.chefService.findById(id);
 		model.addAttribute("chef", chef);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
 		return "chef.html";
 	}
 	
 	
+//	/* richiede tutti gli chef */
+//	@GetMapping//("/public/chef")
+//	public String getChefs(Model model) {
+//		List<Chef> chefs = this.chefService.findAll();
+//		model.addAttribute("chefs", chefs);
+//		return "chefs.html";
+//	}
+	
 	/* richiede tutti gli chef */
-	@GetMapping("/chef")
-	public String getChefs(Model model) {
-		List<Chef> chefs = new ArrayList<>();
-		chefs = this.chefService.findAll();
+	@GetMapping("/")
+	public String getAllChef(Model model) {
+		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
-		return "chefs.html";
+		return "index.html";
 	}
+	
+	
 
 }
