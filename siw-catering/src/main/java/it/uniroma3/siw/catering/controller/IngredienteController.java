@@ -1,6 +1,5 @@
 package it.uniroma3.siw.catering.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -50,8 +49,7 @@ public class IngredienteController {
 	
 	@GetMapping("/ingrediente")
 	public String getIngredienti(Model model) {
-		List<Ingrediente> ingredienti = new ArrayList<Ingrediente>();
-		ingredienti = this.ingredienteService.findAll();
+		List<Ingrediente> ingredienti = this.ingredienteService.findAll();
 		model.addAttribute("ingredienti", ingredienti);
 		return "ingredienti.html";
 	}

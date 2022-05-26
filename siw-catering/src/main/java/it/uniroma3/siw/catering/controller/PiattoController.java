@@ -1,6 +1,5 @@
 package it.uniroma3.siw.catering.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -50,9 +49,9 @@ public class PiattoController {
 	
 	@GetMapping("/piatto")
 	public String getPiatti(Model model) {
-		List<Piatto> piatti = new ArrayList<Piatto>();
-		piatti = this.piattoService.findAll();
+		List<Piatto> piatti = this.piattoService.findAll();
 		model.addAttribute("piatti", piatti);
 		return "piatti.html";
 	}
+
 }

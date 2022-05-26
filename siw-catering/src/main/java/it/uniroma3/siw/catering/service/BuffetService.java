@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.catering.model.Buffet;
+import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.repository.BuffetRepository;
 
 @Service
@@ -36,11 +37,23 @@ public class BuffetService {
 	public boolean alreadyExists(Buffet buffet) {
 		return this.buffetRepository.existsByNome(buffet.getNome());
 	}
+
+	public List<Buffet> findAllByChef(Chef chef) {
+		List<Buffet> buffet = new ArrayList<>();
+		for(Buffet b : this.buffetRepository.findByChef(chef)) {
+			buffet.add(b);
+		}
+		return buffet;
+	}
 	
 	@Transactional
 	public void deleteById(Long id) {
 		this.buffetRepository.deleteById(id);
 	}
-	
+
+	@Transactional
+	public Buffet updateBuffet(Buffet buffet) {
+		return this.buffetRepository.save(buffet);
+	}
  }
 

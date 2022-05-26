@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AdminController {
 
-	@GetMapping("/administration")
+	@GetMapping("/admin")
 	public String getPaginaAmministrazione(Model model) {
 		return "administration.html";
 	}

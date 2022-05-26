@@ -1,6 +1,5 @@
 package it.uniroma3.siw.catering.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,14 +29,13 @@ public class ChefController {
 	
 	@GetMapping("/admin/chef_management")
 	public String getAllChefs(Model model) {
-		List<Chef> chefs = new ArrayList<>();
-		chefs = this.chefService.findAll();
+		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
 		return "admin/chef/chef_management.html";
 	}
 	
 	@GetMapping("/admin/chef_management/create_chef")
-	public String chefFormCreazione(Model model) {
+	public String getAddChefForm(Model model) {
 		model.addAttribute("chef", new Chef());
 		return "admin/chef/create_chef.html";
 	}
@@ -58,14 +56,14 @@ public class ChefController {
 	}
 	
 	@GetMapping("/admin/chef_management/edit_chef/{id}")
-	public String  chefFormModifica(@PathVariable Long id, Model model) {
+	public String  getEditChefForm(@PathVariable Long id, Model model) {
 		model.addAttribute("chef", chefService.findById(id));
 		return "admin/chef/edit_chef.html";
 	}
 	
 	@Transactional
 	@PostMapping("/admin/chef_management/{id}")
-	public String updateChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
+	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
 		if(!bindingResults.hasErrors()) {
 			Chef chefToUpdate = chefService.findById(id);
 			chefToUpdate.setId(chef.getId());
@@ -96,15 +94,6 @@ public class ChefController {
 		return "chef.html";
 	}
 	
-	
-//	/* richiede tutti gli chef */
-//	@GetMapping//("/public/chef")
-//	public String getChefs(Model model) {
-//		List<Chef> chefs = this.chefService.findAll();
-//		model.addAttribute("chefs", chefs);
-//		return "chefs.html";
-//	}
-	
 	/* richiede tutti gli chef */
 	@GetMapping("/")
 	public String getAllChef(Model model) {
@@ -112,7 +101,5 @@ public class ChefController {
 		model.addAttribute("chefs", chefs);
 		return "index.html";
 	}
-	
-	
 
 }
