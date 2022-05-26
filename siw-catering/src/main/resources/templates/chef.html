@@ -1,53 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
         <title> UnoChef </title>
         <link rel="stylesheet" href="/css/chef.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
-
-        <header id="Navigator" th:fragment = "navigator">
-		    <div>
-	            <a class="dropbtn" href="/" style="text-decoration:none;color:#f2c01a">Home</a>
-		    </div>
-		
-		    <div class="dropdown">
-		    <button class="dropbtn">Chef</button>
-		     	<div class="dropdown-content">
-		        	<ul>
-						<li th:each="chef : ${chefs}">
-                            <a href="chef.html"
-							th:href="@{'/chef' + '/' + ${chef.id}}"
-							th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-						</li>
-					</ul>
-				</div> 	
-		    </div>
-		
-		    <div class="dropdown">
-		        <button class="dropbtn">Buffet</button>
-	            <div class="dropdown-content">
-		            <ul>
-		                <li>
-		                	<a href="#">Vegetariani</a>
-			            </li>
-			            <li>
-				        	<a href="#">Vegani</a>
-			            </li>
-			            <li>
-			            	<a href="#">Pesce</a>
-		                </li>
-			            <li>
-			            	<a href="#">Carne</a>
-			            </li>
-			        </ul>
-		       	</div>
-	        </div>
-        </header>
+		<header th:replace="fragments/base.html :: navigator"></header> 
         
         <div class="chef_wrapper">
 			<div id="dettagli_chef">
@@ -88,21 +47,7 @@
 			</div>
         </section>
 
-	   <footer id="Footer" th:fragment="footer">
-            <div id="contacts">
-                <h4>Contatti</h4>
-                <div>
-                    <p>Nome catering</p>
-                    <p>Sede:
-                        <br>Via Roma 141
-                        <br>00176, Roma.
-                    </p>
-                    <p>Tel: 
-                        <a href="tel:+390173291830201">+390173291830201</a>
-                    </p>
-                </div>
-            </div>
-        </footer>
+        <footer th:replace="fragments/base.html :: footer"></footer> 
         
  	</body>
 

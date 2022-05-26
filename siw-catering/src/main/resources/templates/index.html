@@ -1,54 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
-   <!-- <head th:replace="fragments/base.html :: headerfiles">  --> 
-   <head>
+   <!-- <head>  th:replace="fragments/base.html :: headerfiles">  -->
+   <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
         <title> Catering Roma </title>
         <link rel="stylesheet" href="/css/index.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <header id="Navigator" th:fragment = "navigator">
-		    <div>
-	            <a class="dropbtn" href="/" style="text-decoration:none;color:#f2c01a">Home</a>
-		    </div>
-		
-		    <div class="dropdown">
-		    <button class="dropbtn"> Chef</button>
-		     	<div class="dropdown-content" >
-		        	<ul>
-						<li th:each="chef : ${chefs}">
-                            <a href="chef.html"
-							th:href="@{'/chef' + '/' + ${chef.id}}"
-							th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-						</li>
-					</ul>
-				</div> 	
-		    </div>
-		
-		    <div class="dropdown">
-		        <button class="dropbtn">Buffet</button>
-	            <div class="dropdown-content">
-		            <ul>
-		                <li>
-		                	<a href="#">Vegetariani</a>
-			            </li>
-			            <li>
-				        	<a href="#">Vegani</a>
-			            </li>
-			            <li>
-			            	<a href="#">Pesce</a>
-		                </li>
-			            <li>
-			            	<a href="#">Carne</a>
-			            </li>
-			        </ul>
-		       	</div>
-	        </div>
-        </header>
-	
-		<!-- <header th:replace="fragments/base.html :: navigator"></header> -->
+    
+		<header th:replace="fragments/base.html :: navigator"></header> 
 		
         <div id="Intro_wrapper" style="font-size:40">
             <div id="title">CATERING ROMA</div>
@@ -78,29 +37,13 @@
                 </p>
                 
 	             <div>
-					<a th:href="@{/chef}">Elenco chef</a> 
 					<a th:href="@{/administration}">Amministratore</a> 
+					<a th:href="@{/register}">Registrati</a> 
 				</div>
         	</div>
         </div>
         
-       <footer id="Footer">
-            <div id="contacts">
-                <h4>Contatti</h4>
-                <div>
-                    <p>Nome catering</p>
-                    <p>Sede:
-                        <br>Via Roma 141
-                        <br>00176, Roma.
-                    </p>
-                    <p>Tel: 
-                        <a href="tel:+390173291830201">+390173291830201</a>
-                    </p>
-                </div>
-            </div>
-        </footer> 
-        
-        <!--  <footer th:replace="fragments/base.html :: footer"></footer> -->
+        <footer th:replace="fragments/base.html :: footer"></footer> 
 
     </body>
 </html>

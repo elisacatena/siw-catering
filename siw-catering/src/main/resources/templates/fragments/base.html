@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:fragment="headerfiles">
-		<meta charset="UTF-8" />
+
+<head th:fragment="headerfiles(title, links)">
+
+	    <title th:replace="${title}">Titolo</title>
+	
+	    <meta charset="UTF-8" />
 		<link th:href="@{/css/base.css}" rel="stylesheet">
-		<title th:text="${title}"></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+	
+	    <!-- placeholder for additional links -->
+	    <th:block th:replace="${links}" />
+
 	</head>
+
 <body>
 	
 	<header id="Navigator" th:fragment = "navigator">
@@ -45,15 +56,7 @@
 		       	</div>
 	        </div>
 		
-		    <div class="dropdown">
-		        <button class="dropbtn">Ingredienti</button>
-	            <div class="dropdown-content">
-		            <a href="#">Vegetariani</a>
-		            <a href="#">Vegani</a>
-		            <a href="#">Di pesce</a>
-		            <a href="#">Di carne</a>
-	            </div>
-            </div>
+		  
         </header>
         
         <footer id="Footer" th:fragment = "footer">
