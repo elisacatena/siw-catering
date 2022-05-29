@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -28,7 +27,6 @@ public class Piatto {
 	private String descrizione;
 	
 	@ManyToMany//(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="id_piatto")
 	private List<Ingrediente> ingredienti;
 
 	public Piatto() {
