@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> Buffet Management </title>
+        <title> Piatto Management </title>
         <link rel="stylesheet" href="/css/management.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,12 +10,12 @@
     
 	<body>
 		<header>
-			<h1>Elenco dei buffet</h1>
+			<h1>Elenco dei piatti</h1>
 		</header>
 
 		<div id="create_wrapper">
-			<a th:href="@{/admin/buffet_management/create_buffet}">
-				<button class="butt" id="create">Add buffet</button>
+			<a th:href="@{/admin/piatto_management/create_piatto}">
+				<button class="butt" id="create">Add piatto</button>
 			</a>
 		</div>
 
@@ -25,14 +25,14 @@
 				<th>Descrizione</th>
 				<th>Operazioni</th>
 			</tr>
-			<tr th:each="buffet: ${buffets}">
-				<td th:text="${buffet.nome}">Nome</td>
-				<td th:text="${buffet.descrizione}">Descrizione</td>
+			<tr th:each="piatto: ${piatti}">
+				<td th:text="${piatto.nome}">Nome</td>
+				<td th:text="${piatto.descrizione}">Descrizione</td>
 			 	<td>
-			 		<a th:href="@{/admin/buffet_management/edit_buffet/{id}(id=${buffet.id})}">
+			 		<a th:href="@{/admin/piatto_management/edit_piatto/{id}(id=${piatto.id})}">
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
-					<a th:href="@{/admin/buffet_management/delete_buffet/{id}(id=${buffet.id})}">
+					<a th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
 						<button class="butt" id="delete">Delete </button>
 					</a>
 				</td>

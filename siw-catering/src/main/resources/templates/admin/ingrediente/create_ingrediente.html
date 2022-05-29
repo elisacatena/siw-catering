@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> Crea nuovo chef </title>
-        <link rel="stylesheet" href="/css/create_chef.css" />
+        <title> Crea nuovo ingrediente </title>
+        <link rel="stylesheet" href="/css/create_ingrediente.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     </head>
     
     <body>
-    
-    		<div id="wrapper">
+
+		<div id="wrapper">
             <div id="img_wrapper">
             </div>
             <div id="form_wrapper">
-                <h1>Crea un nuovo chef</h1>
+                <h1>Crea un nuovo ingrediente</h1>
                 <div id="form">
-                    <form th:action="@{/admin/chef_management/add_chef}" method="POST" th:object="${chef}">
+                    <form th:action="@{/admin/ingrediente_management/add_ingrediente}" method="POST" th:object="${ingrediente}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
@@ -26,13 +26,13 @@
                         </div>
 
                         <div class="input_form"> 
-                            <span><input name="cognome" type="text" placeholder="cognome" th:field="*{cognome}" required/></span>
-							<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+                            <span><input name="origine" type="text" placeholder="origine" th:field="*{origine}" required/></span>
+							<span th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></span>
                         </div>
 
 						<div class="input_form"> 
-                            <span><input name="nazionalita" type="text" placeholder="nazionalita" th:field="*{nazionalita}" required/></span>
-							<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+                            <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
+							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                         </div>
 
                         <div id="butt">
@@ -42,9 +42,9 @@
                 </div>
             </div>
       </div>
-      
+	
 		<div>
-	           <a th:href="@{/admin/chef_management}">Back</a>
+	           <a th:href="@{/admin/ingrediente_management}">Back</a>
 		</div>
 	
 	</body>

@@ -7,7 +7,11 @@
 
     <body>
     
-		<header th:replace="fragments/base.html :: navigator"></header> 
+		<header th:replace="fragments/base.html :: navigator">
+			<div id="amm">
+            	<a href="/login">Login amministratore</a>
+       	 	</div>
+		</header> 
 		
         <div id="Intro_wrapper" style="font-size:40">
             <div id="title">CATERING ROMA</div>
@@ -37,8 +41,7 @@
                 </p>
                 
 	             <div>
-					<a th:href="@{/login}">Amministratore</a> 
-					<a th:href="@{/register}">Registrati</a> 
+	             	<a th:href="@{/login}">Login amministratore</a> 
 				</div>
         	</div>
         </div>

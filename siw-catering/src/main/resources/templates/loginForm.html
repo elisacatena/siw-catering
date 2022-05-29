@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head > </head>
+<head> 
+    <title> Login </title>
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
 <body>
-	<div>
-		<h4>Login</h4>
-	</div>
-	<form th:action="@{/login}" method="POST">
+	<div id="login_wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Accedi al tuo account</h1>
+                <div id="form">
+                    <form th:action="@{/login}" method="POST">
+                        <div class="input_form"> 
+                            <span><input name="username" type="text" placeholder="username" required/></span>
+                        </div>
+
+                        <div class="input_form"> 
+                            <span><input name="password" type="password" placeholder="password" required/></span>
+                        </div>
+
+                        <div id="login_butt">
+                            <span><button type="submit">LOGIN</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+        
+	<!-- <form th:action="@{/login}" method="POST">
 		<div>
 			<div>
 				<span>Username:</span>
@@ -19,6 +45,6 @@
 				<span><button type="submit">Login</button></span>
 			</div>
 		</div>
-	</form>
+	</form> -->
 </body>
 </html>

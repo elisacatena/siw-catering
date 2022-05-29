@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title> Chef Management </title>
-        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/management.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -10,38 +10,40 @@
     
 	<body>
 	
+		<header>
+			<h1>Elenco degli chef</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{/admin/chef_management/create_chef}">
+				<button class="butt" id="create">Add chef</button>
+			</a>
+		</div>
+	
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Origine</th>
+				<th>Descrizione</th>
+				<th>Operazioni</th>
+			</tr>
+			<tr th:each="chef: ${chefs}">
+				<td th:text="${chef.nome}">Nome</td>
+			  	<td th:text="${chef.cognome}">Cognome</td>
+				<td th:text="${chef.nazionalita}">Nazionalita</td>
+			 	<td>
+			 		<a th:href="@{/admin/chef_management/edit_chef/{id}(id=${chef.id})}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<a th:href="@{/admin/chef_management/delete_chef/{id}(id=${chef.id})}">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+	
 		<div>
-			<div class="row">
-				<h1>Elenco degli Chef</h1>
-			</div>
-	
-			<div >
-				<div>
-					<a th:href="@{/admin/chef_management/create_chef}">Add Chef</a>
-				</div>
-			</div>
-	
-			<div>
-	            <ul>
-	                <li th:each="chef: ${chefs}">
-	                    <span th:text="${chef.nome}"> Dettagli chef </span>
-	                    <ul> 
-	                        <li>
-	                            <a th:href="@{/admin/chef_management/edit_chef/{id}(id=${chef.id})}">Update</a> 
-							    <a th:href="@{/admin/chef_management/delete_chef/{id}(id=${chef.id})}">Delete</a> 
-	                            <a href="#">Add Buffet</a>
-	                            <a href="#">Guarda i Buffet</a>
-	                        </li>
-	                    </ul>
-	                </li>
-	            </ul>
-	
-	        </div>
-	
-			<div>
-	            <a th:href="@{/admin}">Back</a>
-			</div>
-	
+	        <a th:href="@{/admin}">Back</a>
 		</div>
 	</body>
 </html>

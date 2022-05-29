@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Edit chef </title>
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    </head>
+    
+  <body>
+	
+		<form th:action="@{/admin/ingrediente_management/{id}(id=${ingrediente.id})}" method="post" th:object="${ingrediente}">
+			<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+			</div>
+			
+			<div> 
+				<span>Nome:</span> 
+				<span><input type="text" th:field="*{nome}"/></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		
+			<div>
+				<span>Origine:</span> 
+				<span><input type="text" th:field="*{origine}"/></span>
+				<span th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></span>
+			</div>
+			
+			<div>
+				<span>Nazionalità:</span> 
+				<span><input type="text" th:field="*{descrizione}"/></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+	
+			<div>
+				<button type="submit">Conferma</button>
+			</div>
+		
+		</form>
+	
+		<div>
+	           <a th:href="@{/admin/ingrediente_management}">Back</a>
+		</div>
+	
+	</body>
+	
+</html>

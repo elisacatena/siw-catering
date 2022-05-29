@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Crea nuovo buffet </title>
+        <link rel="stylesheet" href="/css/create_buffet.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+		
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Crea un nuovo buffet</h1>
+                <div id="form">
+                    <form th:action="@{/admin/buffet_management/add_buffet}" method="POST" th:object="${buffet}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+
+						<div class="input_form"> 
+                            <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
+							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+                        </div>
+                       
+						<div>
+							<button id="butt" type="submit" value="Conferma"> Conferma</button>
+						</div>
+		
+                    </form>
+                </div>
+            </div>
+      </div>
+		
+		<div>
+	           <a th:href="@{/admin/buffet_management}">Back</a>
+		</div>
+	
+	</body>
+	
+</html>

@@ -4,7 +4,6 @@
 <head th:fragment="headerfiles(title, links)">
 
 	    <title th:replace="${title}">Titolo</title>
-	
 	    <meta charset="UTF-8" />
 		<link th:href="@{/css/base.css}" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,19 +39,12 @@
 		        <button class="dropbtn">Buffet</button>
 	            <div class="dropdown-content">
 		            <ul>
-		                <li>
-		                	<a href="#">Vegetariani</a>
-			            </li>
-			            <li>
-				        	<a href="#">Vegani</a>
-			            </li>
-			            <li>
-			            	<a href="#">Pesce</a>
-		                </li>
-			            <li>
-			            	<a href="#">Carne</a>
-			            </li>
-			        </ul>
+						<li th:each="buffet : ${buffets}">
+                            <a href="buffet.html"
+							th:href="@{'/buffet' + '/' + ${buffet.id}}"
+							th:text="${buffet.nome}">Nome Buffet</a>
+						</li>
+					</ul>
 		       	</div>
 	        </div>
 		
