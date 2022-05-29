@@ -99,7 +99,7 @@ public class ChefController {
 	public String getAllChef(Model model) {
 		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
-		return "index.html";
+		return "/index";
 	}
 
 }
