@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.uniroma3.siw.catering.model.Ingrediente;
 import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.repository.PiattoRepository;
 
@@ -40,5 +41,14 @@ public class PiattoService {
 	@Transactional
 	public void deleteById(Long id) {
 		this.piattoRepository.deleteById(id);
+	}
+
+	@Transactional
+	public Piatto updatePiatto(Piatto piatto) {
+		return this.piattoRepository.save(piatto);
+	}
+	
+	public List<Ingrediente> findAllIngredientiById(Long idP) {
+		return this.piattoRepository.findAllIngredientiById(idP);
 	}
 }
