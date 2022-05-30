@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> Edit chef </title>
-        <link rel="stylesheet" href="/css/index.css" />
+        <title> Edit piatto </title>
+        <link rel="stylesheet" href="/css/create_piatto.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     </head>
     
-  <body>
+  <!--  <body>
 	
 		<form th:action="@{/admin/piatto_management/{id}(id=${piatto.id})}" method="post" th:object="${piatto}">
 			<div th:if="${#fields.hasGlobalErrors()}">
@@ -33,6 +33,51 @@
 		
 		</form>
 	
+		<div>
+	           <a th:href="@{/admin/piatto_management}">Back</a>
+		</div>
+	
+	</body> -->
+	
+	<body>
+		
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Modifica il piatto</h1>
+                <div id="form">
+                    <form th:action="@{/admin/piatto_management/{id}(id=${piatto.id})}" method="POST" th:object="${piatto}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+
+						<div class="input_form"> 
+                            <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
+							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+                        </div>
+                        
+           				
+	                        <fieldset>
+								<legend>Scegli gli ingredienti</legend>
+								<div class="checkmark" th:each="ingrediente: ${ingredienti}">
+									<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}" >
+									<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingredient</label>
+								</div>
+							</fieldset>
+
+						<div id="butt">
+                            <span><button type="submit">AGGIORNA</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+		
 		<div>
 	           <a th:href="@{/admin/piatto_management}">Back</a>
 		</div>

@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.catering.controller.validator.BuffetValidator;
 import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
+import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.service.BuffetService;
 import it.uniroma3.siw.catering.service.ChefService;
+import it.uniroma3.siw.catering.service.PiattoService;
 
 @Controller
 public class BuffetController {
@@ -30,6 +32,9 @@ public class BuffetController {
 	private BuffetValidator buffetValidator;
 	
 	@Autowired 
+	private PiattoService piattoService;
+	
+	@Autowired
 	private ChefService chefService;
 	
 	@GetMapping("/admin/buffet_management")
@@ -39,35 +44,24 @@ public class BuffetController {
 		return "admin/buffet/buffet_management.html";
 	}
 	
-	// ritorna tutti i buffet di uno chef per poterli modificare
-	@GetMapping("/admin/buffet_management/chef/{chef_id}")
-	public String getAllBuffetsPerChef(@PathVariable Long chef_id, Model model) {
-		Chef chef = chefService.findById(chef_id);
-		model.addAttribute("buffets", buffetService.findAllByChef(chef));
-		model.addAttribute("chef", chef);
-		
-		return "admin/buffet/buffetPerChef_management.html";
-	}
-	
 	@GetMapping("/admin/buffet_management/create_buffet")
-	public String getAddBuffetForm(Model model) {
+	public String showAddBuffetForm(Model model) {
 		model.addAttribute("buffet", new Buffet());
+		List<Piatto> piatti = this.piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs); 
 		return "admin/buffet/create_buffet.html";
 	}
 	
 	@Transactional
-	@PostMapping("/admin/buffet_management/add_buffet/{chefId}")
-	public String addBuffet(@PathVariable Long chefId, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
-		
+	@PostMapping("/admin/buffet_management/add_buffet")
+	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
 		this.buffetValidator.validate(buffet, bindingResult);
-		
-		if(!bindingResult.hasErrors()) {     //verifichiamo che non ci siano errori di validazione
-			Chef chef = chefService.findById(chefId);
-			chef.getBuffet().add(buffet);
-			buffet.setChef(chef);
+		if(!bindingResult.hasErrors()) {    
 			this.buffetService.save(buffet);
 			model.addAttribute("buffet", buffet);
-			return "redirect:/admin/chef_management";   
+			return "redirect:/admin/buffet_management";   
 		}
 		else {
 			return "admin/buffet/create_buffet.html";
@@ -75,8 +69,12 @@ public class BuffetController {
 	}
 	
 	@GetMapping("/admin/buffet_management/edit_buffet/{id}")
-	public String  getEditBuffetForm(@PathVariable Long id, Model model) {
+	public String  showEditBuffetForm(@PathVariable Long id, Model model) {
 		model.addAttribute("buffet", buffetService.findById(id));
+		List<Piatto> piatti = this.piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
 		return "admin/buffet/edit_buffet.html";
 	}
 	
@@ -88,6 +86,7 @@ public class BuffetController {
 			buffetToUpdate.setId(buffet.getId());
 			buffetToUpdate.setNome(buffet.getNome());
 			buffetToUpdate.setDescrizione(buffet.getDescrizione());
+			buffetToUpdate.setPiatti(buffet.getPiatti());
 			this.buffetService.updateBuffet(buffetToUpdate);
 			model.addAttribute("buffet", buffet);
 			return "redirect:/admin/buffet_management";
@@ -102,6 +101,12 @@ public class BuffetController {
 		return "redirect:/admin/buffet_management";
 	}
 	
+	@GetMapping("/admin/buffet_management/buffet_details/{id}")
+	public String showBuffetDetails(@PathVariable Long id, Model model) {
+		model.addAttribute("buffet", this.buffetService.findById(id));
+		return "admin/buffet/buffet_details.html";
+	}
+	
 	@GetMapping("/buffet/{id}")    //id è un parametro, non è la stringa id
 	/* l'annotazione @PathVariable indica che Long id viene dal path */
 	public String getBuffet(@PathVariable("id") Long id, Model model) {
@@ -109,14 +114,6 @@ public class BuffetController {
 		model.addAttribute("buffet", buffet);
 		return "buffet.html";
 	}
-	
-	
-	/* richiede tutti i buffet */
-	@GetMapping("/buffet")
-	public String getBuffets(Model model) {
-		List<Buffet> buffets = this.buffetService.findAll();
-		model.addAttribute("buffets", buffets);
-		return "buffets.html";
-	}
+
 
 }

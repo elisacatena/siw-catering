@@ -30,18 +30,18 @@
 							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                         </div>
                         
-                        
-                       <fieldset>
-							  <legend>Scegli gli ingredienti</legend>
-							  <div th:each="ingrediente : ${ingrediente}">
-							    <input type="checkbox" id="${ingrediente}" name="ingrediente" th:value="${ingrediente.nome}" >
-							    <label for="${ingrediente}" th:text="${ingrediente.nome}">Nome ingredient</label>
-							  </div>
-						</fieldset>                       
-						<div>
-							<button id="butt" type="submit" value="Conferma"> Conferma</button>
-						</div>
-		
+           				
+	                        <fieldset>
+								<legend>Scegli gli ingredienti</legend>
+								<div class="checkmark" th:each="ingrediente: ${ingredienti}">
+									<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}" >
+									<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingredient</label>
+								</div>
+							</fieldset>
+						                   
+						<div id="butt">
+                            <span><button type="submit">CREA</button></span>
+                        </div>
                     </form>
                 </div>
             </div>

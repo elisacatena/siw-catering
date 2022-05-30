@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.catering.controller.validator.ChefValidator;
+import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
+import it.uniroma3.siw.catering.service.BuffetService;
 import it.uniroma3.siw.catering.service.ChefService;
 
 @Controller
@@ -26,6 +28,9 @@ public class ChefController {
 	
 	@Autowired
 	private ChefValidator chefValidator;
+
+	@Autowired
+	private BuffetService buffetService;
 	
 	@GetMapping("/admin/chef_management")
 	public String getAllChefs(Model model) {
@@ -35,7 +40,7 @@ public class ChefController {
 	}
 	
 	@GetMapping("/admin/chef_management/create_chef")
-	public String getAddChefForm(Model model) {
+	public String showAddChefForm(Model model) {
 		model.addAttribute("chef", new Chef());
 		return "admin/chef/create_chef.html";
 	}
@@ -56,7 +61,7 @@ public class ChefController {
 	}
 	
 	@GetMapping("/admin/chef_management/edit_chef/{id}")
-	public String  getEditChefForm(@PathVariable Long id, Model model) {
+	public String  showEditChefForm(@PathVariable Long id, Model model) {
 		model.addAttribute("chef", chefService.findById(id));
 		return "admin/chef/edit_chef.html";
 	}
@@ -84,6 +89,12 @@ public class ChefController {
 		this.chefService.deleteById(id);
 		return "redirect:/admin/chef_management";
 	}
+	
+	@GetMapping("/admin/chef_management/chef_details/{id}")
+	public String showChefDetails(@PathVariable Long id, Model model) {
+		model.addAttribute("chef", this.chefService.findById(id));
+		return "admin/chef/chef_details.html";
+	}
 		
 	@GetMapping("/chef/{id}")  
 	public String getChef(@PathVariable("id") Long id, Model model) {
@@ -94,11 +105,13 @@ public class ChefController {
 		return "chef.html";
 	}
 	
-	/* richiede tutti gli chef */
+//	/* richiede tutti gli chef */
 	@GetMapping("/")
 	public String getAllChef(Model model) {
 		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "/index";
 	}
 

@@ -3,11 +3,12 @@ package it.uniroma3.siw.catering.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
@@ -31,8 +32,7 @@ public class Buffet {
 	@ManyToOne
 	private Chef chef; 
 	
-	@ManyToMany//(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="id_buffet")
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<Piatto> piatti;
 
 	public Buffet() {

@@ -32,8 +32,7 @@ public class Chef {
 	private String nazionalita;
 	
 	/* cascade per remove perchè se elimino lo chef elimino anche tutti i buffet da lui proposti */
-	//@OneToMany(mappedBy = "chef", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
-	@OneToMany(mappedBy = "chef", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "chef", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Buffet> buffet;
 	
 	public Chef() {

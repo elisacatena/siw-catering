@@ -49,10 +49,13 @@ h1 {
 
 .input_form {
     margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
 }
 
 #butt {
     text-align: center;
+    margin-top: 1em;
 }
 
 input {
@@ -68,4 +71,24 @@ input {
 a {
     text-decoration: none;
     color: black;
+}
+
+label {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkmark {
+	display:flex;
+	flex-direction: inherit;
+	color:white;
+}
+
+legend {
+	color:white;
+}
+
+#checkmark_wrapper {
+	display:flex;
 }

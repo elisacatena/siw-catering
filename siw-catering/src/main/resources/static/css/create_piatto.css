@@ -49,10 +49,13 @@ h1 {
 
 .input_form {
     margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
 }
 
 #butt {
     text-align: center;
+    margin-top: 1em;
 }
 
 input {
@@ -70,10 +73,21 @@ a {
     color: black;
 }
 
-select {
-  width: 100%;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
+label {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.checkmark {
+	display:flex;
+	flex-direction: inherit;
+	color:white;
+}
+
+legend {
+	color:white;
+}
+
+
+

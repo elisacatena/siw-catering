@@ -48,8 +48,7 @@ public class IngredienteController {
 			this.ingredienteService.save(ingrediente);
 			model.addAttribute("ingrediente", ingrediente);
 			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
-			//return "redirect:/admin/ingrediente_management";   
-			return "admin/ingrediente/ingrediente_management.html";
+			return "redirect:/admin/ingrediente_management";   
 		}
 		else {
 			return "admin/ingrediente/create_ingrediente.html";
@@ -73,19 +72,17 @@ public class IngredienteController {
 			ingredienteToUpdate.setDescrizione(ingrediente.getDescrizione());
 			this.ingredienteService.updateIngrediente(ingredienteToUpdate);
 			model.addAttribute("ingrediente", ingrediente);
-			//return "redirect:/admin/ingrediente_management";
-			return "admin/ingrediente/ingrediente_management.html";
+			return "redirect:/admin/ingrediente_management";
 		}
 		else
-			//return "admin/ingrediente/edit_ingrediente.html";
-			return "admin/ingrediente/edit_management.html";
+			return "admin/ingrediente/edit_ingrediente.html";
 	}
 	
 	@Transactional
 	@GetMapping("/admin/ingrediente_management/delete_ingrediente/{id}")
 	public String deleteIngrediente(@PathVariable Long id) {
 		this.ingredienteService.deleteById(id);
-		return "admin/ingrediente/ingrediente_management";
+		return "redirect:/admin/ingrediente_management";
 	}
 	
 		

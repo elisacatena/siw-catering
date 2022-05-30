@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+    width: 100%;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+}       
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: 600px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightpink;
+    color: white;   
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+ a {
+    text-decoration: none;
+    color: black;
+ }
+
+
