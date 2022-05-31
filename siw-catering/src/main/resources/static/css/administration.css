@@ -35,22 +35,22 @@ body {
 #buffet {
     background-color: white; 
     color: black; 
-    border: 2px solid #e0e094;
+    border: 2px solid #9a603a;
 }
  
 #buffet:hover {
-    background-color: #e0e094;
+    background-color: #9a603a;
     color: white;
 }
 
 #piatto {
     background-color: white; 
     color: black; 
-    border: 2px solid darkslategray;
+    border: 2px solid #09a8cf;
 }
  
 #piatto:hover {
-    background-color: darkslategray;
+    background-color: #09a8cf;
     color: white;
 }
 
