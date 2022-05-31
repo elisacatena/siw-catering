@@ -44,4 +44,24 @@ tr:hover {
     color: black;
  }
 
+.butt {
+    border: solid;
+    border-radius: 3px 3px 3px 3px;
+ }
+ 
+#back_wrapper {
+	text-align: center;
+    margin: 3em;
+}
+
+#back {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #ad75ad;
+}
+  
+#back:hover {
+    background-color: #ad75ad;
+    color: white;
+}
 

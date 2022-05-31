@@ -1,16 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
-   <!-- <head>  th:replace="fragments/base.html :: headerfiles">  -->
    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
         <title> Catering Roma </title>
-        <link rel="stylesheet" href="/css/index.css" />
+        <link href="/css/index.css" rel="stylesheet"/>
     </head>
 
     <body>
     
 		<header th:replace="fragments/base.html :: navigator">
-			<div id="amm">
-            	<a href="/login">Login amministratore</a>
-       	 	</div>
 		</header> 
 		
         <div id="Intro_wrapper" style="font-size:40">
@@ -34,7 +30,7 @@
             <h1> CATERING ROMA </h1>
             <h2>Servizio Catering Roma Biologico Ecosostenibile e Equosolidale</h2>
             <div id="content1">
-                <p>Il <strong>Catering Roma</strong> – è il primo <strong>catering a Roma biologico ecosostenibile ed equosolidale.</strong>
+                <p>Il <strong>Catering Roma</strong> è il primo <strong>catering a Roma biologico ecosostenibile ed equosolidale.</strong>
                     La nostra attività principale è quella di fornire un <strong>servizio catering Roma</strong> basato esclusivamente su prodotti 
                     provenienti dalla filiera del biologico a Km0 e del commercio equo e solidale. I produttori da cui ci forniamo sono produttori 
                     conosciuti e testati all’interno di G.A.S. locali. In questo modo riusciamo ad abbattere le intermediazioni e i costi. 
