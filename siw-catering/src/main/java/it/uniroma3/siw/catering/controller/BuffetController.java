@@ -87,6 +87,7 @@ public class BuffetController {
 			buffetToUpdate.setNome(buffet.getNome());
 			buffetToUpdate.setDescrizione(buffet.getDescrizione());
 			buffetToUpdate.setPiatti(buffet.getPiatti());
+			buffetToUpdate.setChef(buffet.getChef());
 			this.buffetService.updateBuffet(buffetToUpdate);
 			model.addAttribute("buffet", buffet);
 			return "redirect:/admin/buffet_management";
