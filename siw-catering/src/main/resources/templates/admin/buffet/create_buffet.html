@@ -29,6 +29,7 @@
                             <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
 							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                         </div>
+                        
                        <div id="checkmark_wrapper">
                         <fieldset>
 								<legend>Scegli i piatti</legend>
@@ -42,7 +43,7 @@
 								<legend>Scegli lo chef</legend>
 								<div class="checkmark" th:each="chef: ${chefs}">
 									<input type="checkbox" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}" >
-									<label for="${chef}" th:text="${chef.nome}">Nome chef</label>
+									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
 								</div>
 							</fieldset>  
 							</div>
@@ -56,8 +57,10 @@
             </div>
       </div>
 		
-		<div>
-	           <a th:href="@{/admin/buffet_management}">Back</a>
+		<div id="back_wrapper">
+				<a th:href="@{/admin/buffet_management}">
+						<button class="butt" id="back">Back </button>
+				</a>
 		</div>
 	
 	</body>

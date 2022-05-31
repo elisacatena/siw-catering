@@ -3,28 +3,30 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Amministrazione catering</title>
-        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/administration.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
+    <h1>Benvenuto!</h1>
+    <h3>In questa pagina potrai modificare le informazioni relative al servizio di catering</h3>
         <div>
-            <ul >
-                <li>
-                    <a href="/admin/chef_management">Chef Management</a>
-                </li>
-                <li>
-                    <a href="/admin/buffet_management">Buffet Management</a>
-                </li>
-                <li>
-                    <a href="/admin/piatto_management">Piatti Management</a>
-                </li>
-                <li>
-                    <a href="/admin/ingrediente_management">Ingredienti Management</a>
-                </li>
-            </ul>
+        	<div id="button_wrapper">
+					<a th:href="@{/admin/chef_management}">
+					<button class="butt" id="chef">Chef management</button></a>
+					
+					<a th:href="@{/admin/buffet_management}">
+					<button class="butt" id="buffet">Buffet management</button></a>
+					
+					<a th:href="@{/admin/piatto_management}">
+					<button class="butt" id="piatto">Piatto management</button></a>
+					
+					<a th:href="@{/admin/ingrediente_management}">
+					<button class="butt" id="ingrediente">Ingrediente management</button></a>
+			</div>
+      
         </div>
         <br>
 

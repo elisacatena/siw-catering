@@ -23,8 +23,8 @@
 		<table>
 			<tr>
 				<th>Nome</th>
-				<th>Origine</th>
-				<th>Descrizione</th>
+				<th>Cognome</th>
+				<th>Nazionalità</th>
 				<th>Operazioni</th>
 			</tr>
 			<tr th:each="chef: ${chefs}">
@@ -45,8 +45,10 @@
 			</tr>
 		</table>
 	
-		<div>
-	        <a th:href="@{/admin}">Back</a>
+		<div id="back_wrapper">
+				<a th:href="@{/admin}">
+						<button class="butt" id="back">Back </button>
+				</a>
 		</div>
 	</body>
 </html>

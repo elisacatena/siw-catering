@@ -9,12 +9,13 @@ body {
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    background-image: url("/images/sfondo_chef.jpeg");
+    background-image: url("/images/sfondo_chef.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     min-height: 440px;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
+     align-items: center;
 }
 
 #dettagli_chef {
@@ -22,7 +23,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: black;
+    background-color: rgba(255,255,255,0.4);
+    min-width: 35%;
 }
 
 #buffet_wrapper {
@@ -34,14 +37,14 @@ body {
 }
 
 #menu_wrapper {
-	background-image:url("/images/menu.jpg");
+	background-image:url("/images/menu.png");
 	text-align:center;
     height: 423px;
     width: 300px;
     background-position: center center;
     background-size:cover;
     margin-top:3em;
-    border: 2px solid #DAA520;
+    /*border: 2px solid #DAA520;*/
     margin-left: 3.5em;
 }
 

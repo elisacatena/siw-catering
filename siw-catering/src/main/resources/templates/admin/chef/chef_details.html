@@ -16,12 +16,14 @@
 		<table>
 			<tr>
 				<th>Nome</th>
-				<th>Descrizione</th>
+				<th>Cognome</th>
+				<th>Nazionalità</th>
 				<th>Lista dei buffet</th>
 			</tr>
 			<tr>
 				<td th:text="${chef.nome}">Nome</td>
 				<td th:text="${chef.cognome}">Cognome</td>
+				<td th:text="${chef.nazionalita}">Nazionalità</td>
 			 	<td>
 			 		<ul>
 			 			<li th:each="buffet : ${chef.buffet}">

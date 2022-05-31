@@ -1,0 +1,66 @@
+body {
+	margin-left: 5em;
+    margin-right: 5em;
+    -webkit-font-smoothing: antialiased;
+    width: 80%;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button_wrapper {
+	display: flex;
+    flex-direction: column;
+}
+
+.butt {
+    border: solid;
+    border-radius: 3px 3px 3px 3px;
+    margin: 1em;
+ }
+
+#chef {
+    background-color: white; 
+    color: black; 
+    border: 2px solid indianred;
+}
+
+#chef:hover {
+    background-color: indianred;
+    color: white;
+}
+
+#buffet {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #e0e094;
+}
+ 
+#buffet:hover {
+    background-color: #e0e094;
+    color: white;
+}
+
+#piatto {
+    background-color: white; 
+    color: black; 
+    border: 2px solid darkslategray;
+}
+ 
+#piatto:hover {
+    background-color: darkslategray;
+    color: white;
+}
+
+#ingrediente {
+    background-color: white; 
+    color: black; 
+    border: 2px solid dimgray;
+}
+ 
+#ingrediente:hover {
+    background-color: dimgray;
+    color: white;
+}

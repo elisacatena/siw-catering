@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title> Edit chef </title>
-        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/create_chef.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -10,35 +10,41 @@
     
   <body>
 	
-		<form th:action="@{/admin/chef_management/{id}(id=${chef.id})}" method="post" th:object="${chef}">
-			<div th:if="${#fields.hasGlobalErrors()}">
-				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
-			</div>
-			
-			<div> 
-				<span>Nome:</span> 
-				<span><input type="text" th:field="*{nome}"/></span>
-				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-			</div>
-		
-			<div>
-				<span>Cognome:</span> 
-				<span><input type="text" th:field="*{cognome}"/></span>
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Modifica lo chef</h1>
+                <div id="form" style="text-align: center;color: white;">
+                    <form th:action="@{/admin/chef_management/{id}(id=${chef.id})}" method="post" th:object="${chef}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+						<span>Nome:</span> 
+                        <div class="input_form"> 
+                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+						
+						<span>Cognome:</span> 
+						<div class="input_form"> 
+                            <span><input type="text" th:field="*{cognome}"/></span>
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
-			</div>
-			
-			<div>
-				<span>Nazionalità:</span> 
-				<span><input type="text" th:field="*{nazionalita}"/></span>
-				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
-			</div>
-	
-			<div>
-				<button type="submit">Conferma</button>
-			</div>
-		
-		</form>
-	
+                        </div>
+                        <span>Nazionalità:</span> 
+                        <div>
+							<span><input type="text" th:field="*{nazionalita}"/></span>
+							<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+						</div>
+   
+						<div id="butt">
+                            <span><button type="submit">AGGIORNA</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+      
 		<div>
 	           <a th:href="@{/admin/chef_management}">Back</a>
 		</div>

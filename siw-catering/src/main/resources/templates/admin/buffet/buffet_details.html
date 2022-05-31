@@ -17,11 +17,13 @@
 			<tr>
 				<th>Nome</th>
 				<th>Descrizione</th>
+				<th>Chef</th>
 				<th>Lista dei piatti</th>
 			</tr>
 			<tr>
 				<td th:text="${buffet.nome}">Nome</td>
 				<td th:text="${buffet.descrizione}">Descrizione</td>
+				<td th:text="${buffet.chef.nome}+' '+${buffet.chef.cognome}">Chef</td>
 			 	<td>
 			 		<ul>
 			 			<li th:each="piatto : ${buffet.piatti}">
