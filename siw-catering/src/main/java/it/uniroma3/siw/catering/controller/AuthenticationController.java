@@ -23,7 +23,7 @@ public class AuthenticationController {
 	
 	@GetMapping("/logout") 
 	public String logout(Model model) {
-		return "index";
+		return "redirect:/";
 	}
 	
     @GetMapping("/default")
