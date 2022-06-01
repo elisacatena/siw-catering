@@ -1,50 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head th:fragment="headerfiles(title, links)">
-
+	<head th:fragment="headerfiles(title, links)">
 	    <title th:replace="${title}">Titolo</title>
 	    <meta charset="UTF-8" />
 		<link th:href="@{/css/base.css}" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-	
 	    <!-- placeholder for additional links -->
 	    <th:block th:replace="${links}" />
-
 	</head>
 
-<body>
+	<body>
 	
-	<header id="Navigator" th:fragment = "navigator">
+		<header id="Navigator" th:fragment = "navigator">
 		    <div>
 	            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">Home</a>
 		    </div>
-		
-		    <div class="dropdown">
-		    <button class="dropbtn"> Chef</button>
-		     	<div class="dropdown-content" >
-		        	<ul>
-						<li th:each="chef : ${chefs}">
-                            <a href="chef.html"
-							th:href="@{'/chef' + '/' + ${chef.id}}"
-							th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-						</li>
-					</ul>
+
+		  	<div class="dropdown">
+		    	<button class="dropbtn"> Chef</button>
+		     	<div class="dropdown-content">
+                	<a th:each="chef : ${chefs}" th:href="@{'/chef' + '/' + ${chef.id}}" th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
 				</div> 	
 		    </div>
 		
 		    <div class="dropdown">
 		        <button class="dropbtn">Buffet</button>
 	            <div class="dropdown-content">
-		            <ul>
-						<li th:each="buffet : ${buffets}">
-                            <a href="buffet.html"
-							th:href="@{'/buffet' + '/' + ${buffet.id}}"
-							th:text="${buffet.nome}">Nome Buffet</a>
-						</li>
-					</ul>
+	            	<a th:each="buffet : ${buffets}" th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}">Nome Buffet</a>		
 		       	</div> 
 	        </div>
 		
@@ -66,5 +50,5 @@
                 </div>
             </div>
         </footer>
-</body>
+	</body>
 </html>

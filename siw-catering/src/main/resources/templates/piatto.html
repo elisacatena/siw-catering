@@ -6,22 +6,8 @@
     </head>
 
     <body>
-
         <header th:replace="fragments/base.html :: navigator"></header> 
         
-        <!-- <div class="dettagli_wrapper" >
-			<h1 id="nome" th:text="${piatto.nome}" > Spaghetti alla carbonara </h1>
-			<div id="dettagli">
-				<ul> 
-					<li th:each="ingrediente : ${piatto.ingredienti}">
-						<a href="ingrediente.html"
-						th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
-						th:text="${ingrediente.nome}">Nome ingrediente</a>
-					</li>
-				</ul>
-			</div>
-        </div> -->
-
 		<div class="dettagli_wrapper">
 			<div id="dettagli_piatto">
 				<h1 th:text="${piatto.nome}" > Spaghetti alla carbonara</h1>
@@ -38,7 +24,7 @@
 			</div>
 		</div>
 		
-		 <footer th:replace="fragments/base.html :: footer"></footer> 
+		<footer th:replace="fragments/base.html :: footer"></footer> 
         
  	</body>
 

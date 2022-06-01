@@ -9,7 +9,7 @@ body {
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    background-image: url("/images/sfondo_piatto.jpeg");
+    background-image: url("/images/sfondo_piatto.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
