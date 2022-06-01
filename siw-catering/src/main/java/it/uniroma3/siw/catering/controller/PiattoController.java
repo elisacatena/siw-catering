@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.catering.controller.validator.PiattoValidator;
+import it.uniroma3.siw.catering.model.Buffet;
+import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
 import it.uniroma3.siw.catering.model.Piatto;
+import it.uniroma3.siw.catering.service.BuffetService;
+import it.uniroma3.siw.catering.service.ChefService;
 import it.uniroma3.siw.catering.service.IngredienteService;
 import it.uniroma3.siw.catering.service.PiattoService;
 
@@ -31,6 +35,12 @@ public class PiattoController {
 	
 	@Autowired
 	private IngredienteService ingredienteService;
+	
+	@Autowired
+	private BuffetService buffetService;
+	
+	@Autowired 
+	private ChefService chefService;
 	
 	@GetMapping("/admin/piatto_management")
 	public String getAllPiatti(Model model) {
@@ -104,6 +114,10 @@ public class PiattoController {
 	public String getPiatto(@PathVariable("id") Long id, Model model) {
 		Piatto piatto= this.piattoService.findById(id);
 		model.addAttribute("piatto", piatto);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "piatto.html";
 	}
 	

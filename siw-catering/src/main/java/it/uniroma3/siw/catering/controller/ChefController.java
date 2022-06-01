@@ -102,10 +102,12 @@ public class ChefController {
 		model.addAttribute("chef", chef);
 		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "chef.html";
 	}
 	
-//	/* richiede tutti gli chef */
+	/* richiede tutti gli chef */
 	@GetMapping("/")
 	public String getAllChef(Model model) {
 		List<Chef> chefs = this.chefService.findAll();

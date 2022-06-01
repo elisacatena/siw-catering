@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.catering.controller.validator.IngredienteValidator;
+import it.uniroma3.siw.catering.model.Buffet;
+import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
+import it.uniroma3.siw.catering.service.BuffetService;
+import it.uniroma3.siw.catering.service.ChefService;
 import it.uniroma3.siw.catering.service.IngredienteService;
 
 @Controller
@@ -26,6 +30,12 @@ public class IngredienteController {
 	
 	@Autowired
 	private IngredienteValidator ingredienteValidator;
+
+	@Autowired
+	private ChefService chefService;
+
+	@Autowired
+	private BuffetService buffetService;
 	
 	@GetMapping("/admin/ingrediente_management")
 	public String getAllIngredienti(Model model) {
@@ -90,6 +100,10 @@ public class IngredienteController {
 	public String getIngrediente(@PathVariable("id") Long id, Model model) {
 		Ingrediente ingrediente = this.ingredienteService.findById(id);
 		model.addAttribute("ingrediente", ingrediente);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "ingrediente.html";
 	}
 	
