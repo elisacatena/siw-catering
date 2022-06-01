@@ -14,7 +14,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 #Intro_wrapper {
-    background-image: url("/images/spiedini2.jpeg");
+    background-image: url("/images/home.png");
     height:fit-content;
     background-size: cover;
     background-position: center center;
@@ -23,6 +23,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     height: fit-content;
     color: white;
+    font-size:40
 }
 
 #title {
@@ -53,3 +54,7 @@ p {
    text-align: center;
    padding: 2em;
 } 
+
+#intro_background {
+	background-color: rgba(50,50,50,0.3);
+}
