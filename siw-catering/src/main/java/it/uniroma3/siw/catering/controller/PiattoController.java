@@ -50,7 +50,7 @@ public class PiattoController {
 	}
 	
 	@GetMapping("/admin/piatto_management/create_piatto")
-	public String getAddPiattoForm(Model model) {
+	public String showAddPiattoForm(Model model) {
 		model.addAttribute("piatto", new Piatto());
 		List<Ingrediente> ingredienti = this.ingredienteService.findAll();
 		model.addAttribute("ingredienti", ingredienti);
@@ -73,7 +73,7 @@ public class PiattoController {
 	}
 	
 	@GetMapping("/admin/piatto_management/edit_piatto/{id}")
-	public String  getEditPiattoForm(@PathVariable Long id, Model model) {
+	public String  showEditPiattoForm(@PathVariable Long id, Model model) {
 		model.addAttribute("piatto", piattoService.findById(id));
 		List<Ingrediente> ingredienti = this.ingredienteService.findAll();
 		model.addAttribute("ingredienti", ingredienti);
