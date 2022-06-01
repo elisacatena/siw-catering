@@ -1,18 +1,8 @@
 package it.uniroma3.siw.catering;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import it.uniroma3.siw.catering.model.Buffet;
-import it.uniroma3.siw.catering.model.Chef;
-import it.uniroma3.siw.catering.model.Ingrediente;
-import it.uniroma3.siw.catering.model.Piatto;
-import it.uniroma3.siw.catering.repository.BuffetRepository;
-import it.uniroma3.siw.catering.repository.ChefRepository;
-import it.uniroma3.siw.catering.repository.IngredienteRepository;
-import it.uniroma3.siw.catering.repository.PiattoRepository;
 
 @SpringBootApplication
 public class SiwCateringApplication implements CommandLineRunner {
@@ -20,18 +10,18 @@ public class SiwCateringApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(SiwCateringApplication.class, args);
 	}
-
-	@Autowired
-	private ChefRepository chefRepository;
-	
-	@Autowired 
-	private PiattoRepository piattoRepository;
-	
-	@Autowired
-	private BuffetRepository buffetRepository;
-	
-	@Autowired
-	private IngredienteRepository ingredienteRepository;
+//
+//	@Autowired
+//	private ChefRepository chefRepository;
+//	
+//	@Autowired 
+//	private PiattoRepository piattoRepository;
+//	
+//	@Autowired
+//	private BuffetRepository buffetRepository;
+//	
+//	@Autowired
+//	private IngredienteRepository ingredienteRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
