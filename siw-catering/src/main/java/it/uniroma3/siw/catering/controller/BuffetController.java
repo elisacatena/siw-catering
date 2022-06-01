@@ -35,7 +35,7 @@ public class BuffetController {
 	private PiattoService piattoService;
 	
 	@Autowired
-	private ChefService chefService;
+	private ChefService chefService; 
 	
 	@GetMapping("/admin/buffet_management")
 	public String getAllBuffets(Model model) {
@@ -74,7 +74,7 @@ public class BuffetController {
 		List<Piatto> piatti = this.piattoService.findAll();
 		model.addAttribute("piatti", piatti);
 		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs);
+		model.addAttribute("chefs", chefs); 
 		return "admin/buffet/edit_buffet.html";
 	}
 	
