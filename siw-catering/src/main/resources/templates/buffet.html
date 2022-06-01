@@ -2,36 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
         <title> UnoChef </title>
-        <link rel="stylesheet" href="/css/chef.css"/>
+        <link rel="stylesheet" href="/css/buffet.css"/>
     </head>
 
     <body>
 		<header th:replace="fragments/base.html :: navigator"></header> 
-        
-        <div class="chef_wrapper">
-			<div id="dettagli_chef">
-				<h1> Dettagli chef</h1>
-				<div style="width:fit-content;">
-					<ul>
-						<li>
-							<strong> Nome: </strong>
-							<span th:text="${chef.nome}"> Bruno</span>
-						</li>
-						<li>
-							<strong> Cognome: </strong>
-							<span th:text="${chef.cognome}"> Barbieri</span>
-						</li>
-						<li>
-							<strong> Nazionalità: </strong>
-							<span  th:text="${chef.nazionalita}"> Italiana</span>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 			
 		<section id="buffet_wrapper">
-        	<div id="menu_wrapper" th:each="buffet : ${chef.buffet}">
+        	<div id="menu_wrapper">
 	        	<div id="menu_desc"> 
 					<h4 th:text="${buffet.nome}"> Nome buffet </h4>
 					<h4 th:text="${buffet.descrizione}"> Descrizione buffet</h4>

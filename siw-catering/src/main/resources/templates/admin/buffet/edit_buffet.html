@@ -32,25 +32,25 @@
                         </div>
                         
            				<div id="checkmark_wrapper">
-                        	<fieldset>
+							<fieldset>
 								<legend>Scegli i piatti</legend>
 								<div class="checkmark" th:each="piatto: ${piatti}">
 									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" >
-									<label for="${piatti}" th:text="${piatto.nome}">Nome ingrediente</label>
+									<label for="${piatti}" th:text="${piatto.nome}">Nome ingredient</label>
 								</div>
 							</fieldset> 
-							
+								
 							<fieldset>
 								<legend>Scegli lo chef</legend>
 								<div class="checkmark" th:each="chef: ${chefs}">
 									<input type="checkbox" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}" >
-									<label for="${chef}" th:text="${chef.nome}">Nome ingrediente</label>
+									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
 								</div>
-							</fieldset> 
+							</fieldset>  
 						</div>
 
-						<div id="butt">
-                            <span><button type="submit">AGGIORNA</button></span>
+						<div id="submit_wrapper">
+                            <span><button class="butt" id="submit" type="submit">CREA</button></span>
                         </div>
                     </form>
                 </div>
@@ -58,7 +58,7 @@
       	</div>
 		
 		<div id="back_wrapper">
-			<a th:href="@{/admin/ingrediente_management}">
+			<a th:href="@{/admin/buffet_management}">
 				<button class="butt" id="back">Back </button>
 			</a>
 		</div>

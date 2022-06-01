@@ -14,25 +14,25 @@
 	<body>
 	
 		<header id="Navigator" th:fragment = "navigator">
-		    <div>
-	            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">Home</a>
-		    </div>
-
-		  	<div class="dropdown">
-		    	<button class="dropbtn"> Chef</button>
-		     	<div class="dropdown-content">
-                	<a th:each="chef : ${chefs}" th:href="@{'/chef' + '/' + ${chef.id}}" th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-				</div> 	
-		    </div>
-		
-		    <div class="dropdown">
-		        <button class="dropbtn">Buffet</button>
-	            <div class="dropdown-content">
-	            	<a th:each="buffet : ${buffets}" th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}">Nome Buffet</a>		
-		       	</div> 
-	        </div>
-		
-		  
+			<nav>
+			    <div>
+		            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">Home</a>
+			    </div>
+	
+			  	<div class="dropdown">
+			    	<button class="dropbtn"> Chef</button>
+			     	<div class="dropdown-content">
+	                	<a th:each="chef : ${chefs}" th:href="@{'/chef' + '/' + ${chef.id}}" th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+					</div> 	
+			    </div>
+			
+			    <div class="dropdown">
+			        <button class="dropbtn">Buffet</button>
+		            <div class="dropdown-content">
+		            	<a th:each="buffet : ${buffets}" th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}">Nome Buffet</a>		
+			       	</div> 
+		        </div>
+		  	</nav>
         </header>
         
         <footer id="Footer" th:fragment = "footer">
