@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
-        <title> UnoChef </title>
+        <title th:text="${chef.nome}+' '+${chef.cognome}"></title>
         <link rel="stylesheet" href="/css/chef.css"/>
     </head>
 

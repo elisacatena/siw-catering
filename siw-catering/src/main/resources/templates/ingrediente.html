@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
-        <title> Ingrediente </title>
+        <title th:text="${ingrediente.nome}"> </title>
         <link rel="stylesheet" href="/css/ingrediente.css"/>
     </head>
 
