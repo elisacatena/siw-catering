@@ -29,7 +29,6 @@ body {
 }
 
 #buffet_wrapper {
-	padding: 2em;
 	display: flex;
 	flex-wrap: wrap;
     justify-content: space-evenly;
@@ -43,9 +42,7 @@ body {
     width: 300px;
     background-position: center center;
     background-size:cover;
-    margin-top:3em;
-    /*border: 2px solid #DAA520;*/
-    margin-left: 3.5em;
+   	margin: 2.5%;
 }
 
 #menu_desc {
