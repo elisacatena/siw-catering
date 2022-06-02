@@ -64,7 +64,6 @@ public class PiattoController {
 		if(!bindingResult.hasErrors()) {     
 			this.piattoService.save(piatto);
 			model.addAttribute("piatto", piatto);
-			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
 			return "redirect:/admin/piatto_management";   
 		}
 		else {

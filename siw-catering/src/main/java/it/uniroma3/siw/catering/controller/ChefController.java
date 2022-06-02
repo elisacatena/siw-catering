@@ -52,7 +52,6 @@ public class ChefController {
 		if(!bindingResult.hasErrors()) {     
 			this.chefService.save(chef);
 			model.addAttribute("chef", chef);
-			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
 			return "redirect:/admin/chef_management";   
 		}
 		else {

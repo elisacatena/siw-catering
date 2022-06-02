@@ -61,6 +61,7 @@ public class BuffetController {
 		if(!bindingResult.hasErrors()) {    
 			this.buffetService.save(buffet);
 			model.addAttribute("buffet", buffet);
+			System.out.println(buffet.getPiatti().size());
 			return "redirect:/admin/buffet_management";   
 		}
 		else {
@@ -105,6 +106,7 @@ public class BuffetController {
 	@GetMapping("/admin/buffet_management/buffet_details/{id}")
 	public String showBuffetDetails(@PathVariable Long id, Model model) {
 		model.addAttribute("buffet", this.buffetService.findById(id));
+		System.out.println(this.buffetService.findById(id).getPiatti().size());
 		return "admin/buffet/buffet_details.html";
 	}
 	
