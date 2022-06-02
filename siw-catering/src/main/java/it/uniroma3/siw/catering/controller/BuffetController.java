@@ -113,6 +113,10 @@ public class BuffetController {
 	public String getBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = this.buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "buffet.html";
 	}
 
