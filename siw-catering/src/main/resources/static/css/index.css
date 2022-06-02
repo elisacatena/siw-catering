@@ -21,9 +21,9 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    height: fit-content;
     color: white;
-    font-size:40
+    font-size:40;
+    min-height: 440px;
 }
 
 #title {
