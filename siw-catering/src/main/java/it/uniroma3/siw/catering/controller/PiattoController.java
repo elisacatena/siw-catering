@@ -98,7 +98,15 @@ public class PiattoController {
 	
 	@Transactional
 	@GetMapping("/admin/piatto_management/delete_piatto/{id}")
-	public String deletePiatto(@PathVariable Long id) {
+	public String deletePiatto(@PathVariable Long id, Model model) {
+		Piatto piatto = this.piattoService.findById(id);
+		List<Buffet> buffets = this.buffetService.findAll();
+		Boolean isInBuffet = false;
+		for(Buffet b : buffets) {
+			if(b.getPiatti().contains(piatto)) isInBuffet = true;
+		}
+		System.out.println(isInBuffet.toString());
+		model.addAttribute("isInBuffet", isInBuffet);
 		this.piattoService.deleteById(id);
 		return "redirect:/admin/piatto_management";
 	}

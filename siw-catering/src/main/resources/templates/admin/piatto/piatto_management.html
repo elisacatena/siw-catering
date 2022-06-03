@@ -32,7 +32,10 @@
 			 		<a th:href="@{/admin/piatto_management/edit_piatto/{id}(id=${piatto.id})}">
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
-					<a th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
+					<div th:if="${isInBuffet}">
+						<p>Delete </p>
+					</div>
+					<a th:unless="${isInBuffet}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
 						<button class="butt" id="delete">Delete </button>
 					</a>
 					<a th:href="@{/admin/piatto_management/piatto_details/{id}(id=${piatto.id})}">

@@ -35,7 +35,10 @@
 			 		<a th:href="@{/admin/ingrediente_management/edit_ingrediente/{id}(id=${ingrediente.id})}">
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
-					<a th:href="@{/admin/ingrediente_management/delete_ingrediente/{id}(id=${ingrediente.id})}">
+					<div th:if="${isInPiatto}">
+						<p>Delete </p>
+					</div>
+					<a th:unless="${isInPiatto}" th:href="@{/admin/ingrediente_management/delete_ingrediente/{id}(id=${ingrediente.id})}">
 						<button class="butt" id="delete">Delete </button>
 					</a>
 				</td>
