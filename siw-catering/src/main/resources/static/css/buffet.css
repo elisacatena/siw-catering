@@ -23,12 +23,31 @@ body {
     padding: 4em;
     font-family: "OracleSansVF", "OracleSansVFCyGr", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
     font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: -webkit-fill-available;
+    
+    
 }
 
 ul {
-	list-style-type: none;
-    padding: unset;
-    margin: unset;
+	list-style-type: circle;
     text-align: center;
+    margin: unset;
+    padding: unset;
+    width: fit-content;
 }
 
+#desc {
+	margin:unset;
+}
+
+#piatto {
+	text-decoration: none;
+    color: black;
+}
+
+#piatto:hover {
+	color: green;
+}

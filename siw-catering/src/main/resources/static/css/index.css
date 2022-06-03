@@ -52,9 +52,29 @@ p {
 
 #content1 {
    text-align: center;
-   padding: 2em;
+   padding: 5em;
 } 
 
 #intro_background {
 	background-color: rgba(50,50,50,0.3);
+}
+
+ul {
+	list-style-image:url("/images/down-arrow.png");
+}
+
+span {
+	color:#f2c01a;
+}
+
+#s {
+	padding-left: 2%;
+}
+
+#i {
+	padding-left: 2.4%;
+}
+
+#w {
+	padding-left: 1%;
 }

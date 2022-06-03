@@ -25,7 +25,6 @@ body {
     justify-content: center;
     color: white;
     background-color: rgba(50,50,50,0.3);
-    min-width: 35%;
     width: 100%;
     height: 440px;
 }
@@ -52,11 +51,30 @@ body {
     position: relative;
     font-family: "OracleSansVF", "OracleSansVFCyGr", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
     font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight:600;
 }
 
 ul {
-	list-style-type: none;
+	list-style-type: circle;
     text-align: center;
-    margin: none;
+    margin: unset;
     padding: unset;
+    width: fit-content;
 }
+
+#piatto {
+	text-decoration: none;
+    color: black;
+}
+
+#piatto:hover {
+	color: green;
+}
+
+#desc {
+	margin:unset;
+}
+

@@ -18,19 +18,15 @@ body {
     align-items: center;
 }
 
-#dettagli_background {
-	background-color: rgba(50,50,50,0.3);
-	width: 100%;
-}
-
 #dettagli_piatto {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
-    min-width: 35%;
     height: 440px;
+    background-color: rgba(50,50,50,0.3);
+    width: 100%;
 }
 
 #dettagli {
@@ -39,6 +35,15 @@ body {
 }
 
 ul {
-	list-style-type: none;
+	list-style-type: circle;
+}
+
+#ingredienti {
+	text-decoration: none;
+	color:white;
+}
+
+#ingredienti:hover {
+    color: orange;
 }
 
