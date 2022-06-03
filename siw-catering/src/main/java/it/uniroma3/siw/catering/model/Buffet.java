@@ -1,7 +1,7 @@
 package it.uniroma3.siw.catering.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -33,13 +33,13 @@ public class Buffet {
 	private Chef chef; 
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	private List<Piatto> piatti;
+	private Set<Piatto> piatti;
 
 	public Buffet() {
-		this.piatti = new ArrayList<Piatto>();
+		this.piatti = new HashSet<Piatto>();
 	}
 	
-	public Buffet(String nome, String descrizione, Chef chef, List<Piatto> piatti) {
+	public Buffet(String nome, String descrizione, Chef chef, Set<Piatto> piatti) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.chef = chef;
@@ -78,11 +78,11 @@ public class Buffet {
 		this.chef = chef;
 	}
 
-	public List<Piatto> getPiatti() {
+	public Set<Piatto> getPiatti() {
 		return this.piatti;
 	}
 
-	public void setPiatti(List<Piatto> piatti) {
+	public void setPiatti(Set<Piatto> piatti) {
 		this.piatti = piatti;
 	}
 	
