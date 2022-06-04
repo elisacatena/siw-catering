@@ -2,6 +2,7 @@ package it.uniroma3.siw.catering.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -86,13 +87,27 @@ public class Chef {
 		this.buffet = buffet;
 	}
 
-	public boolean equals(Object obj) {
-		Chef chef = (Chef)obj;
-		return this.getId().equals(chef.getId());
-	}
-
+	@Override
 	public int hashCode() {
 		return this.id.hashCode();
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Chef other = (Chef) obj;
+		return Objects.equals(id, other.id);
+	}
+
+//	public boolean equals(Object obj) {
+//		Chef chef = (Chef)obj;
+//		return this.getId().equals(chef.getId());
+//	}
+	
 	
 }

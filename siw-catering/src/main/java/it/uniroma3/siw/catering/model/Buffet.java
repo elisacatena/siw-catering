@@ -1,6 +1,7 @@
 package it.uniroma3.siw.catering.model;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -85,14 +86,33 @@ public class Buffet {
 	public void setPiatti(Set<Piatto> piatti) {
 		this.piatti = piatti;
 	}
-	
-	public boolean equals(Object obj) {
-		Buffet buffet = (Buffet)obj;
-		return this.getId().equals(buffet.getId());
-	}
 
+	@Override
 	public int hashCode() {
 		return this.id.hashCode();
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Buffet other = (Buffet) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+//	public boolean equals(Object obj) {
+//		Buffet buffet = (Buffet)obj;
+//		return this.getId().equals(buffet.getId());
+//	}
+
+//	public int hashCode() {
+//		return this.id.hashCode();
+//	}
+	
+	
 
 }
