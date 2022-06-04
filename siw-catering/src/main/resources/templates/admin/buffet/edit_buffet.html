@@ -35,7 +35,7 @@
 							<fieldset>
 								<legend>Scegli i piatti</legend>
 								<div class="checkmark" th:each="piatto: ${piatti}">
-									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" >
+									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" required>
 									<label for="${piatti}" th:text="${piatto.nome}">Nome ingredient</label>
 								</div>
 							</fieldset> 
@@ -43,7 +43,7 @@
 							<fieldset>
 								<legend>Scegli lo chef</legend>
 								<div class="checkmark" th:each="chef: ${chefs}">
-									<input type="checkbox" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}" >
+									<input type="radio" id="${chefs}" th:field="*{chef}" name="chef" th:value="${chef.id}" required>
 									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
 								</div>
 							</fieldset>  
