@@ -1,8 +1,6 @@
 body {
-	margin-left: 5em;
-    margin-right: 5em;
     -webkit-font-smoothing: antialiased;
-    width: 80%;
+    width: 100%;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
     text-align: center;
     display: flex;
