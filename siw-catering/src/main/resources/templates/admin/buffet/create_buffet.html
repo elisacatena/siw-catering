@@ -16,7 +16,7 @@
             <div id="form_wrapper">
                 <h1>Crea un nuovo buffet</h1>
                 <div id="form">
-                    <form th:action="@{/admin/buffet_management/add_buffet}" method="POST" th:object="${buffet}">
+                    <form id="sectionForm" th:action="@{/admin/buffet_management/add_buffet}" method="POST" th:object="${buffet}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
@@ -47,6 +47,10 @@
 								</div>
 							</fieldset>  
 						</div>
+						
+						<script src="/js/checkbox.js">
+						</script>
+					
 							
 						<div id="submit_wrapper">
                             <span><button class="butt" id="submit" type="submit">CREA</button></span>

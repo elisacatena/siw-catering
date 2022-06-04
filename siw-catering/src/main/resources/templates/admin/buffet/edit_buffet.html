@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> Edit piatto </title>
+        <title> Edit buffet </title>
         <link rel="stylesheet" href="/css/create_buffet.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
             <div id="form_wrapper">
                 <h1>Modifica il buffet</h1>
                 <div id="form" style="text-align: center;color: white;">
-                    <form th:action="@{/admin/buffet_management/{id}(id=${buffet.id})}" method="POST" th:object="${buffet}">
+                    <form id="sectionForm" th:action="@{/admin/buffet_management/{id}(id=${buffet.id})}" method="POST" th:object="${buffet}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
@@ -35,7 +35,7 @@
 							<fieldset>
 								<legend>Scegli i piatti</legend>
 								<div class="checkmark" th:each="piatto: ${piatti}">
-									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" required>
+									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}">
 									<label for="${piatti}" th:text="${piatto.nome}">Nome ingredient</label>
 								</div>
 							</fieldset> 
@@ -43,11 +43,14 @@
 							<fieldset>
 								<legend>Scegli lo chef</legend>
 								<div class="checkmark" th:each="chef: ${chefs}">
-									<input type="radio" id="${chefs}" th:field="*{chef}" name="chef" th:value="${chef.id}" required>
+									<input type="radio" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}">
 									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
 								</div>
 							</fieldset>  
 						</div>
+						
+						<script src="/js/checkbox.js">
+						</script>
 
 						<div id="submit_wrapper">
                             <span><button class="butt" id="submit" type="submit">CONFERMA</button></span>

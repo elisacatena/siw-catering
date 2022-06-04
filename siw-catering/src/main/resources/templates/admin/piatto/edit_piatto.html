@@ -16,7 +16,7 @@
             <div id="form_wrapper">
                 <h1>Modifica il piatto</h1>
                 <div id="form" style="text-align: center;color: white;">
-                    <form th:action="@{/admin/piatto_management/{id}(id=${piatto.id})}" method="POST" th:object="${piatto}">
+                    <form id="sectionForm" th:action="@{/admin/piatto_management/{id}(id=${piatto.id})}" method="POST" th:object="${piatto}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
@@ -39,6 +39,9 @@
 								<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingredient</label>
 							</div>
 						</fieldset>
+						
+						<script src="/js/checkbox.js">
+						</script>
 
 						<div id="submit_wrapper">
                             <span><button class="butt" id="submit" type="submit">CONFERMA</button></span>
