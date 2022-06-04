@@ -83,7 +83,7 @@ public class BuffetController {
 	public String editBuffet(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
 		if(!bindingResults.hasErrors()) {
 			Buffet buffetToUpdate = this.buffetService.findById(id);
-			buffetToUpdate.setId(buffet.getId());
+			//buffetToUpdate.setId(buffet.getId());
 			buffetToUpdate.setNome(buffet.getNome());
 			buffetToUpdate.setDescrizione(buffet.getDescrizione());
 			buffetToUpdate.setPiatti(buffet.getPiatti());
@@ -113,6 +113,7 @@ public class BuffetController {
 	public String getBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = this.buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
+		System.out.println(buffet.getPiatti().size());
 		List<Chef> chefs = this.chefService.findAll();
 		model.addAttribute("chefs", chefs);
 		List<Buffet> buffets = this.buffetService.findAll();

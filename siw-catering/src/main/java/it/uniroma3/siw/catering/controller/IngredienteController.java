@@ -18,11 +18,9 @@ import it.uniroma3.siw.catering.controller.validator.IngredienteValidator;
 import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
-import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.service.BuffetService;
 import it.uniroma3.siw.catering.service.ChefService;
 import it.uniroma3.siw.catering.service.IngredienteService;
-import it.uniroma3.siw.catering.service.PiattoService;
 
 @Controller
 public class IngredienteController {
@@ -38,9 +36,6 @@ public class IngredienteController {
 
 	@Autowired
 	private BuffetService buffetService;
-	
-	@Autowired
-	private PiattoService piattoService;
 	
 	@GetMapping("/admin/ingrediente_management")
 	public String getAllIngredienti(Model model) {
@@ -96,19 +91,15 @@ public class IngredienteController {
 	@Transactional
 	@GetMapping("/admin/ingrediente_management/delete_ingrediente/{id}")
 	public String deleteIngrediente(@PathVariable Long id, Model model) {
-		Ingrediente ingrediente = this.ingredienteService.findById(id);
-		List<Piatto> piatti = this.piattoService.findAll();
-		Boolean isInPiatto = false;
-		for(Piatto p : piatti) {
-			if(p.getIngredienti().contains(ingrediente)) isInPiatto = true;
+		String nextPage = "redirect:/admin/ingrediente_management";
+		try {
+			this.ingredienteService.deleteById(id);
+		} catch (Exception e) {
+			nextPage = "error.html";
 		}
-		System.out.println(isInPiatto.toString());
-		model.addAttribute("isInPiatto", isInPiatto);
-		this.ingredienteService.deleteById(id);
-		return "redirect:/admin/ingrediente_management";
+		return nextPage;
 	}
 	
-		
 	@GetMapping("/ingrediente/{id}")
 	public String getIngrediente(@PathVariable("id") Long id, Model model) {
 		Ingrediente ingrediente = this.ingredienteService.findById(id);
