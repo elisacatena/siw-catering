@@ -35,7 +35,7 @@
            				<fieldset>
 							<legend>Scegli gli ingredienti</legend>
 							<div class="checkmark" th:each="ingrediente: ${ingredienti}">
-								<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}" >
+								<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}" required>
 								<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingredient</label>
 							</div>
 						</fieldset>
@@ -49,7 +49,7 @@
         </div>
 		
 		<div id="back_wrapper">
-			<a th:href="@{/admin/ingrediente_management}">
+			<a th:href="@{/admin/piatto_management}">
 				<button class="butt" id="back">Back </button>
 			</a>
 		</div>

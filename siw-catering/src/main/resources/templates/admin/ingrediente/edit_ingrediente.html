@@ -34,7 +34,7 @@
                         
                         <span>Origine:</span> 
                         <div>
-							<span><input type="text" th:field="*{origine}"/></span>
+							<span><input type="text" th:field="*{origine}" required/></span>
 							<span th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></span>
 						</div>
    

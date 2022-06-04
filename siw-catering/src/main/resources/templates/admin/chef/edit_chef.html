@@ -28,12 +28,12 @@
 						
 						<span>Cognome:</span> 
 						<div class="input_form"> 
-                            <span><input type="text" th:field="*{cognome}"/></span>
+                            <span><input type="text" th:field="*{cognome}" required/></span>
 				            <span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
                         </div>
                         <span>Nazionalità:</span> 
                         <div>
-							<span><input type="text" th:field="*{nazionalita}"/></span>
+							<span><input type="text" th:field="*{nazionalita}" required/></span>
 							<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
 						</div>
    
