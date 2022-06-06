@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,8 +55,7 @@ public class PiattoController {
 		model.addAttribute("ingredienti", ingredienti);
 		return "admin/piatto/create_piatto.html";
 	}
-	
-	@Transactional
+
 	@PostMapping("/admin/piatto_management/add_piatto") 
 	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {		
 		this.piattoValidator.validate(piatto, bindingResult);
@@ -79,24 +77,21 @@ public class PiattoController {
 		return "admin/piatto/edit_piatto.html";
 	}
 	
-	@Transactional
 	@PostMapping("/admin/piatto_management/{id}")
-	public String editPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResults, Model model) {
-		if(!bindingResults.hasErrors()) {
-			Piatto piattoToUpdate = piattoService.findById(id);
-			piattoToUpdate.setId(piatto.getId());
-			piattoToUpdate.setNome(piatto.getNome());
-			piattoToUpdate.setDescrizione(piatto.getDescrizione());
-			piattoToUpdate.setIngredienti(piatto.getIngredienti());
-			this.piattoService.updatePiatto(piattoToUpdate);
-			model.addAttribute("piatto", piatto);
+	public String editPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {
+		Piatto oldPiatto = piatto;
+		this.piattoService.deleteById(id);
+		this.piattoValidator.validate(oldPiatto, bindingResult);
+		if (!bindingResult.hasErrors()){ // se i dati sono corretti
+			this.piattoService.save(oldPiatto);
+			model.addAttribute("piatto", oldPiatto);
 			return "redirect:/admin/piatto_management";
-		}
-		else
+		} 
+		else {
 			return "admin/piatto/edit_piatto.html";
+		}
 	}
 	
-	@Transactional
 	@GetMapping("/admin/piatto_management/delete_piatto/{id}")
 	public String deletePiatto(@PathVariable Long id, Model model) {
 		String nextPage = "redirect:/admin/piatto_management";

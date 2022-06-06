@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,7 +53,6 @@ public class BuffetController {
 		return "admin/buffet/create_buffet.html";
 	}
 
-	@Transactional
 	@PostMapping("/admin/buffet_management/add_buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
 		this.buffetValidator.validate(buffet, bindingResult);
@@ -78,22 +76,19 @@ public class BuffetController {
 		return "admin/buffet/edit_buffet.html";
 	}
 
-	@Transactional
 	@PostMapping("/admin/buffet_management/{id}")
-	public String editBuffet(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
-		if(!bindingResults.hasErrors()) {
-			Buffet buffetToUpdate = this.buffetService.findById(id);
-			//buffetToUpdate.setId(buffet.getId());
-			buffetToUpdate.setNome(buffet.getNome());
-			buffetToUpdate.setDescrizione(buffet.getDescrizione());
-			buffetToUpdate.setPiatti(buffet.getPiatti());
-			buffetToUpdate.setChef(buffet.getChef());
-			this.buffetService.updateBuffet(buffetToUpdate);
-			model.addAttribute("buffet", buffet);
+	public String editBuffet(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
+		Buffet oldBuffet = buffet;
+		this.buffetService.deleteById(id);
+		this.buffetValidator.validate(oldBuffet, bindingResult);
+		if (!bindingResult.hasErrors()){ // se i dati sono corretti
+			this.buffetService.save(oldBuffet);
+			model.addAttribute("buffet", oldBuffet);
 			return "redirect:/admin/buffet_management";
-		}
-		else
+		} 
+		else {
 			return "admin/buffet/edit_buffet.html";
+		}
 	}
 
 	@GetMapping("/admin/buffet_management/delete_buffet/{id}")

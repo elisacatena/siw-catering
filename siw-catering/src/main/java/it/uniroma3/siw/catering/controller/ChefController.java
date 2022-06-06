@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +44,6 @@ public class ChefController {
 		return "admin/chef/create_chef.html";
 	}
 	
-	@Transactional
 	@PostMapping("/admin/chef_management/add_chef") 
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {		
 		this.chefValidator.validate(chef, bindingResult);
@@ -65,24 +63,21 @@ public class ChefController {
 		return "admin/chef/edit_chef.html";
 	}
 	
-	@Transactional
 	@PostMapping("/admin/chef_management/{id}")
-	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
-		if(!bindingResults.hasErrors()) {
-			Chef chefToUpdate = chefService.findById(id);
-			chefToUpdate.setId(chef.getId());
-			chefToUpdate.setNome(chef.getNome());
-			chefToUpdate.setCognome(chef.getCognome());
-			chefToUpdate.setNazionalita(chef.getNazionalita());
-			this.chefService.updateChef(chefToUpdate);
-			model.addAttribute("chef", chef);
+	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
+		Chef oldChef = chef;
+		this.chefService.deleteById(id);
+		this.chefValidator.validate(oldChef, bindingResult);
+		if (!bindingResult.hasErrors()){ // se i dati sono corretti
+			this.chefService.save(oldChef);
+			model.addAttribute("chef", oldChef);
 			return "redirect:/admin/chef_management";
-		}
-		else
+		} 
+		else {
 			return "admin/chef/edit_chef.html";
+		}
 	}
 	
-	@Transactional
 	@GetMapping("/admin/chef_management/delete_chef/{id}")
 	public String deleteChef(@PathVariable Long id) {
 		this.chefService.deleteById(id);

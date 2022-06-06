@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,7 +49,6 @@ public class IngredienteController {
 		return "admin/ingrediente/create_ingrediente.html";
 	}
 	
-	@Transactional
 	@PostMapping("/admin/ingrediente_management/add_ingrediente") 
 	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {		
 		this.ingredienteValidator.validate(ingrediente, bindingResult);
@@ -71,24 +69,21 @@ public class IngredienteController {
 		return "admin/ingrediente/edit_ingrediente.html";
 	}
 	
-	@Transactional
 	@PostMapping("/admin/ingrediente_management/{id}")
-	public String editIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResults, Model model) {
-		if(!bindingResults.hasErrors()) {
-			Ingrediente ingredienteToUpdate = ingredienteService.findById(id);
-			ingredienteToUpdate.setId(ingrediente.getId());
-			ingredienteToUpdate.setNome(ingrediente.getNome());
-			ingredienteToUpdate.setOrigine(ingrediente.getOrigine());
-			ingredienteToUpdate.setDescrizione(ingrediente.getDescrizione());
-			this.ingredienteService.updateIngrediente(ingredienteToUpdate);
-			model.addAttribute("ingrediente", ingrediente);
+	public String editIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
+		Ingrediente oldIngrediente = ingrediente;
+		this.ingredienteService.deleteById(id);
+		this.ingredienteValidator.validate(oldIngrediente, bindingResult);
+		if (!bindingResult.hasErrors()){ // se i dati sono corretti
+			this.ingredienteService.save(oldIngrediente);
+			model.addAttribute("ingrediente", oldIngrediente);
 			return "redirect:/admin/ingrediente_management";
-		}
-		else
+		} 
+		else {
 			return "admin/ingrediente/edit_ingrediente.html";
+		}
 	}
 	
-	@Transactional
 	@GetMapping("/admin/ingrediente_management/delete_ingrediente/{id}")
 	public String deleteIngrediente(@PathVariable Long id, Model model) {
 		String nextPage = "redirect:/admin/ingrediente_management";
