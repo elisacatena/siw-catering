@@ -42,8 +42,4 @@ public class IngredienteService {
 		this.ingredienteRepository.deleteById(id);
 	}
 
-	@Transactional
-	public Ingrediente updateIngrediente(Ingrediente ingrediente) {
-		return this.ingredienteRepository.save(ingrediente);
-	}
 }

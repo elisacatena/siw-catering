@@ -51,9 +51,5 @@ public class BuffetService {
 		this.buffetRepository.deleteById(id);
 	}
 
-	@Transactional
-	public Buffet updateBuffet(Buffet buffet) {
-		return this.buffetRepository.save(buffet);
-	}
  }
 
