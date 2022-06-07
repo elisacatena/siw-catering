@@ -135,3 +135,9 @@ fieldset {
 legend {
     color: bisque;
 }
+
+input {
+	border-radius: 4px;
+    border: solid;
+    border-color: burlywood;
+}

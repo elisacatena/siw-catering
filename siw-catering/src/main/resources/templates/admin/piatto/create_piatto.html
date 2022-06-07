@@ -14,7 +14,7 @@
             <div id="img_wrapper">
             </div>
             <div id="form_wrapper">
-                <h1>Crea un nuovo piatto</h1>
+                <h1>inserisci un nuovo piatto</h1>
                 <div id="form">
                     <form id="sectionForm" th:action="@{/admin/piatto_management/add_piatto}" method="POST" th:object="${piatto}">
 						<div th:if="${#fields.hasGlobalErrors()}">

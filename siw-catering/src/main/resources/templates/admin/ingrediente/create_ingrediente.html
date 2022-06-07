@@ -14,7 +14,7 @@
             <div id="img_wrapper">
             </div>
             <div id="form_wrapper">
-                <h1>Crea un nuovo ingrediente</h1>
+                <h1>Inserisci un nuovo ingrediente</h1>
                 <div id="form">
                     <form th:action="@{/admin/ingrediente_management/add_ingrediente}" method="POST" th:object="${ingrediente}">
 						<div th:if="${#fields.hasGlobalErrors()}">

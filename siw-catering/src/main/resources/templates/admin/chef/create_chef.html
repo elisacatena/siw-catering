@@ -14,7 +14,7 @@
             <div id="img_wrapper">
             </div>
             <div id="form_wrapper">
-                <h1>Crea un nuovo chef</h1>
+                <h1>Inserisci un nuovo chef</h1>
                 <div id="form">
                     <form th:action="@{/admin/chef_management/add_chef}" method="POST" th:object="${chef}">
 						<div th:if="${#fields.hasGlobalErrors()}">
