@@ -16,22 +16,27 @@
 		<header id="Navigator" th:fragment = "navigator">
 			<nav>
 			    <div>
-		            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">Home</a>
+		            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">HOME</a>
 			    </div>
 	
 			  	<div class="dropdown">
-			    	<button class="dropbtn"> Chef</button>
+			    	<button class="dropbtn"> CHEF</button>
 			     	<div class="dropdown-content">
 	                	<a th:each="chef : ${chefs}" th:href="@{'/chef' + '/' + ${chef.id}}" th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
 					</div> 	
 			    </div>
 			
 			    <div class="dropdown">
-			        <button class="dropbtn">Buffet</button>
+			        <button class="dropbtn">BUFFET</button>
 		            <div class="dropdown-content">
 		            	<a th:each="buffet : ${buffets}" th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}">Nome Buffet</a>		
 			       	</div> 
 		        </div>
+		        
+		        <div>
+		            <a class="dropbtn" th:href="@{/contatti}" style="text-decoration:none;color:black">CONTATTI</a>
+			    </div>
+		        
 		  	</nav>
         </header>
         

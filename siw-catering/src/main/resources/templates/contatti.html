@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+        <title> Catering Roma </title>
+        <link href="/css/contatti.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="/images/favicons/catering_favicon.png">
+    </head>
+
+    <body>
+    
+		<header th:replace="fragments/base.html :: navigator">
+		</header> 
+		
+		<div id="mappa">
+		<iframe id="egooglemap" style="border:0;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="400" 
+				src="https://maps.google.com/maps?q=Viale%20di%20Trastevere%20150,%20Roma&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+        
+        <div id="contatti_wrapper">
+        	<div id="contatti">
+        		<h1>CONTATTI</h1>
+        		<div id="details_wrapper">
+        			<div class="info">
+        			  📞 tel: 38402384
+        			</div>
+        			<div class="info" id="info"></div>		
+        			<div class="info">
+        			   📨 email: ekndsklmer
+        			</div>
+        		</div>
+        	</div>
+        	<div id="orari">
+	        		Dal martedì alla domenica solo su appuntamento: dalle 9:00 alle 13:00 e dalle 15:00 alle 20.00
+					<br>LUNEDI <span>I nostri uffici sono chiusi al pubblico, ma il servizio catering è sempre attivo.</span>
+				</div>
+        </div>
+        
+        <footer th:replace="fragments/base.html :: footer"></footer> 
+
+
+    </body>
+</html>

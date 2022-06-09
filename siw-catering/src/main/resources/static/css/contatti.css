@@ -1,0 +1,52 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+    width: 100%;
+      font-family: 'Montserrat', sans-serif;
+}
+
+#mappa {
+	margin:2%;
+}
+
+#contatti_wrapper {
+	margin:3%;
+}
+
+#contatti {
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 50%;
+    text-align: center;
+}
+
+#details_wrapper {
+	display: flex;
+	height: 21%;
+}
+
+.info {
+	width: 34%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size:medium;
+}
+
+#info {
+	background-image: url("/images/contatti.png");
+	background-size: cover;
+	background-position: center;
+}
+
+#orari {
+	text-align: center;
+    margin-top: 2%;
+}
+
+span {
+	font-style: italic;
+}

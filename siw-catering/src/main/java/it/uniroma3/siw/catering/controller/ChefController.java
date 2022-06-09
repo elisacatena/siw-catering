@@ -101,14 +101,5 @@ public class ChefController {
 		return "chef.html";
 	}
 	
-	/* richiede tutti gli chef */
-	@GetMapping("/")
-	public String getAllChef(Model model) {
-		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs);
-		List<Buffet> buffets = this.buffetService.findAll();
-		model.addAttribute("buffets", buffets);
-		return "/index";
-	}
-
+	
 }
