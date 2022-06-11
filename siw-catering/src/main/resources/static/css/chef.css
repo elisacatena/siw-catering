@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
     width: 100%;
+    background-image: url("/images/sfondo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .chef_wrapper {
@@ -16,12 +19,12 @@ body {
     min-height: 440px;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
      align-items: center;
+     margin-top: 6.5%;
 }
 
 #dettagli_chef {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     color: white;
     background-color: rgba(50,50,50,0.3);
@@ -29,11 +32,17 @@ body {
     height: 440px;
 }
 
+#content {
+	padding-bottom: 11%;
+    padding-left: 1%;
+    width: 40%;
+    font-size: 35px;
+}
+
 #buffet_wrapper {
 	display: flex;
 	flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: white;
 }
 
 #menu_wrapper {

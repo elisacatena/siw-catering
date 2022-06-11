@@ -13,10 +13,14 @@
 
 	<body>
 	
-		<header id="Navigator" th:fragment = "navigator">
+		<header th:fragment = "navigator">
 			<nav>
-			    <div>
-		            <a class="dropbtn" th:href="@{/}" style="text-decoration:none;color:#f2c01a">HOME</a>
+			    <div class="link">
+		            <a class="dropbtn" th:href="@{/}" id="home">HOME</a>
+		        </div>
+			    
+			    <div class="link">
+		            <a class="dropbtn" th:href="@{/chi-siamo}">CHI SIAMO</a>
 			    </div>
 	
 			  	<div class="dropdown">
@@ -63,7 +67,8 @@
 	            <div class="foot">
 	                <h2>Orari di apertura</h2>
 	                <div class="informazioni">
-	                    <p>Puoi contattarci in qualsiasi momento tramite mail o direttamente chiamando il numero in questo sito.</p>
+	                    <p>Puoi contattarci in qualsiasi momento tramite mail oppure chiamando nei giorni indicati in
+	                    <a th:href="@{/contatti}">questa pagina</a>.</p>
 	              
 	                </div>
 	            </div>

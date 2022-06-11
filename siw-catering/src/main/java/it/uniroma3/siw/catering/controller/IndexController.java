@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import it.uniroma3.siw.catering.controller.validator.ChefValidator;
 import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.service.BuffetService;
@@ -39,6 +38,15 @@ public class IndexController {
 		List<Buffet> buffets = this.buffetService.findAll();
 		model.addAttribute("buffets", buffets);
 		return "/contatti";
+	}
+	
+	@GetMapping("/chi-siamo")
+	public String getChiSiamo(Model model) {
+		List<Chef> chefs = this.chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		List<Buffet> buffets = this.buffetService.findAll();
+		model.addAttribute("buffets", buffets);
+		return "/chi_siamo";
 	}
 
 }

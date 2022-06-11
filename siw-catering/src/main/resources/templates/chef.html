@@ -11,23 +11,10 @@
         
         <div class="chef_wrapper">
 			<div id="dettagli_chef">
-				<h1> Dettagli chef</h1>
-				<div>
-					<ul>
-						<li>
-							<strong> Nome: </strong>
-							<span th:text="${chef.nome}"> Bruno</span>
-						</li>
-						<li>
-							<strong> Cognome: </strong>
-							<span th:text="${chef.cognome}"> Barbieri</span>
-						</li>
-						<li>
-							<strong> Nazionalità: </strong>
-							<span  th:text="${chef.nazionalita}"> Italiana</span>
-						</li>
-					</ul>
-				</div>
+	            <div id="content">
+	                SCOPRI I BUFFET DELLO CHEF <br>
+					<strong th:text="${chef.nome} +' '+${chef.cognome}"> Bruno</strong>
+	            </div>
 			</div>
 		</div>
 			

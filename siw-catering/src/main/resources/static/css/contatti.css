@@ -1,39 +1,58 @@
 body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
-    width: 100%;
-      font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	background-image: url("/images/sfondo.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #mappa {
-	margin:2%;
+	margin-top:6.3%;
 }
 
 #contatti_wrapper {
-	margin:3%;
+	margin: 3%;
 }
 
 #contatti {
 	margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 50%;
-    text-align: center;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 50%;
+	text-align: center;
 }
 
 #details_wrapper {
 	display: flex;
-	height: 21%;
+	height: 18%;
 }
 
 .info {
 	width: 34%;
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	font-size: medium;
+}
+
+#separator {
+	display: flex;
+    flex-direction: column;
+}
+
+.sep {
+	background-color: darkseagreen;
     height: 100%;
-    font-size:medium;
+    width: 2%;
+}
+
+#tratto {
+	color:darkseagreen;
+	font-weight: 900;
 }
 
 #info {
@@ -42,11 +61,37 @@ body {
 	background-position: center;
 }
 
-#orari {
-	text-align: center;
-    margin-top: 2%;
-}
-
 span {
 	font-style: italic;
+}
+
+#tabella_orari {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
+}
+
+#tabella {
+	width: 30%;
+	margin-top: 2%;
+}
+
+.giorno {
+	display: flex;
+    padding: 2%;
+    justify-content: space-between;
+    border-bottom: solid;
+    border-bottom-style: dotted;
+    font-style:italic;
+    font-family: 'Merriweather', serif;
+    font-size: larger;
+}
+
+.giorno_sett {
+    width: 50%;
+}
+
+h1{
+	text-align: center;
 }

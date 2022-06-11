@@ -9,7 +9,11 @@
 
     <body>
 		<header th:replace="fragments/base.html :: navigator"></header> 
-			
+		
+		<div id="info">
+			<h1>SCOPRI DI PIÙ SUL NOSTRO <strong> Buffet </strong><strong th:text="' '+${buffet.nome}"></strong>
+			</h1>
+		</div>
 		<div id="buffet_wrapper">
         	<div id="menu_wrapper">
 	        	<div id="menu_desc"> 

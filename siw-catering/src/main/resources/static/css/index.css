@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	width: 100%;
+	background-image: url("/images/sfondo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #amm {
@@ -12,10 +15,7 @@ body {
 	color: black;
 }
 
-@import
-	url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap')
-	;
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 #Intro_wrapper {
 	background-image: url("/images/home.png");
 	height: fit-content;
@@ -26,7 +26,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	color: white;
 	font-size: 40;
-	min-height: 440px;
+	margin-top: 6.5%;
 }
 
 #title {
@@ -41,7 +41,6 @@ body {
 }
 
 #main_content {
-	background-color: white;
 	justify-content: center;
 	display: flex;
 	align-items: center;

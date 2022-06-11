@@ -2,6 +2,24 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
     width: 100%;
+    background-image: url("/images/sfondo.jpg");
+     background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#info {
+	margin-top: 6.5%;
+}
+
+#info h1 {
+	text-align: center;
+    padding-top: 2%;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+#info strong {
+	font-style: italic;
+	color: green;
 }
 
 #buffet_wrapper {
