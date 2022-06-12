@@ -33,7 +33,7 @@ public class Buffet {
 	@ManyToOne
 	private Chef chef; 
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<Piatto> piatti;
 
 	public Buffet() {

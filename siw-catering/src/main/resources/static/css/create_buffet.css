@@ -4,6 +4,10 @@ body {
     width: 100%;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
     margin-top: 2em;
+    background-image: url("/images/sfondo_admin.png");
+    background-repeat: repeat;
+    background-size: inherit;
+	background-attachment: fixed;
 }
 
 h1 {
@@ -85,7 +89,9 @@ legend {
 }
 
 #checkmark_wrapper {
-	display:flex;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #back_wrapper {
@@ -129,7 +135,11 @@ legend {
 fieldset {
 	border-color: white;
 	border-style: dotted;
-	border-radius: 4.6%;
+	border-radius: 10px;
+	display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+	margin-bottom: 3%;
 }
 
 legend {

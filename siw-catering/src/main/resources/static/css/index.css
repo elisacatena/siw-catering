@@ -3,8 +3,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	width: 100%;
 	background-image: url("/images/sfondo.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #amm {
@@ -15,7 +15,10 @@ body {
 	color: black;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap')
+	;
+
 #Intro_wrapper {
 	background-image: url("/images/home.png");
 	height: fit-content;
@@ -30,14 +33,14 @@ body {
 }
 
 #title {
-	padding-top: 2em;
-	padding-left: 2em;
+	padding-top: 6.3%;
+	padding-left: 6%;
 }
 
 #content {
-	padding-top: 1em;
-	padding-bottom: 1em;
-	padding-left: 2em;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-left: 6%;
 }
 
 #main_content {
@@ -51,7 +54,7 @@ body {
 }
 
 p {
-	margin: 0 0 15px;
+	margin: 0 0 1.5%;
 }
 
 #content1 {
@@ -92,7 +95,6 @@ span {
 	height: 50%;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 3%;
 }
 
 .wrap {
@@ -100,64 +102,55 @@ span {
 }
 
 .column {
-    margin: 0 1% 40px;
-    text-align: center;
+	margin: 0 1% 13%;
+	text-align: center;
 }
 
 .zoom_box {
-    position: relative;
-    line-height: 0;
-    overflow: hidden;
-    display: inline-block;
-    max-width: 100%;
+	position: relative;
+	line-height: 0;
+	overflow: hidden;
+	display: inline-block;
+	max-width: 100%;
 }
 
 .photo {
-	height:60%;
+	height: 60%;
 }
 
 .photo img {
-	height:418px;
-	width:auto;
+	height: 418px;
+	width: auto;
 }
+
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(0,0,0,.8);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: rgba(0, 0, 0, .8);
 }
 
 .photo:hover .overlay {
-  opacity: 1;
+	opacity: 1;
 }
 
 .text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
- 
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 }
 
 .text p {
-	padding:6%;
+	padding: 6%;
 	font-size: larger;
 }
-
-
-
-
-
-
-
-
-

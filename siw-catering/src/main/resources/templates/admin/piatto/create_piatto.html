@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title> Crea nuovo piatto </title>
+        <title> Inserisci un nuovo piatto </title>
         <link rel="stylesheet" href="/css/create_piatto.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
             <div id="img_wrapper">
             </div>
             <div id="form_wrapper">
-                <h1>inserisci un nuovo piatto</h1>
+                <h1>Inserisci un nuovo piatto</h1>
                 <div id="form">
                     <form id="sectionForm" th:action="@{/admin/piatto_management/add_piatto}" method="POST" th:object="${piatto}">
 						<div th:if="${#fields.hasGlobalErrors()}">
@@ -42,7 +42,7 @@
 						</script>
 						                   
 						<div id="submit_wrapper">
-                            <span><button class="butt" id="submit" type="submit">CREA</button></span>
+                            <span><button class="butt" id="submit" type="submit">INSERISCI</button></span>
                         </div>
                     </form>
                 </div>

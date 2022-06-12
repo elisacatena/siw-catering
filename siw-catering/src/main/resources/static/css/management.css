@@ -3,6 +3,10 @@ body {
 	-webkit-font-smoothing: antialiased;
     width: 100%;
     font-family: "Montserrat", Arial, Tahoma, sans-serif;
+    background-image: url("/images/sfondo_admin.png");
+    background-repeat: repeat;
+    background-size: inherit;
+    background-attachment: fixed;
 }
 
 header {
@@ -14,7 +18,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     height: fit-content;
-    width: 600px;
+    width: 80%;
 }
 
 th {
@@ -22,6 +26,10 @@ th {
     padding-bottom: 12px;
     background-color: lightpink;
     color: white;
+}
+
+tr {
+	 background-color: white;
 }
 
 td, th {
@@ -116,3 +124,10 @@ tr:hover {
     color: white;
 }
 
+#op {
+	width: 15%;
+}
+
+#op1 {
+	width: 20%;
+}

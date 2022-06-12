@@ -3,11 +3,14 @@ body {
 	-webkit-font-smoothing: antialiased;
 	width: 100%;
 	background-image: url("/images/sfondo.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap')
+	;
+
 #Intro_wrapper {
 	background-image: url("/images/salad.jpg");
 	height: fit-content;
@@ -22,9 +25,9 @@ body {
 #intro_background {
 	background-color: rgba(50, 50, 50, 0.3);
 	height: fit-content;
-    min-height: 440px;
-    display: flex;
-    align-items: center;
+	min-height: 440px;
+	display: flex;
+	align-items: center;
 }
 
 #title {
@@ -32,40 +35,40 @@ body {
 }
 
 #content {
-	padding:4%;
+	padding: 4%;
 	font-family: sans-serif;
 	font-size: large;
 }
 
 #section_wrapper {
-	margin:0% 10% 1% 10%;
+	margin: 0% 10% 1% 10%;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .prop {
 	width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:2%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2%;
 }
 
 .desc {
 	width: 90%;
-    font-size: medium;
-    text-align: center;
-    font-family: Arial, Tahoma, sans-serif;
+	font-size: medium;
+	text-align: center;
+	font-family: Arial, Tahoma, sans-serif;
 }
 
 .icon {
 	height: 100px;
-    width: 100px;
-    background-repeat: no-repeat;
-    /* background-size: auto; */
-    background-position: center;
-    border: solid;
-    border-radius: 50%;
+	width: 100px;
+	background-repeat: no-repeat;
+	/* background-size: auto; */
+	background-position: center;
+	border: solid;
+	border-radius: 50%;
 }
 
 #icon1 {
@@ -100,4 +103,3 @@ body {
 #icon8 {
 	background-image: url("/images/handshake.png");
 }
-
