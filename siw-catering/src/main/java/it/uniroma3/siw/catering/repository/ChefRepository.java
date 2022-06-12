@@ -8,6 +8,6 @@ import it.uniroma3.siw.catering.model.Chef;
 @Repository
 public interface ChefRepository extends CrudRepository<Chef, Long> {
 
-	public boolean existsByNome(String nome);
+	public boolean existsByNomeAndCognomeAndNazionalita(String nome, String cognome, String nazionalita);
 	
 }

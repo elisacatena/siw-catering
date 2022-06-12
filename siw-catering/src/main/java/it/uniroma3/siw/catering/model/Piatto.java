@@ -29,7 +29,7 @@ public class Piatto {
 	@NotNull
 	private String descrizione;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<Ingrediente> ingredienti;
 
 	public Piatto() {

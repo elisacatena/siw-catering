@@ -64,13 +64,10 @@ public class ChefController {
 	}
 	
 	@PostMapping("/admin/chef_management/{id}")
-	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
-		Chef oldChef = chef;
-		this.chefService.deleteById(id);
-		this.chefValidator.validate(oldChef, bindingResult);
+	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {		
+		this.chefValidator.validate(chef, bindingResult);
 		if (!bindingResult.hasErrors()){ // se i dati sono corretti
-			this.chefService.save(oldChef);
-			model.addAttribute("chef", oldChef);
+			this.chefService.save(chef);
 			return "redirect:/admin/chef_management";
 		} 
 		else {

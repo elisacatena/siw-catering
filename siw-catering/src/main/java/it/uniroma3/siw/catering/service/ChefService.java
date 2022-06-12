@@ -33,8 +33,9 @@ public class ChefService {
 		return chef;
 	}
 	
-	public boolean alreadyExists(Chef chef) {
-		return this.chefRepository.existsByNome(chef.getNome());
+	public boolean alreadyExistsByNomeAndCognomeAndNazionalita(Chef chef) {
+		return this.chefRepository.existsByNomeAndCognomeAndNazionalita(chef.getNome(), 
+				chef.getCognome(), chef.getNazionalita());
 	}
 	
 	@Transactional

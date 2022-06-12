@@ -71,12 +71,9 @@ public class IngredienteController {
 	
 	@PostMapping("/admin/ingrediente_management/{id}")
 	public String editIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
-		Ingrediente oldIngrediente = ingrediente;
-		this.ingredienteService.deleteById(id);
-		this.ingredienteValidator.validate(oldIngrediente, bindingResult);
+		this.ingredienteValidator.validate(ingrediente, bindingResult);
 		if (!bindingResult.hasErrors()){ // se i dati sono corretti
-			this.ingredienteService.save(oldIngrediente);
-			model.addAttribute("ingrediente", oldIngrediente);
+			this.ingredienteService.save(ingrediente);
 			return "redirect:/admin/ingrediente_management";
 		} 
 		else {
