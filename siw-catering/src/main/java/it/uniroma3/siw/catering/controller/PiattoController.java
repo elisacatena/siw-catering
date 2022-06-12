@@ -77,19 +77,49 @@ public class PiattoController {
 		return "admin/piatto/edit_piatto.html";
 	}
 	
+//	@PostMapping("/admin/piatto_management/{id}")
+//	public String editPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {
+//		Piatto oldPiatto = piatto;
+//		this.piattoService.deleteById(id);
+//		this.piattoValidator.validate(oldPiatto, bindingResult);
+//		if (!bindingResult.hasErrors()){ // se i dati sono corretti
+//			this.piattoService.save(oldPiatto);
+//			model.addAttribute("piatto", oldPiatto);
+//			return "redirect:/admin/piatto_management";
+//		} 
+//		else {
+//			return "admin/piatto/edit_piatto.html";
+//		}
+//	}
+	
 	@PostMapping("/admin/piatto_management/{id}")
 	public String editPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {
-		Piatto oldPiatto = piatto;
-		this.piattoService.deleteById(id);
-		this.piattoValidator.validate(oldPiatto, bindingResult);
-		if (!bindingResult.hasErrors()){ // se i dati sono corretti
-			this.piattoService.save(oldPiatto);
-			model.addAttribute("piatto", oldPiatto);
-			return "redirect:/admin/piatto_management";
-		} 
-		else {
-			return "admin/piatto/edit_piatto.html";
+		this.piattoValidator.validate(piatto, bindingResult);
+		Piatto piattoVecchio = this.piattoService.findById(id);
+		boolean verificato = false;
+		System.out.println("GUARDAAAAAAAAAAA" + piatto.getIngredienti().size());
+		if(piatto.getIngredienti().size() == 0) {
+			verificato = piattoVecchio.getIngredienti().size() > 0;
 		}
+		else if(piatto.getIngredienti().size()==piattoVecchio.getIngredienti().size()) {
+			for(Ingrediente ingrediente : piatto.getIngredienti()) {
+				System.out.println(ingrediente.getNome());
+				if(!piattoVecchio.getIngredienti().contains(ingrediente)) {
+					verificato=true;
+					break; 
+				}
+			}
+		}
+		else 
+			verificato=true;
+
+		if(verificato|| !bindingResult.hasErrors()) {
+
+			this.piattoService.save(piatto);
+			return "redirect:/admin/piatto_management";
+		}
+		model.addAttribute("ingredienti", this.ingredienteService.findAll());
+		return "admin/piatto/edit_piatto.html";
 	}
 	
 	@GetMapping("/admin/piatto_management/delete_piatto/{id}")

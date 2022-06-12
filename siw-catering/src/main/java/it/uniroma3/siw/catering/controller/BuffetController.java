@@ -78,17 +78,32 @@ public class BuffetController {
 
 	@PostMapping("/admin/buffet_management/{id}")
 	public String editBuffet(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
-		Buffet oldBuffet = buffet;
-		this.buffetService.deleteById(id);
-		this.buffetValidator.validate(oldBuffet, bindingResult);
-		if (!bindingResult.hasErrors()){ // se i dati sono corretti
-			this.buffetService.save(oldBuffet);
-			model.addAttribute("buffet", oldBuffet);
-			return "redirect:/admin/buffet_management";
-		} 
-		else {
-			return "admin/buffet/edit_buffet.html";
+		this.buffetValidator.validate(buffet, bindingResult);
+		Buffet buffetVecchio = this.buffetService.findById(id);
+		boolean verificato = false;
+		if(buffet.getPiatti().size() == 0) {
+			verificato = buffetVecchio.getPiatti().size() > 0;
 		}
+		else if(buffet.getPiatti().size()==buffetVecchio.getPiatti().size()) {
+			for(Piatto piatto : buffet.getPiatti()) {
+				System.out.println(buffet.getNome());
+				if(!buffetVecchio.getPiatti().contains(piatto)) {
+					verificato=true;
+					break; 
+				}
+			}
+		}
+		else 
+			verificato=true;
+
+		if(verificato || buffetVecchio.getChef()!=buffet.getChef()|| !bindingResult.hasErrors()) {
+			this.buffetService.save(buffet);
+			return "redirect:/admin/buffet_management";
+		}
+		
+		model.addAttribute("piatti", this.piattoService.findAll());
+		model.addAttribute("chefs", this.chefService.findAll());
+		return "admin/buffet/edit_buffet.html";
 	}
 
 	@GetMapping("/admin/buffet_management/delete_buffet/{id}")
