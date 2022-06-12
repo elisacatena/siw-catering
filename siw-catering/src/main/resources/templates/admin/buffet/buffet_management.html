@@ -33,7 +33,9 @@
 			 		<a th:href="@{/admin/buffet_management/edit_buffet/{id}(id=${buffet.id})}">
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
-					<a th:href="@{/admin/buffet_management/delete_buffet/{id}(id=${buffet.id})}">
+					<a th:href="@{/admin/buffet_management/delete_buffet/{id}(id=${buffet.id})}"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare il buffet ${buffet.nome}?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
 						<button class="butt" id="delete">Delete </button>
 					</a>
 					<a th:href="@{/admin/buffet_management/buffet_details/{id}(id=${buffet.id})}">
