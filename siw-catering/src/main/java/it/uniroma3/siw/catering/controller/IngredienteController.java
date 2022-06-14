@@ -83,13 +83,8 @@ public class IngredienteController {
 	
 	@GetMapping("/admin/ingrediente_management/delete_ingrediente/{id}")
 	public String deleteIngrediente(@PathVariable Long id, Model model) {
-		String nextPage = "redirect:/admin/ingrediente_management";
-		try {
-			this.ingredienteService.deleteById(id);
-		} catch (Exception e) {
-			nextPage = "error.html";
-		}
-		return nextPage;
+		this.ingredienteService.deleteById(id);
+		return "redirect:/admin/ingrediente_management";
 	}
 	
 	@GetMapping("/ingrediente/{id}")
