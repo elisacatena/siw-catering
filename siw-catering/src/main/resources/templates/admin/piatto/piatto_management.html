@@ -33,7 +33,14 @@
 			 		<a th:href="@{/admin/piatto_management/edit_piatto/{id}(id=${piatto.id})}">
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
-					<a th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}"
+					<div class="tooltip">
+						<a th:if="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
+							<button class="butt delete_tooltip" id="delete">Delete </button>
+						</a>
+						<span class="tooltiptext">Il piatto <span id="nome" th:text="${piatto.nome}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+					</div>
+					
+					<a th:unless="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}"
 						th:data-confirm-delete="|Sei sicuro di voler eliminare il piatto ${piatto.nome}?|"
 						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
 						<button class="butt" id="delete">Delete </button>

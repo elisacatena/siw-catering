@@ -124,13 +124,24 @@ public class PiattoController {
 	
 	@GetMapping("/admin/piatto_management/delete_piatto/{id}")
 	public String deletePiatto(@PathVariable Long id, Model model) {
-		String nextPage = "redirect:/admin/piatto_management";
-		try {
-			this.piattoService.deleteById(id);
-		} catch (Exception e) {
-			nextPage = "error.html";
+		boolean presenteInBuffet = false;
+		Piatto piatto = this.piattoService.findById(id);
+		for(Buffet b : this.buffetService.findAll()) {
+			if(b.getPiatti().contains(piatto)) {
+				presenteInBuffet = true;
+				break;
+			}
 		}
-		return nextPage;
+		model.addAttribute("p", piatto);
+		if(!presenteInBuffet) {
+			this.piattoService.deleteById(id);
+			return "redirect:/admin/piatto_management";
+		}
+		else {
+			model.addAttribute("piatti", this.piattoService.findAll());
+			return "/admin/piatto/piatto_management";
+		}
+		
 	}
 	
 	@GetMapping("/admin/piatto_management/piatto_details/{id}")

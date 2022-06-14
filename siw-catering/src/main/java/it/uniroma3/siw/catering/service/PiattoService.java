@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.uniroma3.siw.catering.model.Ingrediente;
 import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.repository.PiattoRepository;
 
@@ -35,7 +34,7 @@ public class PiattoService {
 	}
 	
 	public boolean alreadyExists(Piatto piatto) {
-		return this.piattoRepository.existsByNome(piatto.getNome());
+		return this.piattoRepository.existsByNomeAndDescrizione(piatto.getNome(), piatto.getDescrizione());
 	}
 	
 	@Transactional
@@ -48,7 +47,5 @@ public class PiattoService {
 		return this.piattoRepository.save(piatto);
 	}
 	
-	public List<Ingrediente> findAllIngredientiById(Long idP) {
-		return this.piattoRepository.findAllIngredientiById(idP);
-	}
+	
 }

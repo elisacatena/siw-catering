@@ -17,9 +17,11 @@ import it.uniroma3.siw.catering.controller.validator.IngredienteValidator;
 import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
+import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.service.BuffetService;
 import it.uniroma3.siw.catering.service.ChefService;
 import it.uniroma3.siw.catering.service.IngredienteService;
+import it.uniroma3.siw.catering.service.PiattoService;
 
 @Controller
 public class IngredienteController {
@@ -35,6 +37,9 @@ public class IngredienteController {
 
 	@Autowired
 	private BuffetService buffetService;
+	
+	@Autowired
+	private PiattoService piattoService;
 	
 	@GetMapping("/admin/ingrediente_management")
 	public String getAllIngredienti(Model model) {
@@ -83,8 +88,24 @@ public class IngredienteController {
 	
 	@GetMapping("/admin/ingrediente_management/delete_ingrediente/{id}")
 	public String deleteIngrediente(@PathVariable Long id, Model model) {
-		this.ingredienteService.deleteById(id);
-		return "redirect:/admin/ingrediente_management";
+		boolean presenteInPiatto = false;
+		Ingrediente ingrediente = this.ingredienteService.findById(id);
+		for(Piatto p : this.piattoService.findAll()) {
+			if(p.getIngredienti().contains(ingrediente)) {
+				presenteInPiatto = true;
+				break;
+			}
+		}
+		model.addAttribute("ingr", ingrediente);
+		if(!presenteInPiatto) {
+			this.ingredienteService.deleteById(id);
+			return "redirect:/admin/ingrediente_management";
+		}
+		else {
+			List<Ingrediente> ingredienti = this.ingredienteService.findAll();
+			model.addAttribute("ingredienti", ingredienti);
+			return "/admin/ingrediente/ingrediente_management";
+		}
 	}
 	
 	@GetMapping("/ingrediente/{id}")
