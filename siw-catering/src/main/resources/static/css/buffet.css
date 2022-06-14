@@ -69,3 +69,8 @@ ul {
 #piatto:hover {
 	color: green;
 }
+
+.virgolette {
+	color: green;
+    font-style: italic;
+}
