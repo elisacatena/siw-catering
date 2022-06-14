@@ -35,7 +35,7 @@ public class BuffetService {
 	}
 	
 	public boolean alreadyExists(Buffet buffet) {
-		return this.buffetRepository.existsByNome(buffet.getNome());
+		return this.buffetRepository.existsByNomeAndDescrizione(buffet.getNome(), buffet.getDescrizione());
 	}
 
 	public List<Buffet> findAllByChef(Chef chef) {
