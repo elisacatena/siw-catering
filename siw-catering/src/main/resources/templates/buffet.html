@@ -11,7 +11,7 @@
 		<header th:replace="fragments/base.html :: navigator"></header> 
 		
 		<div id="info">
-			<h1>SCOPRI DI PIÙ SUL NOSTRO <strong> Buffet </strong><strong th:text="' '+${buffet.nome}"></strong>
+			<h1>SCOPRI DI PIÙ SUL NOSTRO <strong> Buffet  </strong> <span class="virgolette">"</span><strong th:text="${buffet.nome}"></strong><span class="virgolette">"</span>              
 			</h1>
 		</div>
 		<div id="buffet_wrapper">
