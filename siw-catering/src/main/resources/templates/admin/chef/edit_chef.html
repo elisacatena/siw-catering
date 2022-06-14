@@ -24,18 +24,15 @@
 						<span>Nome:</span> 
                         <div class="input_form"> 
                             <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
-							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
                         </div>
 						
 						<span>Cognome:</span> 
 						<div class="input_form"> 
                             <span><input type="text" th:field="*{cognome}" required/></span>
-				            <span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
                         </div>
                         <span>Nazionalità:</span> 
                         <div>
 							<span><input type="text" th:field="*{nazionalita}" required/></span>
-							<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
 						</div>
    
 						<div id="submit_wrapper">

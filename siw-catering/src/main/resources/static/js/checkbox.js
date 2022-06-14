@@ -23,7 +23,7 @@
 							    }
 	
 							    function checkValidity() {
-							        const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+							        const errorMessage = !isChecked() ? 'Seleziona almeno una di queste opzioni.' : '';
 							        firstCheckbox.setCustomValidity(errorMessage);
 							    }
 	

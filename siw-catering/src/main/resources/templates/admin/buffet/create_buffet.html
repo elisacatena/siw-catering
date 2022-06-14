@@ -23,12 +23,10 @@
 						</div>
                         <div class="input_form"> 
                             <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
-							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
                         </div>
 
 						<div class="input_form"> 
                             <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
-							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                         </div>
                         
                        <div id="checkmark_wrapper">
@@ -43,7 +41,7 @@
 							<fieldset>
 								<legend>Scegli lo chef</legend>
 								<div class="checkmark" th:each="chef: ${chefs}">
-									<input type="radio" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}">
+									<input type="radio" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}" required>
 									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
 								</div>
 							</fieldset>  

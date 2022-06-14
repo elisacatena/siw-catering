@@ -24,19 +24,16 @@
 						<span>Nome:</span> 
                         <div class="input_form"> 
                             <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
-							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
                         </div>
 						
 						<span>Descrizione:</span> 
 						<div class="input_form"> 
                             <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
-							<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
                         </div>
                         
                         <span>Origine:</span> 
                         <div>
 							<span><input type="text" th:field="*{origine}" required/></span>
-							<span th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></span>
 						</div>
    
 						<div id="submit_wrapper">
