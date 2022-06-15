@@ -22,19 +22,27 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
                         <div class="input_form"> 
-                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+                            <span>
+                                <input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/>
+                            </span>
                         </div>
 
                         <div class="input_form"> 
-                            <span><input name="cognome" type="text" placeholder="cognome" th:field="*{cognome}" required/></span>
+                            <span>
+                                <input name="cognome" type="text" placeholder="cognome" th:field="*{cognome}" required/>
+                            </span>
                         </div>
 
 						<div class="input_form"> 
-                            <span><input name="nazionalita" type="text" placeholder="nazionalita" th:field="*{nazionalita}" required/></span>
+                            <span>
+                                <input name="nazionalita" type="text" placeholder="nazionalita" th:field="*{nazionalita}" required/>
+                            </span>
                         </div>
 
                         <div id="submit_wrapper">
-                            <span><button class="butt" id="submit" type="submit">INSERISCI</button></span>
+                            <span>
+                                <button class="butt" id="submit" type="submit">INSERISCI</button>
+                            </span>
                         </div>
                     </form>
                 </div>

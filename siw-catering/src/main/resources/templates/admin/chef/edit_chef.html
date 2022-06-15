@@ -9,7 +9,7 @@
         <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
     </head>
     
-  <body>
+    <body>
 	
 		<div id="wrapper">
             <div id="img_wrapper">
@@ -23,20 +23,28 @@
 						</div>
 						<span>Nome:</span> 
                         <div class="input_form"> 
-                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+                            <span>
+                                <input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/>
+                            </span>
                         </div>
 						
 						<span>Cognome:</span> 
 						<div class="input_form"> 
-                            <span><input type="text" th:field="*{cognome}" required/></span>
+                            <span>
+                                <input type="text" th:field="*{cognome}" required/>
+                            </span>
                         </div>
                         <span>Nazionalità:</span> 
                         <div>
-							<span><input type="text" th:field="*{nazionalita}" required/></span>
+							<span>
+                                <input type="text" th:field="*{nazionalita}" required/>
+                            </span>
 						</div>
    
 						<div id="submit_wrapper">
-                            <span><button class="butt" id="submit" type="submit">CONFERMA</button></span>
+                            <span>
+                                <button class="butt" id="submit" type="submit">CONFERMA</button>
+                            </span>
                         </div>
                     </form>
                 </div>
