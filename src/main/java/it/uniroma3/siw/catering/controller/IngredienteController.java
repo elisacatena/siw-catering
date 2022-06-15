@@ -60,7 +60,6 @@ public class IngredienteController {
 		if(!bindingResult.hasErrors()) {     
 			this.ingredienteService.save(ingrediente);
 			model.addAttribute("ingrediente", ingrediente);
-			System.out.println("CREATOOOOOOOOOOOOOOOOOO");
 			return "redirect:/admin/ingrediente_management";   
 		}
 		else {
@@ -104,7 +103,7 @@ public class IngredienteController {
 		else {
 			List<Ingrediente> ingredienti = this.ingredienteService.findAll();
 			model.addAttribute("ingredienti", ingredienti);
-			return "/admin/ingrediente/ingrediente_management";
+			return "admin/ingrediente/ingrediente_management";
 		}
 	}
 	

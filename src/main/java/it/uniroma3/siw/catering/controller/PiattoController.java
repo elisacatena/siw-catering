@@ -139,7 +139,7 @@ public class PiattoController {
 		}
 		else {
 			model.addAttribute("piatti", this.piattoService.findAll());
-			return "/admin/piatto/piatto_management";
+			return "admin/piatto/piatto_management";
 		}
 		
 	}
