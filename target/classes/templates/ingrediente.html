@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+        <title th:text="${ingrediente.nome}"> </title>
+        <link rel="stylesheet" href="/css/ingrediente.css"/>
+        <link rel="icon" type="image/png" href="/images/favicons/ingrediente_favicon.png">
+    </head>
+
+    <body>
+        
+        <header th:replace="fragments/base.html :: navigator"></header> 
+        
+        <div class="dettagli_wrapper">
+			<div id="dettagli_ingrediente">
+				<h1 th:text="${ingrediente.nome}" > Pesto genovese</h1>
+				<div id="dettagli">
+					<ul> 
+                        <li> 
+                            <strong> Nome: </strong>
+                            <span id="name" th:text="${ingrediente.nome}" > Nome ingrediente </span>
+                        </li>
+                        <li>
+                            <strong> Origine: </strong>
+                            <span id="name" th:text="${ingrediente.origine}" > Origine ingrediente </span>
+                        </li>
+                        <li>
+                            <strong> Descrizione: </strong>
+                            <span id="name" th:text="${ingrediente.descrizione}" > Nome ingrediente </span>
+                        </li>
+                    </ul>
+				</div>
+			</div>
+		</div>
+
+	    <footer th:replace="fragments/base.html :: footer"></footer> 
+        
+ 	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+        <title th:text="${buffet.nome}"> </title>
+        <link rel="stylesheet" href="/css/buffet.css"/>
+         <link rel="icon" type="image/png" href="/images/favicons/buffet_favicon.png">
+    </head>
+
+    <body>
+		<header th:replace="fragments/base.html :: navigator"></header> 
+		
+		<div id="info">
+			<h1>SCOPRI DI PIÙ SUL NOSTRO <strong> Buffet  </strong> <span class="virgolette">"</span><strong th:text="${buffet.nome}"></strong><span class="virgolette">"</span>              
+			</h1>
+		</div>
+		<div id="buffet_wrapper">
+        	<div id="menu_wrapper">
+	        	<div id="menu_desc"> 
+					<h4 th:text="${buffet.nome}"> Nome buffet </h4>
+					<h4 id="desc" th:text="${buffet.descrizione}"> Descrizione buffet</h4>
+					<p> Questo buffet comprende i seguenti piatti: </p>
+					<ul>
+						<li th:each="piatto : ${buffet.piatti}">
+							<a id="piatto" href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+							th:text="${piatto.nome}">Nome piatto</a>
+						</li>
+					</ul>    
+				</div>
+			</div>
+        </div>
+
+        <footer th:replace="fragments/base.html :: footer"></footer> 
+        
+ 	</body>
+</html>

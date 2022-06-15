@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+        <title th:text="${chef.nome}+' '+${chef.cognome}"></title>
+        <link rel="stylesheet" href="/css/chef.css"/>
+        <link rel="icon" type="image/png" href="/images/favicons/chef_favicon.png">
+    </head>
+
+    <body>
+		<header th:replace="fragments/base.html :: navigator"></header> 
+        
+        <div class="chef_wrapper">
+			<div id="dettagli_chef">
+	            <div id="content">
+	                SCOPRI I BUFFET DELLO CHEF <br>
+					<strong th:text="${chef.nome} +' '+${chef.cognome}"> Bruno</strong>
+	            </div>
+			</div>
+		</div>
+			
+		<section id="buffet_wrapper">
+        	<div id="menu_wrapper" th:each="buffet : ${chef.buffet}">
+	        	<div id="menu_desc"> 
+					<h4 th:text="${buffet.nome}"> Nome buffet </h4>
+					<h4 id="desc" th:text="${buffet.descrizione}"> Descrizione buffet</h4>
+					<p> Questo buffet comprende i seguenti piatti: </p>
+					<ul>
+						<li th:each="piatto : ${buffet.piatti}">
+							<a id="piatto" href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+							th:text="${piatto.nome}">Nome piatto</a>
+						</li>
+					</ul>    
+				</div>
+			</div>
+        </section>
+
+        <footer th:replace="fragments/base.html :: footer"></footer> 
+        
+ 	</body>
+</html>

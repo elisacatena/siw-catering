@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Inserisci un  nuovo chef </title>
+        <link rel="stylesheet" href="/css/create_chef.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+    <body>
+    
+    		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Inserisci un nuovo chef</h1>
+                <div id="form">
+                    <form th:action="@{/admin/chef_management/add_chef}" method="POST" th:object="${chef}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span>
+                                <input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/>
+                            </span>
+                        </div>
+
+                        <div class="input_form"> 
+                            <span>
+                                <input name="cognome" type="text" placeholder="cognome" th:field="*{cognome}" required/>
+                            </span>
+                        </div>
+
+						<div class="input_form"> 
+                            <span>
+                                <input name="nazionalita" type="text" placeholder="nazionalita" th:field="*{nazionalita}" required/>
+                            </span>
+                        </div>
+
+                        <div id="submit_wrapper">
+                            <span>
+                                <button class="butt" id="submit" type="submit">INSERISCI</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+        <div id="back_wrapper">
+            <a th:href="@{/admin/chef_management}">
+                <button class="butt" id="back">Back </button>
+            </a>
+        </div>
+	
+	</body>	
+</html>

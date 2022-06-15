@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Inserisci un nuovo piatto </title>
+        <link rel="stylesheet" href="/css/create_piatto.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+    <body>
+		
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Inserisci un nuovo piatto</h1>
+                <div id="form">
+                    <form id="sectionForm" th:action="@{/admin/piatto_management/add_piatto}" method="POST" th:object="${piatto}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span>
+                                <input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/>
+                            </span>
+                        </div>
+
+						<div class="input_form"> 
+                            <span>
+                                <input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/>
+                            </span>
+                        </div>
+                        
+	                    <fieldset>
+							<legend>Scegli gli ingredienti</legend>
+							<div class="checkmark" th:each="ingrediente: ${ingredienti}">
+								<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}">
+								<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingredient</label>
+							</div>
+						</fieldset>
+						
+						<script src="/js/checkbox.js">
+						</script>
+						                   
+						<div id="submit_wrapper">
+                            <span>
+                                <button class="butt" id="submit" type="submit">INSERISCI</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+        <div id="back_wrapper">
+			<a th:href="@{/admin/piatto_management}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	
+	</body>
+</html>

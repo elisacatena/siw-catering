@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Dettagli buffet </title>
+        <link rel="stylesheet" href="/css/details.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+		<header>
+			<h1>Dettagli buffet</h1>
+		</header>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Descrizione</th>
+				<th>Chef</th>
+				<th>Lista dei piatti</th>
+			</tr>
+			<tr>
+				<td th:text="${buffet.nome}">Nome</td>
+				<td th:text="${buffet.descrizione}">Descrizione</td>
+				<td th:text="${buffet.chef.nome}+' '+${buffet.chef.cognome}">Chef</td>
+			 	<td>
+			 		<ul>
+			 			<li th:each="piatto : ${buffet.piatti}">
+			 				<span th:text="${piatto.nome}"></span>
+			 			</li>
+			 		</ul>
+				</td>
+			</tr>
+		</table>
+		
+		<div id="back_wrapper">
+			<a th:href="@{/admin/buffet_management}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	</body>
+</html>

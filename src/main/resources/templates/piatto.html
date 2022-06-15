@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+        <title th:text="${piatto.nome}"> </title>
+        <link rel="stylesheet" href="/css/piatto.css"/>
+        <link rel="icon" type="image/png" href="/images/favicons/piatto_favicon.png">
+    </head>
+
+    <body>
+        <header th:replace="fragments/base.html :: navigator"></header> 
+        
+		<div class="dettagli_wrapper">
+			<div id="dettagli_piatto">
+				<h1 th:text="${piatto.nome}" > Spaghetti alla carbonara</h1>
+				<h4>Gli ingredienti di questo piatto sono:</h4>
+				<div id="dettagli">
+					<ul> 
+						<li th:each="ingrediente : ${piatto.ingredienti}">
+							<a id="ingredienti" href="ingrediente.html"
+							th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+							th:text="${ingrediente.nome}">Nome ingrediente</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="fragments/base.html :: footer"></footer> 
+        
+ 	</body>
+</html>

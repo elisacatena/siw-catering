@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Inserisci un nuovo buffet </title>
+        <link rel="stylesheet" href="/css/create_buffet.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+    <body>
+		
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Inserisci un nuovo buffet</h1>
+                <div id="form">
+                    <form id="sectionForm" th:action="@{/admin/buffet_management/add_buffet}" method="POST" th:object="${buffet}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span><input name="nome" type="text" placeholder="nome" th:field="*{nome}" required/></span>
+                        </div>
+
+						<div class="input_form"> 
+                            <span><input name="descrizione" type="text" placeholder="descrizione" th:field="*{descrizione}" required/></span>
+                        </div>
+                        
+                       <div id="checkmark_wrapper">
+							<fieldset>
+								<legend>Scegli i piatti</legend>
+								<div class="checkmark" th:each="piatto: ${piatti}">
+									<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}">
+									<label for="${piatti}" th:text="${piatto.nome}">Nome ingredient</label>
+								</div>
+							</fieldset> 
+								
+							<fieldset>
+								<legend>Scegli lo chef</legend>
+								<div class="checkmark" th:each="chef: ${chefs}">
+									<input type="radio" id="${chef}" th:field="*{chef}" name="chef" th:value="${chef.id}" required>
+									<label for="${chef}" th:text="${chef.nome}+' '+${chef.cognome}">Nome chef</label>
+								</div>
+							</fieldset>  
+						</div>
+						
+						<script src="/js/checkbox.js">
+						</script>
+					
+							
+						<div id="submit_wrapper">
+                            <span><button class="butt" id="submit" type="submit">INSERISCI</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      	</div>
+		
+		<div id="back_wrapper">
+			<a th:href="@{/admin/buffet_management}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Ingrediente Management </title>
+        <link rel="stylesheet" href="/css/management.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+
+		<header>
+			<h1>Elenco degli ingredienti</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{/admin/ingrediente_management/create_ingrediente}">
+				<button class="butt" id="create">Add ingrediente</button>
+			</a>
+		</div>
+	
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Origine</th>
+				<th>Descrizione</th>
+				<th id="op">Operazioni</th>
+			</tr>
+			<tr th:each="ingrediente: ${ingredienti}">
+				<td th:text="${ingrediente.nome}">Nome</td>
+			  	<td th:text="${ingrediente.origine}">Origine</td>
+				<td th:text="${ingrediente.descrizione}">Descrizione</td>
+			 	<td>
+			 		<a th:href="@{/admin/ingrediente_management/edit_ingrediente/{id}(id=${ingrediente.id})}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<!--<span th:if="${ingr?.id}==${ingrediente.id}"><button class="butt" id="delete">Delete </button></span>-->
+					<div class="tooltip">
+						<a th:if="${ingr?.id}==${ingrediente.id}" th:href="@{/admin/ingrediente_management/delete_ingrediente/{id}(id=${ingrediente.id})}">
+							<button class="butt delete_tooltip" id="delete">Delete </button>
+						</a>
+						<span class="tooltiptext">L'ingrediente <span id="nome" th:text="${ingrediente.nome}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+					</div>
+					
+					<a th:unless="${ingr?.id}==${ingrediente.id}" th:href="@{/admin/ingrediente_management/delete_ingrediente/{id}(id=${ingrediente.id})}"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare l'ingrediente ${ingrediente.nome}?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+	
+		<div id="back_wrapper">
+			<a th:href="@{/admin}">
+				<button class="butt" id="back">Back </button>
+			</a> 
+		</div>
+
+	</body>
+</html>

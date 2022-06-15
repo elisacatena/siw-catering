@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Piatto Management </title>
+        <link rel="stylesheet" href="/css/management.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+		<header>
+			<h1>Elenco dei piatti</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{/admin/piatto_management/create_piatto}">
+				<button class="butt" id="create">Add piatto</button>
+			</a>
+		</div>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Descrizione</th>
+				<th id="op1">Operazioni</th>
+			</tr>
+			<tr th:each="piatto: ${piatti}">
+				<td th:text="${piatto.nome}">Nome</td>
+				<td th:text="${piatto.descrizione}">Descrizione</td>
+			 	<td>
+			 		<a th:href="@{/admin/piatto_management/edit_piatto/{id}(id=${piatto.id})}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<div class="tooltip">
+						<a th:if="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
+							<button class="butt delete_tooltip" id="delete">Delete </button>
+						</a>
+						<span class="tooltiptext">Il piatto <span id="nome" th:text="${piatto.nome}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+					</div>
+					
+					<a th:unless="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare il piatto ${piatto.nome}?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+					<a th:href="@{/admin/piatto_management/piatto_details/{id}(id=${piatto.id})}">
+						<button class="butt" id="details">Details </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+		
+		<div id="back_wrapper">
+			<a th:href="@{/admin}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	</body>
+</html>
