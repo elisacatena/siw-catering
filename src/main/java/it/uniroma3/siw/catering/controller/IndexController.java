@@ -28,7 +28,7 @@ public class IndexController {
 		model.addAttribute("chefs", chefs);
 		List<Buffet> buffets = this.buffetService.findAll();
 		model.addAttribute("buffets", buffets);
-		return "/index";
+		return "index.html";
 	}
 	
 	@GetMapping("/contatti")
