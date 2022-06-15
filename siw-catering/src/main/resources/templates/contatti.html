@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
-        <title> Catering Roma </title>
+    	<title> Catering Roma </title>
         <link href="/css/contatti.css" rel="stylesheet"/>
         <link rel="icon" type="image/png" href="/images/favicons/catering_favicon.png">
     </head>
@@ -11,8 +11,8 @@
 		</header> 
 		
 		<div id="mappa">
-		<iframe style="border:0;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="400" 
-				src="https://maps.google.com/maps?q=Via%20Vito%20Volterra%2062&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+			<iframe style="border:0;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="400" 
+			src="https://maps.google.com/maps?q=Via%20Vito%20Volterra%2062&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
         
         <div id="contatti_wrapper">
@@ -40,14 +40,11 @@
         			</div>
 
         			<div id="separator">
-        				<div class="sep">
-        				</div>
+        				<div class="sep"></div>
         				<div id="tratto">
         					-
         				</div>
-        				<div class="sep">
-        				</div>
-        			
+        				<div class="sep"></div>
         			</div>		
         			
         			<div class="info">
@@ -69,7 +66,7 @@
 	        			</div>
         			</div>
         			
-        	</div>
+        		</div>
         	</div>
 			
 			<div id="tabella_orari">
@@ -81,37 +78,37 @@
 				<div id="tabella">
 					<div class="giorno">
 						<div class="giorno_sett">
-						Lunedì
+							Lunedì
 						</div>
 						<div class="orario">
-						 Chiusi
+						 	Chiusi
 						</div>
 					</div>
 					
 					<div class="giorno">
 						<div class="giorno_sett">
-						Martedì
+							Martedì
 						</div>
 						<div class="orario">
-						 9:00 - 20:00
+						 	9:00 - 20:00
 						</div>
 					</div>
 					
 					<div class="giorno">
 						<div class="giorno_sett">
-						Mercoledì
+							Mercoledì
 						</div>
 						<div class="orario">
-						 9:00 - 20:00
+						 	9:00 - 20:00
 						</div>
 					</div>
 					
 					<div class="giorno">
 						<div class="giorno_sett">
-						Giovedì
+							Giovedì
 						</div>
 						<div class="orario">
-						 9:00 - 20:00
+						 	9:00 - 20:00
 						</div>
 					</div>
 					
@@ -126,19 +123,19 @@
 					
 					<div class="giorno">
 						<div class="giorno_sett">
-						Sabato
+							Sabato
 						</div>
 						<div class="orario">
-						 9:00 - 20:00
+						 	9:00 - 20:00
 						</div>
 					</div>
 					
 					<div class="giorno">
 						<div class="giorno_sett">
-						Domenica
+							Domenica
 						</div>
 						<div class="orario">
-						 9:00 - 14:00
+						 	9:00 - 14:00
 						</div>
 					</div>
 					
@@ -146,8 +143,7 @@
 			</div>
         </div>
         
-        <footer th:replace="fragments/base.html :: footer"></footer> 
-
+    	<footer th:replace="fragments/base.html :: footer"></footer> 
 
     </body>
 </html>

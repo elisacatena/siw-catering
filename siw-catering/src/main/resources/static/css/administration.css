@@ -37,11 +37,11 @@ body {
 #buffet {
     background-color: white; 
     color: black; 
-    border: 2px solid #9a603a;
+    border: 2px solid #5a7f5a;
 }
  
 #buffet:hover {
-    background-color: #9a603a;
+    background-color: #5a7f5a;
     color: white;
 }
 

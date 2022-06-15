@@ -18,20 +18,18 @@ body {
 
 #contatti {
 	margin-right: auto;
-	margin-left: auto;
-	padding-left: 15px;
-	padding-right: 15px;
-	width: 50%;
-	text-align: center;
+    margin-left: auto;
+    width: 66%;
+    text-align: center;
 }
 
 #details_wrapper {
 	display: flex;
-	height: 18%;
+    height: 18%;
 }
 
 .info {
-	width: fit-content;
+	width: 45%;
     display: flex;
     height: 100%;
     font-size: medium;
@@ -41,7 +39,7 @@ body {
 }
 
 #separator {
-	width: 34%;
+	width: 20%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
