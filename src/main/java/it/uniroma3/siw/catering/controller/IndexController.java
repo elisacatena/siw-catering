@@ -37,7 +37,7 @@ public class IndexController {
 		model.addAttribute("chefs", chefs);
 		List<Buffet> buffets = this.buffetService.findAll();
 		model.addAttribute("buffets", buffets);
-		return "/contatti";
+		return "contatti.html";
 	}
 	
 	@GetMapping("/chi-siamo")
@@ -46,7 +46,7 @@ public class IndexController {
 		model.addAttribute("chefs", chefs);
 		List<Buffet> buffets = this.buffetService.findAll();
 		model.addAttribute("buffets", buffets);
-		return "/chi_siamo";
+		return "chi_siamo.html";
 	}
 
 }
