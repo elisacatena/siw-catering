@@ -1,73 +1,72 @@
 body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
-    width: 100%;
-    font-family: "Montserrat", Arial, Tahoma, sans-serif;
-    background-image: url("/images/sfondo_admin.png");
-    background-repeat: repeat;
-    background-size: inherit;
+	width: 100%;
+	font-family: "Montserrat", Arial, Tahoma, sans-serif;
+	background-image: url("/images/sfondo_admin.png");
+	background-repeat: repeat;
+	background-size: inherit;
 	background-attachment: fixed;
 }
 
 header {
-    text-align: center;
-}       
+	text-align: center;
+}
 
 table {
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    height: fit-content;
-    max-width: 78%;
-    width: fit-content;
-    margin-top: 5%;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	height: fit-content;
+	max-width: 78%;
+	width: fit-content;
+	margin-top: 5%;
 }
 
 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: lightpink;
-    color: white;   
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: lightpink;
+	color: white;
 }
 
 td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
 
 tr:hover {
-    background-color: #ddd;
+	background-color: #ddd;
 }
 
- a {
-    text-decoration: none;
-    color: black;
- }
+a {
+	text-decoration: none;
+	color: black;
+}
 
 .butt {
-    border: solid;
-    border-radius: 3px 3px 3px 3px;
- }
- 
+	border: solid;
+	border-radius: 3px 3px 3px 3px;
+}
+
 #back_wrapper {
 	text-align: center;
-    margin: 3em;
+	margin: 3em;
 }
 
 #back {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #ad75ad;
-}
-  
-#back:hover {
-    background-color: #ad75ad;
-    color: white;
+	background-color: white;
+	color: black;
+	border: 2px solid #ad75ad;
 }
 
+#back:hover {
+	background-color: #ad75ad;
+	color: white;
+}

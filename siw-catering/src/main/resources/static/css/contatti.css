@@ -9,7 +9,7 @@ body {
 }
 
 #mappa {
-	margin-top:6.3%;
+	margin-top: 6.3%;
 }
 
 #contatti_wrapper {
@@ -18,24 +18,24 @@ body {
 
 #contatti {
 	margin-right: auto;
-    margin-left: auto;
-    width: 66%;
-    text-align: center;
+	margin-left: auto;
+	width: 66%;
+	text-align: center;
 }
 
 #details_wrapper {
 	display: flex;
-    height: 18%;
+	height: 18%;
 }
 
 .info {
 	width: 45%;
-    display: flex;
-    height: 100%;
-    font-size: medium;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	height: 100%;
+	font-size: medium;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 #separator {
@@ -45,20 +45,19 @@ body {
 	justify-content: center;
 	height: 100%;
 	font-size: medium;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .sep {
 	background-color: darkseagreen;
-    height: 100%;
-    width: 2%;
+	height: 100%;
+	width: 2%;
 }
 
 #tratto {
-	color:darkseagreen;
+	color: darkseagreen;
 	font-weight: 900;
 }
-
 
 span {
 	font-style: italic;
@@ -66,9 +65,9 @@ span {
 
 #tabella_orari {
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4%;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 4%;
 }
 
 #tabella {
@@ -78,17 +77,17 @@ span {
 
 .giorno {
 	display: flex;
-    padding: 2%;
-    justify-content: space-between;
-    border-bottom: solid;
-    border-bottom-style: dotted;
-    font-style:italic;
-    font-family: 'Merriweather', serif;
-    font-size: larger;
+	padding: 2%;
+	justify-content: space-between;
+	border-bottom: solid;
+	border-bottom-style: dotted;
+	font-style: italic;
+	font-family: 'Merriweather', serif;
+	font-size: larger;
 }
 
 .giorno_sett {
-    width: 50%;
+	width: 50%;
 }
 
 h1 {
@@ -101,9 +100,9 @@ h1 {
 
 .social {
 	display: flex;
-    align-items: center;
-    width: fit-content;
-    justify-content: center;
+	align-items: center;
+	width: fit-content;
+	justify-content: center;
 }
 
 #num {
@@ -113,7 +112,7 @@ h1 {
 
 #email {
 	margin-bottom: 3%;
-    margin-left: 8%;
+	margin-left: 8%;
 }
 
 #instagram {
@@ -123,9 +122,3 @@ h1 {
 #facebook {
 	margin-left: 5%;
 }
-
-
-
-
-
-
