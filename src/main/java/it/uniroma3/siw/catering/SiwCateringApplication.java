@@ -30,7 +30,7 @@ public class SiwCateringApplication implements CommandLineRunner {
 		Credenziali c = new Credenziali();
 		c.setAdmin(u);
 		c.setPassword(this.passwordEncoder.encode("admin2000"));
-		c.setUsername("adin");
+		c.setUsername("elisacatena");
 		c.setRole("ADMIN");
 		
 		credR.save(c);	
