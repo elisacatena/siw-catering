@@ -37,7 +37,7 @@
 						<button type="submit" class="butt" id="update">Update</button>
 					</a>
 					<a th:href="@{/admin/chef_management/delete_chef/{id}(id=${chef.id})}"
-						th:data-confirm-delete="|Sei sicuro di voler eliminare lo chef ${chef.nome}?|"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare lo chef ${chef.nome} ${chef.cognome}?|"
 						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
 						<button class="butt" id="delete">Delete </button>
 					</a>

@@ -18,7 +18,9 @@ table {
     margin-left: auto;
     margin-right: auto;
     height: fit-content;
-    width: 57%;
+    max-width: 78%;
+    width: fit-content;
+    margin-top: 5%;
 }
 
 th {
