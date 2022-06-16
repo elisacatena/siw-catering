@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +27,7 @@ public class Piatto {
 	@NotNull
 	private String descrizione;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToMany
 	private List<Ingrediente> ingredienti;
 
 	public Piatto() {
@@ -90,17 +88,5 @@ public class Piatto {
 		Piatto other = (Piatto) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-//	@Override
-//	public boolean equals(Object obj) {
-//		Piatto piatto = (Piatto)obj;
-//		return this.getId().equals(piatto.getId());
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return this.id.hashCode();
-//	}
-	
 	
 }

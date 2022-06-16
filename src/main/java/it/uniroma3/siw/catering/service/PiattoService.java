@@ -41,11 +41,5 @@ public class PiattoService {
 	public void deleteById(Long id) {
 		this.piattoRepository.deleteById(id);
 	}
-
-	@Transactional
-	public Piatto updatePiatto(Piatto piatto) {
-		return this.piattoRepository.save(piatto);
-	}
-	
 	
 }

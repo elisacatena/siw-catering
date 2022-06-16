@@ -49,11 +49,13 @@ public class Admin {
 		this.cognome = cognome;
 	}
 	
+	@Override
 	public boolean equals(Object obj) {
 		Admin admin = (Admin)obj;
 		return this.getId().equals(admin.getId());
 	}
 
+	@Override
 	public int hashCode() {
 		return this.id.hashCode();
 	}

@@ -46,10 +46,8 @@ public class BuffetController {
 	@GetMapping("/admin/buffet_management/create_buffet")
 	public String showAddBuffetForm(Model model) {
 		model.addAttribute("buffet", new Buffet());
-		List<Piatto> piatti = this.piattoService.findAll();
-		model.addAttribute("piatti", piatti);
-		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs); 
+		model.addAttribute("piatti", this.piattoService.findAll());
+		model.addAttribute("chefs", this.chefService.findAll()); 
 		return "admin/buffet/create_buffet.html";
 	}
 
@@ -58,10 +56,13 @@ public class BuffetController {
 		this.buffetValidator.validate(buffet, bindingResult);
 		if(!bindingResult.hasErrors()) {    
 			this.buffetService.save(buffet);
-			model.addAttribute("buffet", buffet);
 			return "redirect:/admin/buffet_management";   
 		}
 		else {
+			List<Piatto> piatti = this.piattoService.findAll();
+			model.addAttribute("piatti", piatti);
+			List<Chef> chefs = this.chefService.findAll();
+			model.addAttribute("chefs", chefs); 
 			return "admin/buffet/create_buffet.html";
 		}
 	}
@@ -69,10 +70,8 @@ public class BuffetController {
 	@GetMapping("/admin/buffet_management/edit_buffet/{id}")
 	public String  showEditBuffetForm(@PathVariable Long id, Model model) {
 		model.addAttribute("buffet", buffetService.findById(id));
-		List<Piatto> piatti = this.piattoService.findAll();
-		model.addAttribute("piatti", piatti);
-		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs); 
+		model.addAttribute("piatti", this.piattoService.findAll());
+		model.addAttribute("chefs", this.chefService.findAll()); 
 		return "admin/buffet/edit_buffet.html";
 	}
 
@@ -84,19 +83,19 @@ public class BuffetController {
 		if(buffet.getPiatti().size() == 0) {
 			verificato = buffetVecchio.getPiatti().size() > 0;
 		}
-		else if(buffet.getPiatti().size()==buffetVecchio.getPiatti().size()) {
+		else if(buffet.getPiatti().size() == buffetVecchio.getPiatti().size()) {
 			for(Piatto piatto : buffet.getPiatti()) {
 				System.out.println(buffet.getNome());
 				if(!buffetVecchio.getPiatti().contains(piatto)) {
-					verificato=true;
+					verificato = true;
 					break; 
 				}
 			}
 		}
 		else 
-			verificato=true;
+			verificato = true;
 
-		if(verificato || buffetVecchio.getChef()!=buffet.getChef()|| !bindingResult.hasErrors()) {
+		if(verificato || ( buffetVecchio.getChef() != buffet.getChef() ) || ( !bindingResult.hasErrors() )) {
 			this.buffetService.save(buffet);
 			return "redirect:/admin/buffet_management";
 		}
@@ -108,7 +107,7 @@ public class BuffetController {
 
 	@GetMapping("/admin/buffet_management/delete_buffet/{id}")
 	public String deleteBuffet(@PathVariable Long id) {
-		buffetService.deleteById(id);
+		this.buffetService.deleteById(id);
 		return "redirect:/admin/buffet_management";
 	}
 
@@ -118,16 +117,11 @@ public class BuffetController {
 		return "admin/buffet/buffet_details.html";
 	}
 
-	@GetMapping("/buffet/{id}")    //id è un parametro, non è la stringa id
-	/* l'annotazione @PathVariable indica che Long id viene dal path */
+	@GetMapping("/buffet/{id}")   
 	public String getBuffet(@PathVariable("id") Long id, Model model) {
-		Buffet buffet = this.buffetService.findById(id);
-		model.addAttribute("buffet", buffet);
-		System.out.println(buffet.getPiatti().size());
-		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs);
-		List<Buffet> buffets = this.buffetService.findAll();
-		model.addAttribute("buffets", buffets);
+		model.addAttribute("buffet", this.buffetService.findById(id));
+		model.addAttribute("chefs", this.chefService.findAll());
+		model.addAttribute("buffets", this.buffetService.findAll());
 		return "buffet.html";
 	}
 

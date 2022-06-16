@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +31,7 @@ public class Buffet {
 	@ManyToOne
 	private Chef chef; 
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany
 	private Set<Piatto> piatti;
 
 	public Buffet() {
@@ -103,16 +101,5 @@ public class Buffet {
 		Buffet other = (Buffet) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-//	public boolean equals(Object obj) {
-//		Buffet buffet = (Buffet)obj;
-//		return this.getId().equals(buffet.getId());
-//	}
-
-//	public int hashCode() {
-//		return this.id.hashCode();
-//	}
-	
-	
 
 }

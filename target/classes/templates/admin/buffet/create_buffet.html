@@ -18,7 +18,7 @@
                 <h1>Inserisci un nuovo buffet</h1>
                 <div id="form">
                     <form id="sectionForm" th:action="@{/admin/buffet_management/add_buffet}" method="POST" th:object="${buffet}">
-						<div th:if="${#fields.hasGlobalErrors()}">
+						<div th:if="${#fields.hasGlobalErrors()}" id="error">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
                         <div class="input_form"> 

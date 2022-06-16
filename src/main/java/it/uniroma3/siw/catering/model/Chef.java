@@ -103,11 +103,5 @@ public class Chef {
 		Chef other = (Chef) obj;
 		return Objects.equals(id, other.id);
 	}
-
-//	public boolean equals(Object obj) {
-//		Chef chef = (Chef)obj;
-//		return this.getId().equals(chef.getId());
-//	}
-	
 	
 }

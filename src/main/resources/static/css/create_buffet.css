@@ -144,3 +144,7 @@ fieldset {
 	width: 90%;
 	margin-bottom: 3%;
 }
+
+#error {
+	text-align: center;
+}

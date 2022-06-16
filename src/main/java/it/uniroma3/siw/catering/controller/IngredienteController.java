@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.catering.controller.validator.IngredienteValidator;
-import it.uniroma3.siw.catering.model.Buffet;
-import it.uniroma3.siw.catering.model.Chef;
 import it.uniroma3.siw.catering.model.Ingrediente;
 import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.service.BuffetService;
@@ -55,11 +53,10 @@ public class IngredienteController {
 	}
 	
 	@PostMapping("/admin/ingrediente_management/add_ingrediente") 
-	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {		
+	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult) {		
 		this.ingredienteValidator.validate(ingrediente, bindingResult);
 		if(!bindingResult.hasErrors()) {     
 			this.ingredienteService.save(ingrediente);
-			model.addAttribute("ingrediente", ingrediente);
 			return "redirect:/admin/ingrediente_management";   
 		}
 		else {
@@ -109,12 +106,9 @@ public class IngredienteController {
 	
 	@GetMapping("/ingrediente/{id}")
 	public String getIngrediente(@PathVariable("id") Long id, Model model) {
-		Ingrediente ingrediente = this.ingredienteService.findById(id);
-		model.addAttribute("ingrediente", ingrediente);
-		List<Chef> chefs = this.chefService.findAll();
-		model.addAttribute("chefs", chefs);
-		List<Buffet> buffets = this.buffetService.findAll();
-		model.addAttribute("buffets", buffets);
+		model.addAttribute("ingrediente",  this.ingredienteService.findById(id));
+		model.addAttribute("chefs", this.chefService.findAll());
+		model.addAttribute("buffets", this.buffetService.findAll());
 		return "ingrediente.html";
 	}
 	

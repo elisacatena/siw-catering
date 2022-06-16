@@ -68,11 +68,13 @@ public class Ingrediente {
 		this.descrizione = descrizione;
 	}
 	
+	@Override
 	public boolean equals(Object obj) {
 		Ingrediente ingrediente = (Ingrediente)obj;
 		return this.getId().equals(ingrediente.getId());
 	}
 
+	@Override
 	public int hashCode() {
 		return this.id.hashCode();
 	}

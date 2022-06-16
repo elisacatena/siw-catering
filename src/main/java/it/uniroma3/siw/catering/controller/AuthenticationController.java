@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import it.uniroma3.siw.catering.model.Credenziali;
@@ -17,17 +16,17 @@ public class AuthenticationController {
 	private CredenzialiService credenzialiService;
 	
 	@GetMapping("/login") 
-	public String showLoginForm (Model model) {
+	public String showLoginForm () {
 		return "loginForm";
 	}
 	
 	@GetMapping("/logout") 
-	public String logout(Model model) {
+	public String logout() {
 		return "redirect:/";
 	}
 	
     @GetMapping("/default")
-    public String defaultAfterLogin(Model model) {
+    public String defaultAfterLogin() {
         
     	UserDetails adminDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credenziali = credenzialiService.getCredenziali(adminDetails.getUsername());
