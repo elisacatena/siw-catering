@@ -37,7 +37,7 @@
 						<a th:if="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}">
 							<button class="butt delete_tooltip" id="delete">Delete </button>
 						</a>
-						<span class="tooltiptext">Il piatto <span id="nome" th:text="${piatto.nome}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+						<span class="tooltiptext">Il piatto <span id="nome" th:text="${piatto.nome}">/</span> non puo' essere eliminato perchè è presente in un buffet</span>
 					</div>
 					
 					<a th:unless="${p?.id}==${piatto.id}" th:href="@{/admin/piatto_management/delete_piatto/{id}(id=${piatto.id})}"

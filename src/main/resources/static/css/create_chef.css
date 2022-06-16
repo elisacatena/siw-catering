@@ -134,3 +134,18 @@ fieldset {
 	border-style: dotted;
 	border-radius: 4.6%;
 }
+
+#err {
+	color: black;
+}
+
+#home {
+	background-color: white;
+	color: black;
+	border: 2px solid #017257;
+}
+
+#home:hover {
+	background-color: #017257;
+	color: white;
+}

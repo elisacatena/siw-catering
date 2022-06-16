@@ -37,6 +37,7 @@ body {
 
 ul {
 	list-style-type: circle;
+	padding: unset;
 }
 
 #ingredienti {

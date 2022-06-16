@@ -18,7 +18,7 @@
                 <h1>Inserisci un nuovo piatto</h1>
                 <div id="form">
                     <form id="sectionForm" th:action="@{/admin/piatto_management/add_piatto}" method="POST" th:object="${piatto}">
-						<div th:if="${#fields.hasGlobalErrors()}">
+						<div id="error" th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
                         <div class="input_form"> 
@@ -57,6 +57,9 @@
         <div id="back_wrapper">
 			<a th:href="@{/admin/piatto_management}">
 				<button class="butt" id="back">Back </button>
+			</a>
+			 <a th:href="@{/admin}">
+				<button class="butt" id="home">Home </button>
 			</a>
 		</div>
 	

@@ -18,7 +18,7 @@
                 <h1>Modifica l'ingrediente</h1>
                 <div id="form" style="text-align: center;color: white;">
                     <form th:action="@{/admin/ingrediente_management/{id}(id=${ingrediente.id})}" method="POST" th:object="${ingrediente}">
-						<div th:if="${#fields.hasGlobalErrors()}">
+						<div id="error" th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
 						<span>Nome:</span> 
@@ -54,6 +54,9 @@
 		<div id="back_wrapper">
 			<a th:href="@{/admin/ingrediente_management}">
                 <button class="butt" id="back">Back </button>
+			</a>
+			 <a th:href="@{/admin}">
+				<button class="butt" id="home">Home </button>
 			</a>
 		</div>
 	

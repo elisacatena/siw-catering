@@ -18,7 +18,7 @@
                 <h1>Inserisci un nuovo chef</h1>
                 <div id="form">
                     <form th:action="@{/admin/chef_management/add_chef}" method="POST" th:object="${chef}">
-						<div th:if="${#fields.hasGlobalErrors()}">
+						<div id="err" th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
 						</div>
                         <div class="input_form"> 
@@ -53,6 +53,9 @@
             <a th:href="@{/admin/chef_management}">
                 <button class="butt" id="back">Back </button>
             </a>
+            <a th:href="@{/admin}">
+				<button class="butt" id="home">Home </button>
+			</a>
         </div>
 	
 	</body>	
